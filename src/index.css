@@ -74,7 +74,7 @@ h1, h2, h3, .font-heading {
   z-index: 20;
   display: flex;
   align-items: center;
-  justify-between: space-between;
+  justify-content: space-between;
   padding: 0 16px;
 }
 

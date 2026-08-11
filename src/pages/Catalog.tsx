@@ -40,7 +40,7 @@ export const Catalog: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9E6] py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#FFF9E6] pt-8 pb-28 sm:py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* HEADER & STORE TITLE */}

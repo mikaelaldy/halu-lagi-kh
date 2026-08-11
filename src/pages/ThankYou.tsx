@@ -105,7 +105,7 @@ export const ThankYou: React.FC = () => {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center gap-4 pt-4">
+        <div className="flex flex-wrap justify-center gap-4 pt-4">
           <Link
             to="/"
             className="bg-[#FFFCF5] text-[#3E2723] hover:bg-white px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-sm flex items-center gap-2 shadow-[3px_3px_0px_#3E2723]"
