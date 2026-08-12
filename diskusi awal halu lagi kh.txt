@@ -1,0 +1,43 @@
+1. Produk & stok
+- Mau jual merch apa saja?
+- Sudah ada foto atau mockup tiap produk?
+- Ada varian ukuran, warna, karakter, atau bundle?
+- Harga tiap produk sudah final?
+- Sistemnya PO atau stok terbatas?
+- PO ditutup kapan, dan estimasi barang jadi kapan?
+
+2. Pengambilan barang di Comifuro
+- Customer ambil di booth atau bisa dikirim juga?
+- Kalau ambil di booth, nama booth/lokasinya sudah ada atau nanti diinfokan?
+- Pas ambil barang perlu bukti apa? Nama dan nomor pesanan, atau QR?
+- Boleh diwakilkan teman nggak?
+
+3. Pembayaran
+- Pembayaran yang diterima apa aja? QRIS, transfer, atau e-wallet?
+- Harus lunas saat PO atau boleh DP?
+- Siapa yang nanti cek pembayaran?
+- Kalau transfer manual, customer perlu upload bukti bayar?
+
+4. Alur pesanan
+- Data customer yang diperlukan apa aja? Nama, WhatsApp, Instagram, email?
+- Pesanan boleh diubah atau dibatalkan sampai kapan?
+- Kalau ada masalah stok atau produksi, kebijakan refund-nya gimana?
+
+5. Kebutuhan tim
+- Siapa yang mengurus produk, pesanan, pembayaran, dan pembagian di booth?
+- Rekap apa yang paling dibutuhkan? Contohnya jumlah pesanan per produk/varian, status bayar, dan barang yang belum diambil.
+- Berapa orang yang perlu akses rekapnya?
+- Kalian sudah punya spreadsheet rekap atau mulai dari baru?
+
+6. Website & branding
+- Nama toko/brand yang dipakai apa?
+- Sudah ada logo, warna, atau identitas visual?
+- Ada contoh website yang kalian suka?
+- Web ini cuma buat Comifuro sekarang atau mau dipakai event-event berikutnya juga?
+
+
+
+1. landing page
+2. catalog
+3. checkout
+4. terima kasih

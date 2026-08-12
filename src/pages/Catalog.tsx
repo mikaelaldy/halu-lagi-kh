@@ -231,16 +231,16 @@ export const Catalog: React.FC = () => {
 
       {/* FLOATING CART SUMMARY BAR */}
       {totalItems > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-lg bg-[#3E2723] text-white p-4 rounded-3xl border-3 border-[#F6C358] shadow-[0_10px_30px_rgba(0,0,0,0.3)] flex items-center justify-between gap-4 animate-bounce">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#F6C358] rounded-2xl flex items-center justify-center text-[#3E2723] font-bold text-lg border border-white">
-              <ShoppingBag className="w-5 h-5" />
+        <div className="fixed bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1rem)] sm:w-[90%] max-w-lg bg-[#3E2723] text-white p-2.5 sm:p-4 rounded-3xl border-3 border-[#F6C358] shadow-[0_10px_30px_rgba(0,0,0,0.3)] flex items-center justify-between gap-2 sm:gap-4 animate-bounce">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-[#F6C358] rounded-xl sm:rounded-2xl flex items-center justify-center text-[#3E2723] font-bold text-lg border border-white">
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <p className="font-heading font-bold text-sm text-amber-200">
+            <div className="min-w-0">
+              <p className="font-heading font-bold text-xs sm:text-sm leading-tight text-amber-200">
                 {totalItems} Obat di Kantung
               </p>
-              <p className="font-heading font-black text-lg text-white">
+              <p className="font-heading font-black text-base sm:text-lg leading-tight text-white">
                 {formatRupiah(totalPrice)}
               </p>
             </div>
@@ -248,7 +248,7 @@ export const Catalog: React.FC = () => {
 
           <Link
             to="/checkout"
-            className="bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-5 py-2.5 rounded-2xl font-heading font-extrabold text-sm flex items-center gap-2 border border-[#3E2723] shadow-sm transition-all"
+            className="shrink-0 whitespace-nowrap bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl font-heading font-extrabold text-xs sm:text-sm flex items-center gap-1 sm:gap-2 border border-[#3E2723] shadow-sm transition-all"
           >
             Lanjut Checkout <ArrowRight className="w-4 h-4" />
           </Link>
