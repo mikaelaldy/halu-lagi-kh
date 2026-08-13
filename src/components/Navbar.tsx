@@ -40,31 +40,20 @@ export const Navbar: React.FC = () => {
           {/* Nav Links (Desktop) */}
           <nav className="hidden md:flex items-center gap-3">
             <Link
-              to="/"
-              className={`px-4 py-2 rounded-xl font-heading font-bold text-sm transition-all ${
-                isActive('/')
-                  ? 'bg-[#3E2723] text-[#FFF9E6] shadow-sm'
-                  : 'text-[#3E2723] hover:bg-white/50'
-              }`}
-            >
-              Beranda Klinik
-            </Link>
-
-            <Link
               to="/catalog"
-              className={`px-4 py-2 rounded-xl font-heading font-bold text-sm transition-all flex items-center gap-1.5 ${
+              className={`px-4 py-2.5 rounded-2xl font-heading font-bold text-sm transition-all flex items-center gap-1.5 border-2 border-[#3E2723] shadow-[3px_3px_0px_#FFF9E6] active:translate-y-0.5 ${
                 isActive('/catalog')
-                  ? 'bg-[#3E2723] text-[#FFF9E6] shadow-sm'
-                  : 'text-[#3E2723] hover:bg-white/50'
+                  ? 'bg-[#2A1A17] text-[#F6C358]'
+                  : 'bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037]'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-amber-500 fill-amber-400" />
+              <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
               Katalog Merch
             </Link>
 
             <Link
               to="/catalog?category=clearance"
-              className="px-4 py-2 rounded-xl font-heading font-bold text-sm bg-red-500 text-white hover:bg-red-600 transition-all flex items-center gap-1.5 shadow-[2px_2px_0px_#3E2723] animate-pulse"
+              className="px-4 py-2.5 rounded-2xl font-heading font-bold text-sm bg-red-500 text-white hover:bg-red-600 transition-all flex items-center gap-1.5 border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] animate-pulse"
             >
               <Flame className="w-4 h-4 fill-white" />
               🔥 Obat Obral (Clearance)
@@ -105,25 +94,14 @@ export const Navbar: React.FC = () => {
         <nav className="md:hidden bg-[#F6C358] border-t-2 border-[#3E2723] shadow-md">
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
             <Link
-              to="/"
-              className={`block px-4 py-3 rounded-2xl font-heading font-bold text-sm transition-all border-2 ${
-                isActive('/')
-                  ? 'bg-[#3E2723] text-[#FFF9E6] border-[#3E2723]'
-                  : 'bg-white text-[#3E2723] border-[#3E2723] hover:bg-[#FFF9E6]'
-              }`}
-            >
-              🏥 Beranda Klinik
-            </Link>
-
-            <Link
               to="/catalog"
               className={`block px-4 py-3 rounded-2xl font-heading font-bold text-sm transition-all border-2 flex items-center gap-2 ${
                 isActive('/catalog')
-                  ? 'bg-[#3E2723] text-[#FFF9E6] border-[#3E2723]'
-                  : 'bg-white text-[#3E2723] border-[#3E2723] hover:bg-[#FFF9E6]'
+                  ? 'bg-[#2A1A17] text-[#F6C358] border-[#3E2723]'
+                  : 'bg-[#3E2723] text-[#FFF9E6] border-[#3E2723] hover:bg-[#5D4037]'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-amber-500 fill-amber-400" />
+              <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
               Katalog Merch
             </Link>
 

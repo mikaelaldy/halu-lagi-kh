@@ -88,7 +88,7 @@ export const ThankYou: React.FC = () => {
           <div className="bg-[#FFF9E6] border-2 border-[#3E2723] p-4 rounded-2xl max-w-xl mx-auto flex items-center justify-center gap-2 font-doodle text-xs sm:text-sm text-[#3E2723]">
             <Camera className="w-5 h-5 text-pink-600 shrink-0" />
             <span>
-              ningentachi dimohon untuk share hasil foto/pembelian di sosmed dan tag IG kami atau <strong className="bg-[#F6C358] px-2 py-0.5 rounded-lg border border-[#3E2723]">{CLINIC_INFO.hashtag}</strong>
+              ningentachi dimohon untuk share hasil foto/pembelian di sosmed dan tag IG kami <a href={CLINIC_INFO.instagramUrl} target="_blank" rel="noopener noreferrer" className="font-bold underline text-[#3E2723] hover:text-[#5D4037]">{CLINIC_INFO.instagramHandle}</a> atau <strong className="bg-[#F6C358] px-2 py-0.5 rounded-lg border border-[#3E2723]">{CLINIC_INFO.hashtag}</strong>
             </span>
           </div>
 

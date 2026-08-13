@@ -60,20 +60,6 @@ export const Catalog: React.FC = () => {
             </p>
           </div>
 
-          {/* Clearance Sale Notice Banner */}
-          <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white p-4 rounded-2xl border-2 border-[#3E2723] shadow-[4px_4px_0px_#3E2723] max-w-sm">
-            <div className="flex items-center gap-3">
-              <Flame className="w-8 h-8 fill-white animate-bounce shrink-0" />
-              <div>
-                <h4 className="font-heading font-black text-sm uppercase tracking-wide">
-                  OBAT OBRAL (CLEARANCE SALE)
-                </h4>
-                <p className="text-xs text-red-100 font-semibold">
-                  Obral stock lama <strong>Rp 10.000 - Rp 85.000</strong>!
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* CATEGORY FILTER TABS */}

@@ -117,7 +117,11 @@ export const CLINIC_INFO = {
   tagline: 'Klinik Wibu Kepercayaan Ningentachi!',
   doctors: 'Dr. LULU & Haha',
   hashtag: '#obatHaluLagiKh',
+  instagramHandle: '@halulagi_kh',
+  instagramUrl: 'https://www.instagram.com/halulagi_kh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   event: 'Comifuro (Comic Frontier)',
-  email: 'halulagikh.admin@gmail.com',
+  email: 'halulagikh@gmail.com',
+  location: 'ICE BSD',
+  schedule: '31 October - 1 November',
   messageThankYou: 'Semoga merchandise kami dapat mengobati kesedihan ningentachi akan dunia nyata! Semoga cepat sembuh ya!'
 };
