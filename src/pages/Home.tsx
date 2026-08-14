@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, ArrowRight, Store, ShieldCheck, HeartPulse } from 'lucide-react';
-import { CLINIC_INFO, POLI_LIST } from '../data/products';
+import { Sparkles, ArrowRight } from 'lucide-react';
+import { CLINIC_INFO } from '../data/products';
 
 export const Home: React.FC = () => {
   return (
@@ -87,85 +87,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* QUICK DEPARTMENTS (POLI) SHOWCASE */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-6">
-        <div className="text-center space-y-2">
-          <span className="bg-[#F6C358] text-[#3E2723] font-heading font-extrabold text-xs px-3 py-1 rounded-full border border-[#3E2723]">
-            LAYANAN SPESIALIS
-          </span>
-          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#3E2723]">
-            Pilih Poli Sesuai Kehaluanmu 🏥✨
-          </h2>
-          <p className="font-doodle text-sm text-[#6D4C41]">
-            Setiap departemen dilengkapi dengan resep stiker, art print, photocard, dan aksesoris khusus.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-          {POLI_LIST.filter(p => p.id !== 'all').map((poli) => (
-            <Link
-              key={poli.id}
-              to={`/catalog?poli=${poli.id}`}
-              className="bg-white p-4 rounded-2xl border-3 border-[#3E2723] shadow-[4px_4px_0px_#3E2723] hover:shadow-[6px_6px_0px_#F6C358] hover:-translate-y-1 transition-all flex flex-col items-center text-center space-y-2 group"
-            >
-              <div className="w-12 h-12 bg-amber-100 rounded-2xl border-2 border-[#3E2723] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                {poli.icon}
-              </div>
-              <h3 className="font-heading font-black text-xs sm:text-sm text-[#3E2723] leading-tight">
-                {poli.name}
-              </h3>
-              <p className="text-[10px] font-doodle text-[#8D6E63] line-clamp-1">
-                {poli.subtitle}
-              </p>
-              <span className="text-[10px] font-heading font-extrabold text-[#FF4B4B] pt-1 flex items-center gap-0.5">
-                Buka Rak <ArrowRight className="w-3 h-3" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* WHY SHOP AT HALU LAGI KH */}
-      <section className="bg-[#FFFDF7] border-t-4 border-[#3E2723] py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#FFF9E6] p-5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] space-y-2">
-            <div className="w-10 h-10 bg-[#F6C358] rounded-xl border border-[#3E2723] flex items-center justify-center text-lg font-black text-[#3E2723]">
-              <Store className="w-5 h-5" />
-            </div>
-            <h4 className="font-heading font-bold text-sm text-[#3E2723]">
-              Ambil di Booth Comifuro
-            </h4>
-            <p className="font-doodle text-xs text-[#6D4C41]">
-              Tanpa antre berdesakan! Pesan sekarang, tunjukkan surat resep resmi, dan ambil langsung di booth event.
-            </p>
-          </div>
-
-          <div className="bg-[#FFF9E6] p-5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] space-y-2">
-            <div className="w-10 h-10 bg-[#F6C358] rounded-xl border border-[#3E2723] flex items-center justify-center text-lg font-black text-[#3E2723]">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <h4 className="font-heading font-bold text-sm text-[#3E2723]">
-              Bahan Cetak Linen & Vinyl Premium
-            </h4>
-            <p className="font-doodle text-xs text-[#6D4C41]">
-              Art print tebal 260gsm linen anti-pudar & stiker vinyl die-cut tahan air anti gores berkualitas tinggi.
-            </p>
-          </div>
-
-          <div className="bg-[#FFF9E6] p-5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] space-y-2">
-            <div className="w-10 h-10 bg-[#F6C358] rounded-xl border border-[#3E2723] flex items-center justify-center text-lg font-black text-[#3E2723]">
-              <HeartPulse className="w-5 h-5" />
-            </div>
-            <h4 className="font-heading font-bold text-sm text-[#3E2723]">
-              Resep Obat Wibu Interaktif
-            </h4>
-            <p className="font-doodle text-xs text-[#6D4C41]">
-              Dapatkan struk resep dokter digital lengkap dengan dosis wibu lucu dan nomor registrasi pasien sah.
-            </p>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
+

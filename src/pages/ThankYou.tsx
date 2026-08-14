@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { PrescriptionReceipt } from '../components/PrescriptionReceipt';
-import { CLINIC_INFO } from '../data/products';
+import { CLINIC_INFO, PRODUCTS } from '../data/products';
 import { Heart, Sparkles, Home, ShoppingBag, Camera } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -18,14 +18,21 @@ export const ThankYou: React.FC = () => {
     });
   }, []);
 
+  const fallbackProduct = PRODUCTS[0] || {
+    id: 'hlk-aov-stk-01',
+    name: 'Sticker Chibi 7x7cm Poli Arena of Valor',
+    poli: 'aov' as const,
+    category: 'sticker' as const,
+    price: 15000,
+    image: '/images/catalog/pages/page-2.png',
+    description: 'Sticker Chibi'
+  };
+
   const fallbackOrder = {
     cart: [
       {
-        product: {
-          id: 'hlk-01',
-          name: 'Dr. LULU & Haha Acrylic Standee (Special Clinic Ver.)',
-          price: 85000
-        },
+        id: fallbackProduct.id,
+        product: fallbackProduct,
         quantity: 1
       }
     ],
@@ -34,7 +41,8 @@ export const ThankYou: React.FC = () => {
       email: 'ningentachi@gmail.com',
       phone: '08123456789',
       deliveryMethod: 'pickup' as const,
-      pickupDay: 'Comifuro Day 1',
+      pickupDay: 'day1' as const,
+      address: '',
       notes: 'Bungkus rapih dokter!'
     },
     orderId: `HALU-${Math.floor(1000 + Math.random() * 9000)}`,
