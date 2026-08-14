@@ -58,7 +58,7 @@ export const ShelfDisplayRow: React.FC<ShelfDisplayRowProps> = ({
       {/* 2. ISOMETRIC 3D TEAL SHELF TOP SURFACE (PLANK) */}
       <div className="relative z-20 w-full -mt-2">
         {/* Top Teal Surface with 3D perspective depth */}
-        <div className="relative h-6 sm:h-8 md:h-9 w-full">
+        <div className="relative h-5 sm:h-6 md:h-7 w-full">
           <svg
             className="w-full h-full overflow-visible drop-shadow-[0_4px_6px_rgba(0,0,0,0.12)]"
             preserveAspectRatio="none"
@@ -90,14 +90,14 @@ export const ShelfDisplayRow: React.FC<ShelfDisplayRowProps> = ({
         </div>
 
         {/* 3. FRONT WHITE FASCIA BEAM WITH BLACK OUTLINE */}
-        <div className="w-full bg-white border-x-3 sm:border-x-4 border-b-3 sm:border-b-4 border-[#261A14] shadow-[0_12px_24px_rgba(62,39,35,0.18)] min-h-[42px] sm:min-h-[50px] relative z-20">
+        <div className="w-full bg-white border-x-3 sm:border-x-4 border-b-3 sm:border-b-4 border-[#261A14] shadow-[0_10px_20px_rgba(62,39,35,0.15)] relative z-20">
           
           {/* Subtle top seam line */}
           <div className="h-[2px] w-full bg-[#261A14]" />
 
           {/* Embedded / Hanging Price Tag Rails directly underneath each product */}
           <div
-            className="grid gap-1.5 sm:gap-3 md:gap-6 p-1.5 sm:p-3 md:p-4 -mt-1.5 sm:-mt-2 md:-mt-3"
+            className="grid gap-2 sm:gap-3 md:gap-6 p-1.5 sm:p-2.5 md:p-3 -mt-1 sm:-mt-1.5 md:-mt-2"
             style={{
               gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`
             }}
