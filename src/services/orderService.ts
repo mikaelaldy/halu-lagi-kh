@@ -59,16 +59,19 @@ export async function compressImage(file: File, maxWidth = 1200, quality = 0.8):
   });
 }
 
+// Default fallback Webhook URL jika belum diisi di environment variables
+const DEFAULT_GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5BKkIwmJX-uD_B6ThbKaggpVoYK6b2fJ1hCYZ9e8E_9FDjyycI5oC7WlvE0v_wb4OQ/exec';
+
 /**
  * Mengirimkan data pesanan dan bukti pembayaran ke Google Apps Script Webhook
  */
 export async function submitOrderToGoogleScript(payload: OrderPayload): Promise<OrderSubmitResult> {
-  const googleScriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+  const googleScriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL || DEFAULT_GOOGLE_SCRIPT_URL;
 
-  // Jika Webhook URL belum dipasang di .env.local (misal tahap dev awal)
+  // Jika Webhook URL benar-benar kosong
   if (!googleScriptUrl || googleScriptUrl.trim() === '') {
     console.warn(
-      '⚠️ [HALU LAGI KH] VITE_GOOGLE_SCRIPT_URL belum disetel di .env.local! Pesanan akan disimpan lokal di browser. Baca PANDUAN_SETUP_GOOGLE_SHEETS.md untuk mengaktifkan notifikasi email & Google Sheets.'
+      '⚠️ [HALU LAGI KH] VITE_GOOGLE_SCRIPT_URL belum disetel! Pesanan akan disimpan lokal di browser.'
     );
     // Return simulasi sukses agar user experience checkout tetap berjalan mulus
     return {
