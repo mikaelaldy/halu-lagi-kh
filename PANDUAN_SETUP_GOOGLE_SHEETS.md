@@ -16,11 +16,14 @@ Panduan ini digunakan untuk memasang sistem penerima pesanan gratis tanpa server
 1. Di menu atas Google Sheet, klik **Extensions (Ekstensi)** ➡️ pilih **Apps Script**.
 2. Hapus semua kode default yang ada di editor (`function myFunction() { ... }`).
 3. Buka file [`scripts/google-apps-script.js`](./scripts/google-apps-script.js) dari project ini, lalu **Copy (Salin) semua isinya** dan **Paste (Tempel)** ke editor Apps Script.
-4. *(Opsional)* Pada baris ke-14 script:
+4. Periksa baris ke-16 script untuk daftar email penerima:
    ```javascript
-   const ADMIN_EMAIL = "halulagikh@gmail.com";
+   const NOTIFICATION_EMAILS = [
+     "halulagikh@gmail.com",
+     "mikaelaldy56@gmail.com"
+   ];
    ```
-   Ganti dengan alamat email Anda sendiri jika ingin melakukan testing awal ke email pribadi.
+   Email notifikasi akan otomatis terkirim ke kedua alamat email di atas secara bersamaan.
 5. Klik icon **Save (Simpan / Ctrl+S)** 💾 di bagian atas editor.
 
 ---

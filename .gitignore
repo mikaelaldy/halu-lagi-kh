@@ -6,3 +6,6 @@ dist
 
 .vercel
 daftar barang Halu Lagi Kah.pdf
+.env
+.env.local
+.env.*.local

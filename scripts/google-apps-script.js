@@ -12,8 +12,11 @@
  * Petunjuk pemasangan lengkap dapat dilihat di file: PANDUAN_SETUP_GOOGLE_SHEETS.md
  */
 
-// Email admin tujuan notifikasi (bisa disesuaikan ke email testing atau halulagikh@gmail.com)
-const ADMIN_EMAIL = "halulagikh@gmail.com";
+// Daftar email admin tujuan notifikasi (dikirim ke admin halulagikh dan mikaelaldy56)
+const NOTIFICATION_EMAILS = [
+  "halulagikh@gmail.com",
+  "mikaelaldy56@gmail.com"
+];
 const GOOGLE_DRIVE_FOLDER_NAME = "Bukti Pembayaran Halu Lagi Kh";
 
 function doPost(e) {
@@ -160,7 +163,9 @@ function saveImageToDrive(base64DataString, fileName, orderId) {
  * Mengirimkan email HTML estetik ke Admin Halu Lagi Kh
  */
 function sendAdminNotificationEmail(info) {
-  const recipient = ADMIN_EMAIL || Session.getActiveUser().getEmail();
+  const recipient = (NOTIFICATION_EMAILS && NOTIFICATION_EMAILS.length > 0) 
+    ? NOTIFICATION_EMAILS.join(", ") 
+    : Session.getActiveUser().getEmail();
   const subject = `💊 [PESANAN BARU] ${info.orderId} - ${info.customerInfo.name} (Rp ${Number(info.totalPrice).toLocaleString('id-ID')})`;
 
   const formattedTotal = "Rp " + Number(info.totalPrice).toLocaleString('id-ID');
