@@ -547,7 +547,7 @@ export const Checkout: React.FC = () => {
                         onChange={handleInputChange}
                         className="hidden"
                       />
-                      <span>Bank BCA (Sekar)</span>
+                      <span>Bank BCA</span>
                     </label>
 
                     <label
@@ -565,7 +565,7 @@ export const Checkout: React.FC = () => {
                         onChange={handleInputChange}
                         className="hidden"
                       />
-                      <span>Bank Mandiri (Sekar)</span>
+                      <span>Bank Mandiri</span>
                     </label>
                   </div>
                 </div>
@@ -580,7 +580,7 @@ export const Checkout: React.FC = () => {
                     name="senderAccountName"
                     value={customerInfo.senderAccountName}
                     onChange={handleInputChange}
-                    placeholder="Contoh: Budi Santoso / Akun GoPay Sekar"
+                    placeholder="Contoh: Budi Santoso / Akun GoPay"
                     required
                     className="w-full bg-white border-2 border-[#3E2723] p-3 rounded-2xl font-semibold text-[#3E2723] focus:ring-2 focus:ring-[#F6C358] outline-none text-sm"
                   />

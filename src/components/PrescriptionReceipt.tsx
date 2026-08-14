@@ -100,7 +100,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
           <div>
             <span className="text-[#8D6E63] block text-[10px]">PEMBAYARAN DITRANSFER KE:</span>
             <span className="font-bold text-[#3E2723]">
-              Bank {order.customerInfo.targetBank || 'BCA'} (a.n. Vincentia Sekar)
+              Bank {order.customerInfo.targetBank || 'BCA'}
             </span>
           </div>
 
