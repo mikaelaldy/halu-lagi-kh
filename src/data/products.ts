@@ -10,17 +10,27 @@ export interface Product {
   clearanceTag?: string;
   badge?: string;
   dosage?: string; // Funny medical/wibu dosage instruction
+  barcode?: string;
+  shelfTag?: 'Top 1' | 'Hot!' | 'New!' | 'Best!' | 'Obral!' | 'Special' | 'PO 1';
+  shelfSub?: string;
+  shelfCode?: string;
+  visualType?: 'standee' | 'shaker' | 'box' | 'pouch' | 'print' | 'drink' | 'pack' | 'bag' | 'tape' | 'pin';
 }
 
 export const PRODUCTS: Product[] = [
   {
     id: 'hlk-01',
-    name: 'Dr. LULU & Haha Acrylic Standee (Special Clinic Ver.)',
+    name: 'Dr. LULU & Haha Acrylic Standee (Clinic Ver.)',
     category: 'standee',
     price: 85000,
     image: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&auto=format&fit=crop&q=80',
-    description: 'Acrylic standee 15cm dengan mascot Dr. LULU & Haha bertema dokter klinik. High quality print 2-side.',
+    description: 'Acrylic standee 15cm dengan mascot Dr. LULU & Haha bertema dokter klinik wibu. High quality print 2-side dengan base plate bulat.',
     badge: 'BEST SELLER',
+    shelfTag: 'Top 1',
+    shelfSub: 'Miyosho Standee',
+    shelfCode: 'HLK-8921-ST01',
+    barcode: '4 901234 567890',
+    visualType: 'standee',
     dosage: 'Pajang di meja belajar/kerja 1x sehari untuk meredakan beban hidup.'
   },
   {
@@ -30,7 +40,12 @@ export const PRODUCTS: Product[] = [
     price: 45000,
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
     description: 'Gantungan kunci akrilik isi 5 pill shaker lucu yang bisa dikocok-kocok.',
-    badge: 'NEW',
+    badge: 'HOT ITEM',
+    shelfTag: 'Hot!',
+    shelfSub: 'Shake Shaker',
+    shelfCode: 'HLK-8921-KC02',
+    barcode: '4 901234 567891',
+    visualType: 'shaker',
     dosage: 'Kocok saat kehaluan melanda di tempat umum.'
   },
   {
@@ -39,7 +54,12 @@ export const PRODUCTS: Product[] = [
     category: 'sticker',
     price: 25000,
     image: 'https://images.unsplash.com/photo-1572375992501-4b0892d50c69?w=600&auto=format&fit=crop&q=80',
-    description: 'Stiker vinyl laminasi doff tahan air & cuaca. Isi 10 desain mascot & quotes halu.',
+    description: 'Stiker vinyl laminasi doff tahan air & cuaca. Isi 10 desain mascot & quotes halu dalam kemasan hanging pouch.',
+    shelfTag: 'New!',
+    shelfSub: 'Happy Sticker',
+    shelfCode: 'HLK-8921-ST03',
+    barcode: '4 901234 567892',
+    visualType: 'pouch',
     dosage: 'Tempelkan pada laptop atau tumbler kesayangan.'
   },
   {
@@ -50,6 +70,11 @@ export const PRODUCTS: Product[] = [
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600&auto=format&fit=crop&q=80',
     description: 'Cetakan kertas Linen 250gsm warna tajam & tidak pudar. Ilustrasi lengkap klinik wibu.',
     badge: 'LIMITED',
+    shelfTag: 'Best!',
+    shelfSub: 'Hospital Art',
+    shelfCode: 'HLK-8921-PR04',
+    barcode: '4 901234 567893',
+    visualType: 'print',
     dosage: 'Tatapi sebelum tidur agar bermimpi bertemu husbu/waifu.'
   },
   {
@@ -58,7 +83,12 @@ export const PRODUCTS: Product[] = [
     category: 'print',
     price: 20000,
     image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&auto=format&fit=crop&q=80',
-    description: 'Photocard glossy 2-sisi ukuran standard dengan background klinik & holografik.',
+    description: 'Photocard glossy 2-sisi ukuran standard dalam blister box mini holografik.',
+    shelfTag: 'Hot!',
+    shelfSub: 'Brilliant Box',
+    shelfCode: 'HLK-8921-PC05',
+    barcode: '4 901234 567894',
+    visualType: 'box',
     dosage: 'Simpan dalam dompet sebagai jimat obat kehaluan.'
   },
   // CLEARANCE SALE ITEMS (10k - 85k)
@@ -72,6 +102,11 @@ export const PRODUCTS: Product[] = [
     description: 'Pin kaleng 44mm season lalu. Stok terbatas untuk dikosongkan!',
     isClearance: true,
     clearanceTag: '60% OFF',
+    shelfTag: 'Obral!',
+    shelfSub: 'Pin Tin 44mm',
+    shelfCode: 'CLR-8921-PB01',
+    barcode: '4 901234 567895',
+    visualType: 'pin',
     dosage: 'Pasang pada tas wibu untuk menandakan kepasrahan.'
   },
   {
@@ -81,9 +116,14 @@ export const PRODUCTS: Product[] = [
     price: 15000,
     originalPrice: 35000,
     image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80',
-    description: 'Solatip dekoratif washi tape 15mm x 10m dengan pola resep obat wibu.',
+    description: 'Solatip dekoratif washi tape 15mm x 10m dengan pola resep obat wibu roll blister pack.',
     isClearance: true,
     clearanceTag: '57% OFF',
+    shelfTag: 'Obral!',
+    shelfSub: 'Washi Ribbon',
+    shelfCode: 'CLR-8921-WT02',
+    barcode: '4 901234 567896',
+    visualType: 'tape',
     dosage: 'Bungkus barang kesayanganmu dengan cinta.'
   },
   {
@@ -96,6 +136,11 @@ export const PRODUCTS: Product[] = [
     description: 'Gantungan akrilik 5cm 1-sisi stok terbatas event sebelumnya.',
     isClearance: true,
     clearanceTag: '50% OFF',
+    shelfTag: 'Obral!',
+    shelfSub: 'Chibi Charm',
+    shelfCode: 'CLR-8921-CH03',
+    barcode: '4 901234 567897',
+    visualType: 'shaker',
     dosage: 'Gantungkan di kunci motor agar tidak tersesat di alam halu.'
   },
   {
@@ -108,6 +153,11 @@ export const PRODUCTS: Product[] = [
     description: 'Tas kanvas tebal dengan kantong dalam. Muat laptop & belanjaan merch!',
     isClearance: true,
     clearanceTag: '45% OFF',
+    shelfTag: 'Obral!',
+    shelfSub: 'Canvas Bag',
+    shelfCode: 'CLR-8921-TB04',
+    barcode: '4 901234 567898',
+    visualType: 'bag',
     dosage: 'Gunakan untuk menampung seluruh beban kehaluan di Comifuro.'
   }
 ];
