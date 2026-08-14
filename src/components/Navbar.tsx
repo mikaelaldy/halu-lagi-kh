@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Sparkles, Flame, Menu, X } from 'lucide-react';
+import { ShoppingBag, Sparkles, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { CLINIC_INFO } from '../data/products';
 
@@ -50,14 +50,6 @@ export const Navbar: React.FC = () => {
               <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
               Katalog Merch
             </Link>
-
-            <Link
-              to="/catalog?category=clearance"
-              className="px-4 py-2.5 rounded-2xl font-heading font-bold text-sm bg-red-500 text-white hover:bg-red-600 transition-all flex items-center gap-1.5 border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] animate-pulse"
-            >
-              <Flame className="w-4 h-4 fill-white" />
-              🔥 Obat Obral (Clearance)
-            </Link>
           </nav>
 
           {/* Cart Pouch Button */}
@@ -103,14 +95,6 @@ export const Navbar: React.FC = () => {
             >
               <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
               Katalog Merch
-            </Link>
-
-            <Link
-              to="/catalog?category=clearance"
-              className="block px-4 py-3 rounded-2xl font-heading font-bold text-sm transition-all border-2 bg-red-500 text-white border-[#3E2723] hover:bg-red-600 flex items-center gap-2"
-            >
-              <Flame className="w-4 h-4 fill-white" />
-              🔥 Obat Obral (Clearance)
             </Link>
           </div>
         </nav>

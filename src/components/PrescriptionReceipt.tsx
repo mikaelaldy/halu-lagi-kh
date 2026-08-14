@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
-import { CLINIC_INFO } from '../data/products';
-import { Printer, Share2, Check, Download } from 'lucide-react';
+import { CLINIC_INFO, ProductVariant } from '../data/products';
+import { CartItem } from '../context/CartContext';
+import { Printer, Share2, Check, Sparkles } from 'lucide-react';
 
 interface PrescriptionReceiptProps {
   order: {
-    cart: Array<{ product: { id: string; name: string; price: number }; quantity: number }>;
+    cart: CartItem[];
     customerInfo: {
       name: string;
       email: string;
@@ -46,7 +47,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
       `No. WA: ${order.customerInfo.phone}\n` +
       `Opsi: ${order.customerInfo.deliveryMethod === 'pickup' ? `Comifuro Booth Pickup (${order.customerInfo.pickupDay})` : `Mail Order Shipping`}\n\n` +
       `*Daftar Resep:* \n` +
-      order.cart.map((i) => `- ${i.product.name} (x${i.quantity})`).join('\n') +
+      order.cart.map((i) => `- ${i.product.name}${i.selectedVariant ? ` [Varian: ${i.selectedVariant.name}]` : ''} (x${i.quantity}) - ${formatRupiah(i.product.price * i.quantity)}`).join('\n') +
       `\n\n*Total Pembayaran:* ${formatRupiah(totalPrice)}\n` +
       `Hashtag: ${CLINIC_INFO.hashtag}`;
 
@@ -96,7 +97,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
             </span>
           </div>
           <div>
-            <span className="text-[#8D6E63] block text-[10px]">KONTAKS (EMAIL & WA):</span>
+            <span className="text-[#8D6E63] block text-[10px]">KONTAK (EMAIL & WA):</span>
             <span>{order.customerInfo.email} | {order.customerInfo.phone}</span>
           </div>
           <div className="sm:col-span-2">
@@ -119,7 +120,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
             <table className="w-full text-xs text-left">
               <thead className="bg-[#F6C358] text-[#3E2723] font-heading font-bold border-b-2 border-[#3E2723]">
                 <tr>
-                  <th className="p-3">Nama Merchandise</th>
+                  <th className="p-3">Nama Merchandise & Varian</th>
                   <th className="p-3 text-center">Qty</th>
                   <th className="p-3 text-right">Subtotal</th>
                 </tr>
@@ -128,7 +129,19 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
                 {order.cart.map((item, idx) => (
                   <tr key={idx} className="hover:bg-amber-50/50">
                     <td className="p-3 text-[#3E2723]">
-                      💊 {item.product.name}
+                      <div className="flex flex-col">
+                        <span className="font-bold">💊 {item.product.name}</span>
+                        {item.selectedVariant && (
+                          <span className="text-[11px] text-[#8D6E63] font-doodle pl-5">
+                            ↳ Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
+                          </span>
+                        )}
+                        {item.product.dosage && (
+                          <span className="text-[10px] text-red-700 font-doodle italic pl-5 line-clamp-1">
+                            Dosis: {item.product.dosage}
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="p-3 text-center font-bold">{item.quantity}</td>
                     <td className="p-3 text-right font-bold text-[#FF4B4B]">
@@ -168,14 +181,14 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
       <div className="flex flex-wrap items-center justify-center gap-3 pt-2 print:hidden">
         <button
           onClick={handlePrint}
-          className="bg-[#3E2723] text-white hover:bg-[#5D4037] px-5 py-2.5 rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-[3px_3px_0px_#F6C358]"
+          className="bg-[#3E2723] text-white hover:bg-[#5D4037] px-5 py-2.5 rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-[3px_3px_0px_#F6C358] cursor-pointer"
         >
           <Printer className="w-4 h-4" /> Cetak / Print Resep
         </button>
 
         <button
           onClick={handleCopySummary}
-          className="bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-5 py-2.5 rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-[3px_3px_0px_#3E2723]"
+          className="bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-5 py-2.5 rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-[3px_3px_0px_#3E2723] cursor-pointer"
         >
           {copied ? (
             <>

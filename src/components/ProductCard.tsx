@@ -14,8 +14,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenDetailM
   const { cart } = useCart();
   const [internalModalOpen, setInternalModalOpen] = useState(false);
 
-  const cartItem = cart.find((item) => item.product.id === product.id);
-  const currentQty = cartItem ? cartItem.quantity : 0;
+  const productCartItems = cart.filter((item) => item.product.id === product.id);
+  const currentQty = productCartItems.reduce((acc, i) => acc + i.quantity, 0);
 
   const handleOpenDetail = () => {
     if (onOpenDetailModal) {

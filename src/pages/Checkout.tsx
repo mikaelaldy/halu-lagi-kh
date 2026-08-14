@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { ShoppingBag, Trash2, Plus, Minus, Send, ArrowLeft, CheckCircle, Package, MapPin } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import { ShoppingBag, Trash2, Plus, Minus, Send, ArrowLeft, CheckCircle, Package, MapPin, Sparkles } from 'lucide-react';
 
 export const Checkout: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
@@ -60,26 +59,6 @@ export const Checkout: React.FC = () => {
     // Save order data for Thank You prescription receipt
     setLastOrder(newOrder);
 
-    // Try EmailJS payload submission (graceful fallback if service ID not set yet)
-    try {
-      const emailParams = {
-        order_id: orderId,
-        user_name: customerInfo.name,
-        user_email: customerInfo.email,
-        user_phone: customerInfo.phone,
-        delivery_method: customerInfo.deliveryMethod === 'pickup' ? `Comifuro Pickup (${customerInfo.pickupDay})` : 'Mail Order Shipping',
-        address: customerInfo.address || 'N/A (Pick Up @ Booth)',
-        notes: customerInfo.notes || '-',
-        order_items: cart.map((item) => `${item.product.name} x${item.quantity} = ${formatRupiah(item.product.price * item.quantity)}`).join('\n'),
-        total_price: formatRupiah(totalPrice)
-      };
-
-      // EmailJS send (Optional configuration key support)
-      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailParams, 'YOUR_PUBLIC_KEY');
-    } catch (err) {
-      console.log('EmailJS trigger notice:', err);
-    }
-
     // Clear cart and redirect to Thank You page
     setTimeout(() => {
       clearCart();
@@ -101,7 +80,7 @@ export const Checkout: React.FC = () => {
           </p>
           <Link
             to="/catalog"
-            className="inline-flex items-center gap-2 bg-[#F6C358] text-[#3E2723] px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-extrabold shadow-[3px_3px_0px_#3E2723]"
+            className="inline-flex items-center gap-2 bg-[#F6C358] text-[#3E2723] px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-extrabold shadow-[3px_3px_0px_#3E2723] cursor-pointer"
           >
             Buka Katalog Merch
           </Link>
@@ -132,10 +111,10 @@ export const Checkout: React.FC = () => {
                 LANGKAH CHECKOUT
               </span>
               <h1 className="font-heading text-3xl font-black text-[#3E2723] mt-2">
-                Data Ningentachi (Pemesan) 🩺
+                Data Pasien Ningentachi 🩺
               </h1>
               <p className="font-doodle text-sm text-[#6D4C41]">
-                Isi informasi diri kamu dengan teliti untuk memudahkan admin Halu Lagi Kh saat peracikan & pengiriman.
+                Isi informasi diri kamu dengan teliti untuk memudahkan admin Halu Lagi Kh saat peracikan & penyerahan resep.
               </p>
             </div>
 
@@ -214,7 +193,7 @@ export const Checkout: React.FC = () => {
                     <div>
                       <span className="font-heading font-bold text-sm text-[#3E2723] flex items-center gap-1">
                         <MapPin className="w-4 h-4 text-amber-600" />
-                        Pick Up @ Comifuro Booth
+                        Pick Up @ Booth Comifuro
                       </span>
                       <p className="text-xs text-[#6D4C41] mt-0.5">
                         Ambil langsung di booth Halu Lagi Kh saat event Comifuro.
@@ -243,7 +222,7 @@ export const Checkout: React.FC = () => {
                         Mail Order (Kirim ke Rumah)
                       </span>
                       <p className="text-xs text-[#6D4C41] mt-0.5">
-                        Merchandise dikirim via kurir ekspedisi ke alamat tujuan.
+                        Merchandise dikirim via kurir ekspedisi ke alamat tujuan setelah event.
                       </p>
                     </div>
                   </label>
@@ -254,7 +233,7 @@ export const Checkout: React.FC = () => {
               {customerInfo.deliveryMethod === 'pickup' ? (
                 <div className="bg-[#FFF9E6] p-4 rounded-2xl border-2 border-[#3E2723] space-y-2">
                   <label className="block font-heading font-bold text-xs text-[#3E2723]">
-                    Pilih Hari Pengambilan di Booth Comifuro:
+                    Pilih Hari Pengambilan di Booth:
                   </label>
                   <select
                     name="pickupDay"
@@ -294,7 +273,7 @@ export const Checkout: React.FC = () => {
                   name="notes"
                   value={customerInfo.notes}
                   onChange={handleInputChange}
-                  placeholder="Contoh: Tolong bungkus bubble wrap tebal ya dokter!"
+                  placeholder="Contoh: Tolong bungkus aman ya dokter!"
                   className="w-full bg-white border-2 border-[#3E2723] p-3 rounded-2xl font-semibold text-[#3E2723] focus:ring-2 focus:ring-[#F6C358] outline-none text-sm"
                 />
               </div>
@@ -334,32 +313,37 @@ export const Checkout: React.FC = () => {
             </div>
 
             {/* Cart Items List */}
-            <div className="space-y-4 max-h-[380px] overflow-y-auto pr-1">
+            <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
               {cart.map((item) => (
                 <div
-                  key={item.product.id}
-                  className="bg-[#FFFCF5] p-3 rounded-2xl border-2 border-[#3E2723] flex items-center gap-3"
+                  key={item.id}
+                  className="bg-[#FFFCF5] p-3 rounded-2xl border-2 border-[#3E2723] flex items-center gap-3 shadow-xs"
                 >
                   <img
                     src={item.product.image}
                     alt={item.product.name}
-                    className="w-14 h-14 object-cover rounded-xl border border-[#3E2723]"
+                    className="w-14 h-14 object-contain p-1 rounded-xl border border-[#3E2723] bg-amber-50/50 shrink-0"
                   />
 
                   <div className="flex-1 min-w-0">
                     <h4 className="font-heading font-bold text-xs text-[#3E2723] truncate">
                       {item.product.name}
                     </h4>
-                    <p className="text-xs text-[#FF4B4B] font-bold">
+                    {item.selectedVariant && (
+                      <span className="text-[11px] text-[#8D6E63] font-doodle block truncate">
+                        Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
+                      </span>
+                    )}
+                    <p className="text-xs text-[#FF4B4B] font-black mt-0.5">
                       {formatRupiah(item.product.price)}
                     </p>
 
                     {/* Quantity controls */}
-                    <div className="flex items-center gap-2 mt-1">
+                    <div className="flex items-center gap-2 mt-1.5">
                       <button
                         type="button"
-                        onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200"
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200 cursor-pointer"
                       >
                         <Minus className="w-3 h-3" />
                       </button>
@@ -368,8 +352,8 @@ export const Checkout: React.FC = () => {
                       </span>
                       <button
                         type="button"
-                        onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200"
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200 cursor-pointer"
                       >
                         <Plus className="w-3 h-3" />
                       </button>
@@ -378,8 +362,8 @@ export const Checkout: React.FC = () => {
 
                   <button
                     type="button"
-                    onClick={() => removeFromCart(item.product.id)}
-                    className="text-red-500 hover:text-red-700 p-1.5 rounded-lg hover:bg-red-50"
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-red-500 hover:text-red-700 p-1.5 rounded-lg hover:bg-red-50 cursor-pointer shrink-0"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -405,7 +389,7 @@ export const Checkout: React.FC = () => {
 
             {/* Admin Note Notice */}
             <div className="bg-[#FFF9E6] p-3 rounded-xl border border-[#F6C358] text-[11px] font-doodle text-[#5D4037] leading-relaxed">
-              💡 <strong>Info Admin Klinik:</strong> Setelah submit order, resep digital kamu akan diterbitkan secara otomatis & dikirim ke email admin <strong>halulagikh.admin@gmail.com</strong>.
+              💡 <strong>Info Admin Klinik:</strong> Setelah submit order, resep digital resmi kamu akan diterbitkan & dapat disimpan/dicetak langsung untuk dibawa ke booth.
             </div>
 
           </div>

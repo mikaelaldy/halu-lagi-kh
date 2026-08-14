@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Product } from '../data/products';
+import { Product, ProductVariant } from '../data/products';
 
 export interface CartItem {
+  id: string; // unique item id: productId or `${productId}__${variantId}`
   product: Product;
+  selectedVariant?: ProductVariant;
   quantity: number;
 }
 
@@ -18,9 +20,9 @@ export interface CustomerInfo {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product, quantity?: number) => void;
-  removeFromCart: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  addToCart: (product: Product, quantity?: number, selectedVariant?: ProductVariant) => void;
+  removeFromCart: (cartItemId: string) => void;
+  updateQuantity: (cartItemId: string, quantity: number) => void;
   clearCart: () => void;
   totalItems: number;
   totalPrice: number;
@@ -44,18 +46,30 @@ const INITIAL_CUSTOMER_INFO: CustomerInfo = {
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>(() => {
-    const saved = localStorage.getItem('hlk_cart');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('hlk_cart');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo>(() => {
-    const saved = localStorage.getItem('hlk_customer_info');
-    return saved ? JSON.parse(saved) : INITIAL_CUSTOMER_INFO;
+    try {
+      const saved = localStorage.getItem('hlk_customer_info');
+      return saved ? JSON.parse(saved) : INITIAL_CUSTOMER_INFO;
+    } catch {
+      return INITIAL_CUSTOMER_INFO;
+    }
   });
 
   const [lastOrder, setLastOrder] = useState<{ cart: CartItem[]; customerInfo: CustomerInfo; orderId: string; date: string } | null>(() => {
-    const saved = localStorage.getItem('hlk_last_order');
-    return saved ? JSON.parse(saved) : null;
+    try {
+      const saved = localStorage.getItem('hlk_last_order');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
   });
 
   useEffect(() => {
@@ -72,30 +86,31 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [lastOrder]);
 
-  const addToCart = (product: Product, quantity = 1) => {
+  const addToCart = (product: Product, quantity = 1, selectedVariant?: ProductVariant) => {
+    const itemId = selectedVariant ? `${product.id}__${selectedVariant.id}` : product.id;
     setCart((prev) => {
-      const existingIndex = prev.findIndex((item) => item.product.id === product.id);
+      const existingIndex = prev.findIndex((item) => item.id === itemId);
       if (existingIndex > -1) {
         const updated = [...prev];
         updated[existingIndex].quantity += quantity;
         return updated;
       }
-      return [...prev, { product, quantity }];
+      return [...prev, { id: itemId, product, selectedVariant, quantity }];
     });
   };
 
-  const removeFromCart = (productId: string) => {
-    setCart((prev) => prev.filter((item) => item.product.id !== productId));
+  const removeFromCart = (cartItemId: string) => {
+    setCart((prev) => prev.filter((item) => item.id !== cartItemId));
   };
 
-  const updateQuantity = (productId: string, quantity: number) => {
+  const updateQuantity = (cartItemId: string, quantity: number) => {
     if (quantity <= 0) {
-      removeFromCart(productId);
+      removeFromCart(cartItemId);
       return;
     }
     setCart((prev) =>
       prev.map((item) =>
-        item.product.id === productId ? { ...item, quantity } : item
+        item.id === cartItemId ? { ...item, quantity } : item
       )
     );
   };

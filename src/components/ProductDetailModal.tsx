@@ -1,7 +1,7 @@
-import React from 'react';
-import { Product } from '../data/products';
+import React, { useState, useEffect } from 'react';
+import { Product, ProductVariant } from '../data/products';
 import { useCart } from '../context/CartContext';
-import { X, Plus, Minus, Check, ShoppingBag, Pill, Sparkles, Store, ShieldCheck } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, Pill, Sparkles, Store, ShieldCheck, CheckCircle2, FileText, AlertCircle, Sparkle } from 'lucide-react';
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -10,10 +10,23 @@ interface ProductDetailModalProps {
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClose }) => {
   const { cart, addToCart, updateQuantity, removeFromCart } = useCart();
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
+  const [showCatalogPage, setShowCatalogPage] = useState(false);
+
+  // Initialize or reset selected variant when product changes
+  useEffect(() => {
+    if (product && product.variants && product.variants.length > 0) {
+      setSelectedVariant(product.variants[0]);
+    } else {
+      setSelectedVariant(null);
+    }
+    setShowCatalogPage(false);
+  }, [product]);
 
   if (!product) return null;
 
-  const cartItem = cart.find((item) => item.product.id === product.id);
+  const currentItemId = selectedVariant ? `${product.id}__${selectedVariant.id}` : product.id;
+  const cartItem = cart.find((item) => item.id === currentItemId);
   const currentQty = cartItem ? cartItem.quantity : 0;
 
   const formatRupiah = (val: number) => {
@@ -26,38 +39,38 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
   const handleAdd = () => {
     if (currentQty === 0) {
-      addToCart(product, 1);
+      addToCart(product, 1, selectedVariant || undefined);
     } else {
-      updateQuantity(product.id, currentQty + 1);
+      updateQuantity(currentItemId, currentQty + 1);
     }
   };
 
   const handleDecrement = () => {
     if (currentQty <= 1) {
-      removeFromCart(product.id);
+      removeFromCart(currentItemId);
     } else {
-      updateQuantity(product.id, currentQty - 1);
+      updateQuantity(currentItemId, currentQty - 1);
     }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
       
       {/* Backdrop click to close */}
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-xl bg-[#FFFDF7] rounded-3xl border-4 border-[#3E2723] shadow-[10px_10px_0px_#3E2723] overflow-hidden z-10 max-h-[90vh] flex flex-col">
+      <div className="relative w-full max-w-2xl bg-[#FFFDF7] rounded-3xl border-4 border-[#3E2723] shadow-[10px_10px_0px_#3E2723] overflow-hidden z-10 max-h-[92vh] flex flex-col">
         
         {/* Header Bar */}
-        <div className="bg-[#F6C358] border-b-3 border-[#3E2723] px-6 py-3.5 flex items-center justify-between">
+        <div className="bg-[#F6C358] border-b-3 border-[#3E2723] px-5 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl">💊</span>
             <div>
-              <h3 className="font-heading font-black text-base sm:text-lg text-[#3E2723] leading-none">
+              <h3 className="font-heading font-black text-sm sm:text-lg text-[#3E2723] leading-none">
                 DETAIL OBAT & MERCHANDISE
               </h3>
-              <p className="text-[11px] font-doodle text-[#6D4C41]">
+              <p className="text-[10px] sm:text-[11px] font-doodle text-[#6D4C41]">
                 Katalog Etalase Klinik Halu Lagi Kh?
               </p>
             </div>
@@ -71,30 +84,60 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
         </div>
 
         {/* Modal Scroll Content */}
-        <div className="p-6 overflow-y-auto space-y-6">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-5">
           
           {/* Main Visual & Info Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-            {/* Image Preview with Clinic Stamp */}
-            <div className="relative aspect-square rounded-2xl overflow-hidden border-3 border-[#3E2723] bg-amber-50 shadow-[4px_4px_0px_#3E2723]">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-2 left-2 bg-[#FF4B4B] text-white font-heading font-black text-[10px] px-2 py-0.5 rounded-md border border-[#3E2723] shadow-xs">
-                {product.shelfTag || 'KLINIK VERIFIED'}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 items-start">
+            
+            {/* Image Preview with Zoom / Catalog Switcher */}
+            <div className="space-y-2">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border-3 border-[#3E2723] bg-amber-50 shadow-[4px_4px_0px_#3E2723] flex items-center justify-center group">
+                <img
+                  src={showCatalogPage && product.catalogPageImage ? product.catalogPageImage : product.image}
+                  alt={product.name}
+                  className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                />
+                
+                {product.badge && (
+                  <div className="absolute top-2 left-2 bg-[#FF4B4B] text-white font-heading font-black text-[10px] px-2 py-0.5 rounded-md border border-[#3E2723] shadow-xs flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" />
+                    {product.badge}
+                  </div>
+                )}
+
+                {product.size && (
+                  <div className="absolute bottom-2 left-2 bg-[#3E2723] text-amber-200 font-mono font-bold text-[10px] px-2 py-0.5 rounded-md border border-white/40 shadow-xs">
+                    📐 {product.size}
+                  </div>
+                )}
               </div>
+
+              {/* View Full Catalog Page Button */}
+              {product.catalogPageImage && (
+                <button
+                  type="button"
+                  onClick={() => setShowCatalogPage(!showCatalogPage)}
+                  className="w-full py-1.5 px-3 bg-amber-100 hover:bg-amber-200 text-[#3E2723] border-2 border-[#3E2723] rounded-xl text-xs font-heading font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <FileText className="w-3.5 h-3.5 text-[#3E2723]" />
+                  {showCatalogPage ? 'Lihat Tampilan Item' : '🔍 Lihat Lembar Katalog Asli'}
+                </button>
+              )}
             </div>
 
             {/* Title & Pricing */}
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#8D6E63] uppercase">
-                <Pill className="w-3.5 h-3.5 text-[#F6C358]" />
-                <span>Kategori: {product.category}</span>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="bg-[#FFF9E6] border border-[#3E2723] text-[#3E2723] text-[10px] font-heading font-bold px-2 py-0.5 rounded-md uppercase flex items-center gap-1">
+                  <Pill className="w-3 h-3 text-[#F6C358]" />
+                  Poli: {product.poli.toUpperCase()}
+                </span>
+                <span className="bg-[#3E2723] text-white text-[10px] font-heading font-bold px-2 py-0.5 rounded-md uppercase">
+                  {product.category}
+                </span>
               </div>
 
-              <h2 className="font-heading font-black text-xl text-[#3E2723] leading-tight">
+              <h2 className="font-heading font-black text-lg sm:text-xl text-[#3E2723] leading-tight">
                 {product.name}
               </h2>
 
@@ -107,26 +150,86 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                     {formatRupiah(product.originalPrice)}
                   </span>
                 )}
+                {product.isLimited && (
+                  <span className="bg-red-600 text-white font-heading font-extrabold text-[10px] px-2 py-0.5 rounded-full animate-pulse">
+                    LIMITED STOCK!
+                  </span>
+                )}
               </div>
 
               <div className="bg-amber-50 border-2 border-dashed border-[#F6C358] p-3 rounded-xl text-xs space-y-1">
-                <div className="flex items-center justify-between text-[#6D4C41] font-mono">
+                <div className="flex items-center justify-between text-[#6D4C41] font-mono text-[11px]">
                   <span>SKU: {product.shelfCode || product.id}</span>
                   <span>Barcode: {product.barcode || '4 901234'}</span>
                 </div>
                 <div className="text-[11px] text-emerald-800 font-bold flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Jaminan Kualitas Comifuro PO
+                  <ShieldCheck className="w-3.5 h-3.5" /> Jaminan Kualitas Merchandise Comifuro PO
                 </div>
               </div>
             </div>
           </div>
 
+          {/* VARIANT SELECTOR (IF PRODUCT HAS MULTIPLE CHARACTER VARIANTS) */}
+          {product.variants && product.variants.length > 0 && (
+            <div className="bg-[#FFF9E6] p-4 rounded-2xl border-2 border-[#3E2723] space-y-2.5">
+              <div className="flex items-center justify-between">
+                <label className="font-heading font-black text-xs sm:text-sm text-[#3E2723] flex items-center gap-1.5">
+                  <Sparkle className="w-4 h-4 text-amber-500" />
+                  PILIH VARIAN KARAKTER ({product.variants.length} OPSI):
+                </label>
+                {selectedVariant && (
+                  <span className="text-xs font-heading font-extrabold text-[#FF4B4B]">
+                    Terpilih: {selectedVariant.name}
+                  </span>
+                )}
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1 scrollbar-thin">
+                {product.variants.map((variant) => {
+                  const isSelected = selectedVariant?.id === variant.id;
+                  const variantCartId = `${product.id}__${variant.id}`;
+                  const variantQty = cart.find((i) => i.id === variantCartId)?.quantity || 0;
+
+                  return (
+                    <button
+                      key={variant.id}
+                      type="button"
+                      onClick={() => setSelectedVariant(variant)}
+                      className={`relative p-2 rounded-xl text-left text-xs font-heading font-bold border-2 transition-all cursor-pointer flex items-center justify-between gap-1.5 ${
+                        isSelected
+                          ? 'bg-[#3E2723] text-white border-[#3E2723] shadow-[2px_2px_0px_#F6C358]'
+                          : 'bg-white text-[#3E2723] border-[#3E2723]/60 hover:border-[#3E2723] hover:bg-amber-50'
+                      }`}
+                    >
+                      <span className="truncate">{variant.name}</span>
+                      {variant.isLimited && (
+                        <span className="shrink-0 w-2 h-2 rounded-full bg-red-500" title="Limited Stock" />
+                      )}
+                      {variantQty > 0 && (
+                        <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-[#F6C358] text-[#3E2723] text-[9px] font-black leading-none">
+                          {variantQty}x
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {selectedVariant?.isLimited && (
+                <div className="text-[11px] text-red-600 font-bold flex items-center gap-1">
+                  <AlertCircle className="w-3.5 h-3.5" />
+                  Varian ini bertanda <strong>LIMITED STOCK</strong> di katalog fisik. Segera pesan sebelum kehabisan!
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Description */}
           <div className="bg-white p-4 rounded-2xl border-2 border-[#3E2723] shadow-xs">
-            <h4 className="font-heading font-extrabold text-sm text-[#3E2723] mb-1 flex items-center gap-1.5">
+            <h4 className="font-heading font-extrabold text-xs sm:text-sm text-[#3E2723] mb-1 flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-amber-500" /> Deskripsi Merchandise
             </h4>
-            <p className="text-sm text-[#5D4037] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#5D4037] leading-relaxed">
               {product.description}
             </p>
           </div>
@@ -134,7 +237,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
           {/* Dosage Instruction (Clinic Joke / Theme) */}
           {product.dosage && (
             <div className="bg-red-50 p-4 rounded-2xl border-2 border-red-300">
-              <h4 className="font-heading font-bold text-sm text-red-800 mb-1 flex items-center gap-1.5">
+              <h4 className="font-heading font-bold text-xs sm:text-sm text-red-800 mb-1 flex items-center gap-1.5">
                 💊 Petunjuk & Dosis Pemakaian
               </h4>
               <p className="text-xs text-red-900 font-doodle leading-relaxed">
@@ -156,9 +259,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
         {/* Footer Actions */}
         <div className="bg-[#FFFCF5] border-t-3 border-[#3E2723] p-4 px-6 flex items-center justify-between gap-4">
           <div>
-            <span className="text-[10px] font-bold text-[#8D6E63] block uppercase">Jumlah di Kantung</span>
-            <span className="font-heading font-black text-lg text-[#3E2723]">
-              {currentQty > 0 ? `${currentQty} pcs` : 'Belum ditambahkan'}
+            <span className="text-[10px] font-bold text-[#8D6E63] block uppercase">
+              {selectedVariant ? `Jumlah (${selectedVariant.name})` : 'Jumlah di Kantung'}
+            </span>
+            <span className="font-heading font-black text-base sm:text-lg text-[#3E2723]">
+              {currentQty > 0 ? `${currentQty} pcs` : 'Belum ada di resep'}
             </span>
           </div>
 
@@ -187,7 +292,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               <button
                 type="button"
                 onClick={handleAdd}
-                className="bg-[#F6C358] hover:bg-[#FDD835] text-[#3E2723] font-heading font-black text-sm px-6 py-2.5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] flex items-center gap-2 active:translate-y-0.5 cursor-pointer transition-all"
+                className="bg-[#F6C358] hover:bg-[#FDD835] text-[#3E2723] font-heading font-black text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] flex items-center gap-2 active:translate-y-0.5 cursor-pointer transition-all"
               >
                 <ShoppingBag className="w-4 h-4" />
                 + Resepkan ke Kantung
