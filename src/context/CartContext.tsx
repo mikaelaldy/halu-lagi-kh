@@ -16,6 +16,9 @@ export interface CustomerInfo {
   pickupDay: 'day1' | 'day2' | 'both';
   address: string;
   notes: string;
+  targetBank: 'BCA' | 'Mandiri';
+  senderAccountName: string;
+  paymentProofUrl?: string;
 }
 
 interface CartContextType {
@@ -28,8 +31,8 @@ interface CartContextType {
   totalPrice: number;
   customerInfo: CustomerInfo;
   setCustomerInfo: React.Dispatch<React.SetStateAction<CustomerInfo>>;
-  lastOrder: { cart: CartItem[]; customerInfo: CustomerInfo; orderId: string; date: string } | null;
-  setLastOrder: React.Dispatch<React.SetStateAction<{ cart: CartItem[]; customerInfo: CustomerInfo; orderId: string; date: string } | null>>;
+  lastOrder: { cart: CartItem[]; customerInfo: CustomerInfo; orderId: string; date: string; driveFileUrl?: string } | null;
+  setLastOrder: React.Dispatch<React.SetStateAction<{ cart: CartItem[]; customerInfo: CustomerInfo; orderId: string; date: string; driveFileUrl?: string } | null>>;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -41,7 +44,10 @@ const INITIAL_CUSTOMER_INFO: CustomerInfo = {
   deliveryMethod: 'pickup',
   pickupDay: 'day1',
   address: '',
-  notes: ''
+  notes: '',
+  targetBank: 'BCA',
+  senderAccountName: '',
+  paymentProofUrl: ''
 };
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

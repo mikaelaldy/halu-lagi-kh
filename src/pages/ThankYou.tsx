@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { PrescriptionReceipt } from '../components/PrescriptionReceipt';
 import { CLINIC_INFO, PRODUCTS } from '../data/products';
-import { Heart, Sparkles, Home, ShoppingBag, Camera } from 'lucide-react';
+import { Heart, Sparkles, Home, ShoppingBag, Camera, Mail, MessageCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const ThankYou: React.FC = () => {
@@ -43,7 +43,9 @@ export const ThankYou: React.FC = () => {
       deliveryMethod: 'pickup' as const,
       pickupDay: 'day1' as const,
       address: '',
-      notes: 'Bungkus rapih dokter!'
+      notes: 'Bungkus rapih dokter!',
+      targetBank: 'BCA' as const,
+      senderAccountName: 'Ningentachi Setia'
     },
     orderId: `HALU-${Math.floor(1000 + Math.random() * 9000)}`,
     date: new Date().toLocaleDateString('id-ID', {
@@ -60,7 +62,7 @@ export const ThankYou: React.FC = () => {
     <div className="min-h-screen bg-[#FFF9E6] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-8">
         
-        {/* THANK YOU BANNER (Matching Image 3 from assets) */}
+        {/* THANK YOU BANNER */}
         <div className="bg-[#F6C358] p-8 sm:p-12 rounded-3xl border-4 border-[#3E2723] shadow-[8px_8px_0px_#3E2723] text-center space-y-6 relative overflow-hidden">
           
           {/* Mascot Ghosts Visual */}
@@ -82,6 +84,17 @@ export const ThankYou: React.FC = () => {
             </p>
           </div>
 
+          {/* Admin Email Notice Banner */}
+          <div className="max-w-2xl mx-auto bg-white p-5 rounded-2xl border-3 border-[#3E2723] text-left space-y-2 shadow-[4px_4px_0px_#3E2723]">
+            <div className="flex items-center gap-2 text-[#3E2723] font-heading font-black text-sm sm:text-base">
+              <Mail className="w-5 h-5 text-amber-600 shrink-0" />
+              <span>Admin Akan Menghubungi Kamu via Email</span>
+            </div>
+            <p className="font-doodle text-xs sm:text-sm text-[#5D4037] leading-relaxed">
+              Pesanan dan bukti pembayaran kamu telah berhasil kami terima. Admin Halu Lagi Kh akan segera melakukan verifikasi pembayaran dan mengirimkan konfirmasi/update pesanan ke email: <strong className="text-[#3E2723] underline">{currentOrder.customerInfo.email}</strong>.
+            </p>
+          </div>
+
           <div className="max-w-2xl mx-auto bg-white/90 p-6 rounded-2xl border-2 border-[#3E2723] font-doodle text-sm sm:text-base text-[#3E2723] space-y-2 leading-relaxed shadow-inner">
             <p>
               "Semoga merchandise kami dapat mengobati kesedihan ningentachi akan dunia nyata! Semoga cepat sembuh ya!"
@@ -92,12 +105,30 @@ export const ThankYou: React.FC = () => {
             </p>
           </div>
 
-          {/* Social Share Tag Callout */}
-          <div className="bg-[#FFF9E6] border-2 border-[#3E2723] p-4 rounded-2xl max-w-xl mx-auto flex items-center justify-center gap-2 font-doodle text-xs sm:text-sm text-[#3E2723]">
-            <Camera className="w-5 h-5 text-pink-600 shrink-0" />
-            <span>
-              ningentachi dimohon untuk share hasil foto/pembelian di sosmed dan tag IG kami <a href={CLINIC_INFO.instagramUrl} target="_blank" rel="noopener noreferrer" className="font-bold underline text-[#3E2723] hover:text-[#5D4037]">{CLINIC_INFO.instagramHandle}</a> atau <strong className="bg-[#F6C358] px-2 py-0.5 rounded-lg border border-[#3E2723]">{CLINIC_INFO.hashtag}</strong>
-            </span>
+          {/* Social & Support Links */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto pt-2">
+            
+            {/* Instagram Support */}
+            <a
+              href={CLINIC_INFO.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FFF9E6] hover:bg-amber-100/80 border-2 border-[#3E2723] p-3.5 rounded-2xl flex items-center justify-center gap-2.5 font-heading font-bold text-xs sm:text-sm text-[#3E2723] shadow-[3px_3px_0px_#3E2723] transition-transform active:translate-y-0.5"
+            >
+              <svg className="w-4 h-4 text-pink-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+              <span>Tanya Admin via IG @halulagi_kh</span>
+            </a>
+
+            {/* Social Share Tag */}
+            <div className="bg-[#FFF9E6] border-2 border-[#3E2723] p-3.5 rounded-2xl flex items-center justify-center gap-2 font-doodle text-xs text-[#3E2723]">
+              <Camera className="w-4 h-4 text-pink-600 shrink-0" />
+              <span>Tag IG kami: <strong>{CLINIC_INFO.instagramHandle}</strong></span>
+            </div>
+
           </div>
 
         </div>

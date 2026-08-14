@@ -1,22 +1,15 @@
 import React, { useRef } from 'react';
-import { CLINIC_INFO, ProductVariant } from '../data/products';
-import { CartItem } from '../context/CartContext';
-import { Printer, Share2, Check, Sparkles } from 'lucide-react';
+import { CLINIC_INFO } from '../data/products';
+import { CartItem, CustomerInfo } from '../context/CartContext';
+import { Printer, Share2, Check, ExternalLink, ShieldCheck } from 'lucide-react';
 
 interface PrescriptionReceiptProps {
   order: {
     cart: CartItem[];
-    customerInfo: {
-      name: string;
-      email: string;
-      phone: string;
-      deliveryMethod: 'pickup' | 'mail';
-      pickupDay?: string;
-      address?: string;
-      notes?: string;
-    };
+    customerInfo: CustomerInfo;
     orderId: string;
     date: string;
+    driveFileUrl?: string;
   };
 }
 
@@ -43,13 +36,16 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
 
   const handleCopySummary = () => {
     const text = `💊 *SURAT RESEP OBAT HALU - ${order.orderId}*\n\n` +
-      `Nama Pemesan: ${order.customerInfo.name}\n` +
+      `Nama Pasien: ${order.customerInfo.name}\n` +
+      `Email: ${order.customerInfo.email}\n` +
       `No. WA: ${order.customerInfo.phone}\n` +
-      `Opsi: ${order.customerInfo.deliveryMethod === 'pickup' ? `Comifuro Booth Pickup (${order.customerInfo.pickupDay})` : `Mail Order Shipping`}\n\n` +
+      `Tujuan Transfer: Bank ${order.customerInfo.targetBank || 'BCA'} (Pengirim: ${order.customerInfo.senderAccountName || '-'})\n` +
+      `Metode Ambil: ${order.customerInfo.deliveryMethod === 'pickup' ? `Comifuro Booth Pickup (${order.customerInfo.pickupDay})` : `Mail Order Shipping (${order.customerInfo.address})`}\n\n` +
       `*Daftar Resep:* \n` +
       order.cart.map((i) => `- ${i.product.name}${i.selectedVariant ? ` [Varian: ${i.selectedVariant.name}]` : ''} (x${i.quantity}) - ${formatRupiah(i.product.price * i.quantity)}`).join('\n') +
       `\n\n*Total Pembayaran:* ${formatRupiah(totalPrice)}\n` +
-      `Hashtag: ${CLINIC_INFO.hashtag}`;
+      `Status: Menunggu Verifikasi Admin via Email\n` +
+      `Instagram: @halulagi_kh`;
 
     navigator.clipboard.writeText(text);
     setCopied(true);
@@ -61,7 +57,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
       {/* RECEIPT PAPER CONTAINER */}
       <div
         ref={receiptRef}
-        className="prescription-paper p-6 sm:p-8 rounded-3xl text-[#3E2723] space-y-6 relative overflow-hidden"
+        className="prescription-paper p-6 sm:p-8 rounded-3xl text-[#3E2723] space-y-6 relative overflow-hidden shadow-[6px_6px_0px_#3E2723]"
       >
         {/* Header Rx Stamp */}
         <div className="flex items-start justify-between border-b-2 border-[#3E2723] pb-4">
@@ -79,7 +75,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
 
           <div className="text-right">
             <span className="medicine-stamp text-xs inline-block mb-1">
-              RESEP SAH
+              RESEP TERCATAT
             </span>
             <p className="font-mono text-xs font-bold text-[#3E2723]">
               ID: {order.orderId}
@@ -88,7 +84,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
           </div>
         </div>
 
-        {/* Patient Details */}
+        {/* Patient & Payment Details */}
         <div className="bg-amber-50/80 p-4 rounded-2xl border border-[#3E2723] grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold">
           <div>
             <span className="text-[#8D6E63] block text-[10px]">NAMA PASIEN / PEMESAN:</span>
@@ -98,16 +94,49 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
           </div>
           <div>
             <span className="text-[#8D6E63] block text-[10px]">KONTAK (EMAIL & WA):</span>
-            <span>{order.customerInfo.email} | {order.customerInfo.phone}</span>
+            <span className="text-[#3E2723]">{order.customerInfo.email} | {order.customerInfo.phone}</span>
           </div>
-          <div className="sm:col-span-2">
-            <span className="text-[#8D6E63] block text-[10px]">METODE PENYERAHAN MERCHANDISE:</span>
-            <span className="font-bold text-emerald-700">
-              {order.customerInfo.deliveryMethod === 'pickup'
-                ? `🎪 PICK UP @ BOOTH COMIFURO (${order.customerInfo.pickupDay?.toUpperCase()})`
-                : `📦 MAIL ORDER SHIPPING (${order.customerInfo.address})`}
+
+          <div>
+            <span className="text-[#8D6E63] block text-[10px]">PEMBAYARAN DITRANSFER KE:</span>
+            <span className="font-bold text-[#3E2723]">
+              Bank {order.customerInfo.targetBank || 'BCA'} (a.n. Vincentia Sekar)
             </span>
           </div>
+
+          <div>
+            <span className="text-[#8D6E63] block text-[10px]">NAMA REKENING PENGIRIM:</span>
+            <span className="font-bold text-[#3E2723]">
+              {order.customerInfo.senderAccountName || '-'}
+            </span>
+          </div>
+
+          <div className="sm:col-span-2 pt-1 border-t border-[#8D6E63]/20">
+            <span className="text-[#8D6E63] block text-[10px]">METODE PENYERAHAN MERCHANDISE:</span>
+            <span className="font-bold text-emerald-800">
+              {order.customerInfo.deliveryMethod === 'pickup'
+                ? `🎪 PICK UP @ BOOTH COMIFURO (${order.customerInfo.pickupDay === 'day1' ? 'Day 1 (Sabtu)' : order.customerInfo.pickupDay === 'day2' ? 'Day 2 (Minggu)' : 'Flexible Day 1 / Day 2'})`
+                : `📦 MAIL ORDER SHIPPING (${order.customerInfo.address || '-'})`}
+            </span>
+          </div>
+
+          {order.customerInfo.paymentProofUrl && (
+            <div className="sm:col-span-2 bg-white p-2.5 rounded-xl border border-[#3E2723] flex items-center justify-between">
+              <span className="text-xs font-bold text-emerald-700 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4" /> Bukti Pembayaran Berhasil Diunggah
+              </span>
+              {order.driveFileUrl && (
+                <a
+                  href={order.driveFileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-bold text-[#3E2723] hover:underline inline-flex items-center gap-1"
+                >
+                  Lihat File Drive <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Recipe Rx Items */}
@@ -164,7 +193,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
 
           <div className="bg-[#F6C358] p-3 rounded-2xl border-2 border-[#3E2723] text-right w-full sm:w-auto shadow-[3px_3px_0px_#3E2723]">
             <span className="text-[10px] font-bold text-[#3E2723] block uppercase tracking-wider">
-              TOTAL ESTIMASI OBAT
+              TOTAL PEMBAYARAN LUNAS
             </span>
             <span className="font-heading font-black text-xl text-[#FF4B4B]">
               {formatRupiah(totalPrice)}
