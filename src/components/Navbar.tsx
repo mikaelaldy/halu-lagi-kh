@@ -16,20 +16,20 @@ export const Navbar: React.FC = () => {
   }, [location.pathname, location.search]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F6C358] border-b-4 border-[#3E2723] shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-3">
+    <header className="sticky top-0 z-50 bg-[#F6C358] border-b-3 sm:border-b-4 border-[#3E2723] shadow-md">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-3">
           
           {/* Logo & Tagline */}
-          <Link to="/" className="flex items-center gap-3 group min-w-0">
-            <div className="bg-white px-3 sm:px-4 py-2 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] group-hover:rotate-1 transition-transform">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">💊</span>
-                <div>
-                  <h1 className="font-heading text-lg sm:text-2xl font-extrabold text-[#3E2723] tracking-wide leading-none truncate">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
+            <div className="bg-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl border-2 border-[#3E2723] shadow-[2px_2px_0px_#3E2723] sm:shadow-[3px_3px_0px_#3E2723] group-hover:rotate-1 transition-transform">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="text-xl sm:text-2xl shrink-0">💊</span>
+                <div className="min-w-0">
+                  <h1 className="font-heading text-sm sm:text-xl md:text-2xl font-extrabold text-[#3E2723] tracking-wide leading-tight truncate">
                     {CLINIC_INFO.name}
                   </h1>
-                  <p className="font-doodle text-xs text-[#8D6E63] font-semibold hidden sm:block">
+                  <p className="font-doodle text-[10px] sm:text-xs text-[#8D6E63] font-semibold hidden md:block">
                     {CLINIC_INFO.tagline}
                   </p>
                 </div>
@@ -52,16 +52,16 @@ export const Navbar: React.FC = () => {
             </Link>
           </nav>
 
-          {/* Cart Pouch Button */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Cart Pouch Button & Mobile Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <Link
               to="/checkout"
-              className="relative flex items-center gap-2 bg-[#FFF9E6] text-[#3E2723] px-3 sm:px-4 py-2.5 rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-sm hover:bg-white transition-all shadow-[3px_3px_0px_#3E2723] active:translate-y-0.5"
+              className="relative flex items-center justify-center gap-2 bg-[#FFF9E6] text-[#3E2723] px-2.5 sm:px-4 py-1.5 sm:py-2.5 rounded-xl sm:rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-xs sm:text-sm hover:bg-white transition-all shadow-[2px_2px_0px_#3E2723] sm:shadow-[3px_3px_0px_#3E2723] active:translate-y-0.5"
             >
-              <ShoppingBag className="w-5 h-5 text-[#3E2723]" />
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-[#3E2723]" />
               <span className="hidden sm:inline">Kantung Obat</span>
               {totalItems > 0 && (
-                <span className="bg-[#FF4B4B] text-white text-xs font-black px-2.5 py-0.5 rounded-full border border-[#3E2723] shadow-sm animate-bounce">
+                <span className="bg-[#FF4B4B] text-white text-[10px] sm:text-xs font-black px-1.5 sm:px-2.5 py-0.2 sm:py-0.5 rounded-full border border-[#3E2723] shadow-xs animate-bounce">
                   {totalItems}
                 </span>
               )}
@@ -70,11 +70,11 @@ export const Navbar: React.FC = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMenuOpen((prev) => !prev)}
-              className="md:hidden w-10 h-10 bg-[#FFF9E6] text-[#3E2723] rounded-2xl border-2 border-[#3E2723] flex items-center justify-center shadow-[2px_2px_0px_#3E2723] active:translate-y-0.5 transition-all cursor-pointer"
+              className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-[#FFF9E6] text-[#3E2723] rounded-xl sm:rounded-2xl border-2 border-[#3E2723] flex items-center justify-center shadow-[2px_2px_0px_#3E2723] active:translate-y-0.5 transition-all cursor-pointer"
               aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
               aria-expanded={menuOpen}
             >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
 

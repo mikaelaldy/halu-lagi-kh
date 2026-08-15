@@ -11,11 +11,10 @@ import React, { useState, useEffect } from 'react';
  */
 export function useResponsiveShelfColumns(): number {
   const getColumns = () => {
-    if (typeof window === 'undefined') return 4;
+    if (typeof window === 'undefined') return 3;
     const width = window.innerWidth;
-    if (width < 640) return 2;
-    if (width < 1024) return 3;
-    return 4;
+    if (width < 768) return 2;
+    return 3;
   };
 
   const [columns, setColumns] = useState<number>(getColumns);

@@ -63,10 +63,10 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
       <div className="p-2 sm:p-2.5 flex items-stretch gap-2 sm:gap-2.5">
         
         {/* LEFT BADGE COLUMN (e.g. Clearance, Top 1, Hot!, New!, Best!) */}
-        <div className="w-12 sm:w-14 md:w-16 shrink-0 border-r border-dashed border-[#261A14]/25 pr-1.5 flex flex-col justify-between py-0.5">
+        <div className="w-10 sm:w-14 md:w-16 shrink-0 border-r border-dashed border-[#261A14]/25 pr-1 sm:pr-1.5 flex flex-col justify-between py-0.5">
           <div>
             <div
-              className={`font-heading font-black text-[9px] sm:text-[10.5px] md:text-[11.5px] leading-none tracking-tight italic ${
+              className={`font-heading font-black text-[8.5px] sm:text-[10.5px] md:text-[11.5px] leading-none tracking-tight italic truncate ${
                 product.isClearance || tagBadge === 'Clearance' || tagBadge === 'Hot!' || tagBadge === 'Limited!'
                   ? 'text-[#E53935]'
                   : tagBadge === 'Top 1'
@@ -76,16 +76,16 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
             >
               {product.isClearance ? 'CLEARANCE' : tagBadge}
             </div>
-            <div className="text-[7.5px] sm:text-[8.5px] font-bold text-[#8D6E63] font-mono leading-tight mt-1 uppercase">
+            <div className="text-[7px] sm:text-[8.5px] font-bold text-[#8D6E63] font-mono leading-tight mt-1 uppercase truncate">
               {product.category}
             </div>
           </div>
 
           <div className="mt-1 space-y-0.5">
-            <div className="text-[7.5px] sm:text-[8.5px] text-[#261A14] font-mono leading-none truncate font-bold uppercase">
+            <div className="text-[7px] sm:text-[8.5px] text-[#261A14] font-mono leading-none truncate font-bold uppercase">
               {product.poli}
             </div>
-            <div className="text-[7px] sm:text-[7.5px] text-[#8D6E63] font-mono leading-none truncate">
+            <div className="text-[6.5px] sm:text-[7.5px] text-[#8D6E63] font-mono leading-none truncate">
               {product.size || 'STD'}
             </div>
           </div>
@@ -117,9 +117,9 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
             {/* Doctor Attribution Pill */}
             {product.artist && (
               <div className="mt-1 flex items-center gap-1.5">
-                <span className="text-[9px] sm:text-[10px] md:text-[10.5px] font-bold text-[#00695C] bg-[#E0F2F1] px-1.5 py-0.2 rounded border border-[#80CBC4] inline-flex items-center gap-1 leading-normal">
+                <span className="text-[9px] sm:text-[10px] md:text-[10.5px] font-bold text-[#00695C] bg-[#E0F2F1] px-1.5 py-0.2 rounded border border-[#80CBC4] inline-flex items-center gap-1 leading-normal truncate">
                   <span className="text-[8px] sm:text-[9px]">🩺</span>
-                  <span>Dr. {product.artist}</span>
+                  <span className="truncate">Dr. {product.artist}</span>
                 </span>
               </div>
             )}
@@ -131,14 +131,14 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
           </div>
 
           {/* Bottom Row: Price, Mini Barcode/Variants & Action Button */}
-          <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-dashed border-slate-200">
-            <div className="flex items-center gap-1.5 min-w-0">
-              <span className="font-heading font-black text-sm sm:text-base text-[#E53935] leading-none shrink-0">
+          <div className="flex items-center justify-between gap-1 pt-1 border-t border-dashed border-slate-200">
+            <div className="flex items-center gap-1 min-w-0">
+              <span className="font-heading font-black text-xs sm:text-base text-[#E53935] leading-none shrink-0">
                 {formatRupiah(product.price)}
               </span>
 
               {/* Compact Barcode & Variant Tag */}
-              <div className="hidden sm:flex items-center gap-1">
+              <div className="hidden md:flex items-center gap-1">
                 <div className="h-3 flex items-center gap-[0.5px] bg-slate-50 px-0.5 rounded border border-slate-200">
                   <div className="w-[1px] h-2 bg-black" />
                   <div className="w-[1.5px] h-2 bg-black" />
@@ -149,13 +149,13 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
               </div>
 
               {product.variants && product.variants.length > 0 && (
-                <span className="text-[8px] sm:text-[9px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300 truncate">
+                <span className="hidden sm:inline-block text-[8px] sm:text-[9px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300 truncate">
                   {product.variants.length} Var
                 </span>
               )}
             </div>
 
-            {/* Interactive Quantity Stepper / Quick Add */}
+            {/* Interactive Quantity Stepper / Quick Add Button */}
             <div className="shrink-0">
               {totalQty > 0 ? (
                 <div className="flex items-center gap-0.5 bg-[#FFF9E6] border border-[#261A14] rounded-lg p-0.5 shadow-2xs">
@@ -171,7 +171,7 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
                   )}
                   <span
                     onClick={onOpenDetail}
-                    className="font-heading font-black text-[10px] sm:text-xs text-[#261A14] px-1.5 min-w-[12px] text-center cursor-pointer"
+                    className="font-heading font-black text-[10px] sm:text-xs text-[#261A14] px-1 min-w-[12px] text-center cursor-pointer"
                     title={hasMultipleVariants ? 'Klik untuk atur varian' : 'Jumlah'}
                   >
                     {totalQty}x
@@ -189,17 +189,18 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
                 <button
                   type="button"
                   onClick={handleAction}
-                  className="bg-[#F6C358] hover:bg-[#FDD835] text-[#261A14] font-heading font-bold text-[9.5px] sm:text-[11px] px-2.5 sm:px-3 py-1 rounded-lg border border-[#261A14] flex items-center gap-1 shadow-2xs active:translate-y-0.5 cursor-pointer transition-all whitespace-nowrap"
+                  className="bg-[#F6C358] hover:bg-[#FDD835] text-[#261A14] font-heading font-black text-[9px] sm:text-[11px] px-1.5 sm:px-3 py-1 rounded-lg border border-[#261A14] flex items-center justify-center gap-1 shadow-2xs active:translate-y-0.5 cursor-pointer transition-all whitespace-nowrap"
+                  title={hasMultipleVariants ? 'Pilih varian' : 'Ambil produk'}
                 >
                   {hasMultipleVariants ? (
                     <>
-                      <Sparkles className="w-3 h-3" />
-                      <span>Pilih</span>
+                      <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <span className="hidden sm:inline">Pilih</span>
                     </>
                   ) : (
                     <>
-                      <Plus className="w-3 h-3" />
-                      <span>Ambil</span>
+                      <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <span className="hidden sm:inline">Ambil</span>
                     </>
                   )}
                 </button>
