@@ -56,6 +56,11 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <Link
               to="/checkout"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+              }}
               className="relative flex items-center justify-center gap-2 bg-[#FFF9E6] text-[#3E2723] px-2.5 sm:px-4 py-1.5 sm:py-2.5 rounded-xl sm:rounded-2xl border-2 border-[#3E2723] font-heading font-bold text-xs sm:text-sm hover:bg-white transition-all shadow-[2px_2px_0px_#3E2723] sm:shadow-[3px_3px_0px_#3E2723] active:translate-y-0.5"
             >
               <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-[#3E2723]" />

@@ -604,6 +604,11 @@ export const Catalog: React.FC = () => {
       {totalItems > 0 && (
         <Link
           to="/checkout"
+          onClick={() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          }}
           aria-label="Buka Kantong Resep Obat"
           className="fixed bottom-4 sm:bottom-7 right-3 sm:right-7 z-40 group cursor-pointer animate-in zoom-in-90 duration-200"
         >
