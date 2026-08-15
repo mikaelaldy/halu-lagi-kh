@@ -35,13 +35,13 @@ h1, h2, h3, .font-heading {
    (Matching Reference Image: Teal Shelf Surface + Digital Price Tag Rails)
    ========================================================= */
 
-/* Warm Mart Background Canvas */
+/* Warm Cream Grid Background Canvas (#FFF9E6 Catalogue Theme) */
 .mart-shelf-canvas {
-  background-color: #F8BE19;
+  background-color: #FFF9E6;
   background-image:
-    radial-gradient(#F6C358 1.5px, transparent 1.5px),
-    linear-gradient(180deg, #FDBF18 0%, #F5B014 100%);
-  background-size: 20px 20px, 100% 100%;
+    linear-gradient(to right, rgba(61, 62, 83, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(61, 62, 83, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* Contact Shadow for Cutout Graphics */

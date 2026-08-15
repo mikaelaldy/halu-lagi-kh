@@ -23,7 +23,7 @@ export const ShelfDisplayRow: React.FC<ShelfDisplayRowProps> = ({
   const slots = Array.from({ length: columns }).map((_, index) => products[index] || null);
 
   return (
-    <div className="relative w-full mb-10 sm:mb-14 md:mb-16">
+    <div className="relative w-full">
       
       {/* 1. FREESTANDING MERCHANDISE RESTING ON TOP OF THE TEAL SHELF SURFACE */}
       <div
@@ -56,7 +56,7 @@ export const ShelfDisplayRow: React.FC<ShelfDisplayRowProps> = ({
       </div>
 
       {/* 2. ISOMETRIC 3D TEAL SHELF TOP SURFACE (PLANK) */}
-      <div className="relative z-20 w-full -mt-2">
+      <div className="relative z-20 w-full mt-2.5 sm:mt-3">
         {/* Top Teal Surface with 3D perspective depth */}
         <div className="relative h-5 sm:h-6 md:h-7 w-full">
           <svg

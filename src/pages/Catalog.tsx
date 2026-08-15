@@ -244,7 +244,7 @@ export const Catalog: React.FC = () => {
         {/* =========================================================================
             AUTHENTIC CONVENIENCE STORE & CLINIC DISPLAY SHELVES CONTAINER
            ========================================================================= */}
-        <div className="space-y-8 sm:space-y-12 pt-2">
+        <div className="space-y-6 sm:space-y-8 pt-2">
           {productShelves.length > 0 ? (
             productShelves.map((shelfProducts, shelfIndex) => (
               <ShelfDisplayRow
@@ -282,30 +282,33 @@ export const Catalog: React.FC = () => {
         onClose={() => setSelectedProduct(null)}
       />
 
-      {/* FLOATING CART SUMMARY BAR */}
+      {/* FLOATING CART SUMMARY (BOTTOM RIGHT - ENLARGED) */}
       {totalItems > 0 && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.5rem)] sm:w-[90%] max-w-lg bg-[#3E2723] text-white p-3 sm:p-4 rounded-3xl border-3 border-[#F6C358] shadow-[0_10px_30px_rgba(0,0,0,0.35)] flex items-center justify-between gap-3 sm:gap-4 animate-in slide-in-from-bottom-5">
-          <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-            <div className="shrink-0 w-9 h-9 sm:w-11 sm:h-11 bg-[#F6C358] rounded-xl sm:rounded-2xl flex items-center justify-center text-[#3E2723] font-bold text-lg border border-white">
-              <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div className="min-w-0">
-              <p className="font-heading font-bold text-xs leading-tight text-amber-200">
-                {totalItems} Obat di Kantung Resep
-              </p>
-              <p className="font-heading font-black text-base sm:text-xl leading-tight text-white">
-                {formatRupiah(totalPrice)}
-              </p>
-            </div>
+        <Link
+          to="/checkout"
+          className="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 z-40 bg-[#3E2723] hover:bg-[#2A1A17] text-white p-2.5 sm:p-3 pl-3 sm:pl-4 pr-3.5 sm:pr-4.5 rounded-full border-3 border-[#F6C358] shadow-[0_10px_30px_rgba(0,0,0,0.38)] flex items-center gap-3 sm:gap-3.5 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group animate-in slide-in-from-bottom-4"
+        >
+          <div className="relative shrink-0 w-10 h-10 sm:w-11 sm:h-11 bg-[#F6C358] rounded-full flex items-center justify-center text-[#3E2723] font-bold border-2 border-white shadow-xs">
+            <ShoppingBag className="w-5 h-5 text-[#3E2723]" />
+            <span className="absolute -top-1 -right-1 bg-[#FF4B4B] text-white text-[10px] sm:text-xs font-black px-1.5 py-0.5 rounded-full border border-[#3E2723] leading-none animate-bounce">
+              {totalItems}
+            </span>
           </div>
 
-          <Link
-            to="/checkout"
-            className="shrink-0 whitespace-nowrap bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-2xl font-heading font-black text-xs sm:text-sm flex items-center gap-1.5 border border-[#3E2723] shadow-sm transition-all active:translate-y-0.5"
-          >
-            Lanjut Checkout <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+          <div className="min-w-0 text-left pr-1">
+            <p className="font-heading font-bold text-[11px] sm:text-xs leading-tight text-amber-200">
+              {totalItems} Resep
+            </p>
+            <p className="font-heading font-black text-sm sm:text-base leading-tight text-white mt-0.5">
+              {formatRupiah(totalPrice)}
+            </p>
+          </div>
+
+          <div className="bg-[#F6C358] group-hover:bg-[#FDD835] text-[#3E2723] px-3.5 sm:px-4.5 py-2 sm:py-2.5 rounded-full font-heading font-black text-xs sm:text-sm flex items-center gap-1.5 border border-[#3E2723] shadow-xs shrink-0">
+            <span>Checkout</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </div>
+        </Link>
       )}
 
     </div>
