@@ -159,7 +159,19 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
                   <tr key={idx} className="hover:bg-amber-50/50">
                     <td className="p-3 text-[#3E2723]">
                       <div className="flex flex-col">
-                        <span className="font-bold">💊 {item.product.name}</span>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="font-bold">💊 {item.product.name}</span>
+                          {item.product.artist && (
+                            <span className="text-[9.5px] bg-[#00897B] text-white px-1.5 py-0.2 rounded font-mono font-bold">
+                              Dr. {item.product.artist}
+                            </span>
+                          )}
+                          {item.product.isClearance && (
+                            <span className="text-[9.5px] bg-[#E53935] text-white px-1.5 py-0.2 rounded font-mono font-bold">
+                              CLEARANCE
+                            </span>
+                          )}
+                        </div>
                         {item.selectedVariant && (
                           <span className="text-[11px] text-[#8D6E63] font-doodle pl-5">
                             ↳ Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>

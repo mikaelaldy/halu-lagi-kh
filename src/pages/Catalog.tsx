@@ -43,13 +43,20 @@ export const Catalog: React.FC = () => {
       const matchPoli = activePoli === 'all' ? true : p.poli === activePoli;
 
       // Level 2: Filter Category / Merch Type
-      const matchCategory = activeCategory === 'all' ? true : p.category === activeCategory;
+      let matchCategory = true;
+      if (activeCategory === 'clearance') {
+        matchCategory = Boolean(p.isClearance);
+      } else if (activeCategory !== 'all') {
+        matchCategory = p.category === activeCategory;
+      }
 
-      // Smart Search Query (Matches Product name, description, variant names, tags, codes)
+      // Smart Search Query (Matches Product name, artist, clearance, description, variant names, tags, codes)
       const q = searchQuery.toLowerCase().trim();
       const matchSearch =
         q === '' ||
         p.name.toLowerCase().includes(q) ||
+        (p.artist && p.artist.toLowerCase().includes(q)) ||
+        (p.isClearance && ('clearance'.includes(q) || 'sale'.includes(q))) ||
         (p.shelfTag && p.shelfTag.toLowerCase().includes(q)) ||
         (p.shelfSub && p.shelfSub.toLowerCase().includes(q)) ||
         (p.shelfCode && p.shelfCode.toLowerCase().includes(q)) ||
@@ -93,7 +100,18 @@ export const Catalog: React.FC = () => {
               <span className="bg-[#F6C358] text-[#3E2723] font-heading font-extrabold text-xs px-3 py-1 rounded-full border border-[#3E2723] flex items-center gap-1 shadow-xs">
                 <Store className="w-3.5 h-3.5" /> RAK ETALASE MART & KLINIK MERCH
               </span>
-              <span className="text-xs text-[#6D4C41] font-doodle font-bold">
+              <button
+                type="button"
+                onClick={() => handleCategoryChange(activeCategory === 'clearance' ? 'all' : 'clearance')}
+                className={`font-heading font-extrabold text-xs px-3 py-1 rounded-full border border-[#3E2723] flex items-center gap-1 shadow-xs transition-all cursor-pointer ${
+                  activeCategory === 'clearance'
+                    ? 'bg-[#E53935] text-white shadow-[2px_2px_0px_#3E2723]'
+                    : 'bg-red-100 hover:bg-red-200 text-[#E53935]'
+                }`}
+              >
+                🔥 Cuci Gudang Clearance
+              </button>
+              <span className="text-xs text-[#6D4C41] font-doodle font-bold hidden sm:inline">
                 Klinik Wibu Comifuro PO Official
               </span>
             </div>
@@ -199,15 +217,20 @@ export const Catalog: React.FC = () => {
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {CATEGORY_LIST.map((cat) => {
               const isSelected = activeCategory === cat.id;
+              const isClearance = cat.id === 'clearance';
 
               return (
                 <button
                   key={cat.id}
                   onClick={() => handleCategoryChange(cat.id)}
-                  className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs whitespace-nowrap transition-all border-2 border-[#3E2723] cursor-pointer flex items-center gap-1.5 ${
-                    isSelected
-                      ? 'bg-[#3E2723] text-white shadow-[3px_3px_0px_#F6C358]'
-                      : 'bg-white text-[#3E2723] hover:bg-[#FFF9E6] shadow-[2px_2px_0px_#3E2723]'
+                  className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs whitespace-nowrap transition-all border-2 cursor-pointer flex items-center gap-1.5 ${
+                    isClearance
+                      ? isSelected
+                        ? 'bg-[#E53935] text-white border-[#261A14] shadow-[3px_3px_0px_#261A14]'
+                        : 'bg-red-50 text-[#E53935] border-[#E53935] hover:bg-red-100 shadow-[2px_2px_0px_#E53935]'
+                      : isSelected
+                      ? 'bg-[#3E2723] text-white border-[#3E2723] shadow-[3px_3px_0px_#F6C358]'
+                      : 'bg-white text-[#3E2723] border-[#3E2723] hover:bg-[#FFF9E6] shadow-[2px_2px_0px_#3E2723]'
                   }`}
                 >
                   <span>{cat.icon}</span>

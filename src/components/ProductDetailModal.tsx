@@ -135,6 +135,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 <span className="bg-[#3E2723] text-white text-[10px] font-heading font-bold px-2 py-0.5 rounded-md uppercase">
                   {product.category}
                 </span>
+                {product.artist && (
+                  <span className="bg-[#00897B] text-white text-[10px] font-heading font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+                    🎨 Art by Dr. {product.artist}
+                  </span>
+                )}
+                {product.isClearance && (
+                  <span className="bg-[#E53935] text-white text-[10px] font-heading font-black px-2 py-0.5 rounded-md animate-pulse">
+                    🔥 CLEARANCE SALE
+                  </span>
+                )}
               </div>
 
               <h2 className="font-heading font-black text-lg sm:text-xl text-[#3E2723] leading-tight">
