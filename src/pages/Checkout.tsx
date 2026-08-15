@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { 
@@ -25,6 +25,10 @@ import { compressImage, submitOrderToGoogleScript } from '../services/orderServi
 export const Checkout: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingStatus, setSubmittingStatus] = useState<string>('Peracikan Resep Order...');

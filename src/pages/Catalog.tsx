@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { PRODUCTS, POLI_LIST, CATEGORY_LIST, PoliType, MerchCategory, Product } from '../data/products';
 import { ShelfDisplayRow } from '../components/ShelfDisplayRow';
@@ -17,6 +17,17 @@ export const Catalog: React.FC = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isPoliOpen, setIsPoliOpen] = useState(true);
   const [isCategoryOpen, setIsCategoryOpen] = useState(true);
+
+  useEffect(() => {
+    if (isMobileFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileFilterOpen]);
 
   const { totalItems, totalPrice } = useCart();
   const shelfColumns = useResponsiveShelfColumns();

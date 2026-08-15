@@ -13,7 +13,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   const [showCatalogPage, setShowCatalogPage] = useState(false);
 
-  // Initialize or reset selected variant when product changes
+  // Initialize or reset selected variant when product changes and lock body scroll
   useEffect(() => {
     if (product && product.variants && product.variants.length > 0) {
       setSelectedVariant(product.variants[0]);
@@ -21,6 +21,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
       setSelectedVariant(null);
     }
     setShowCatalogPage(false);
+
+    if (product) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [product]);
 
   if (!product) return null;
