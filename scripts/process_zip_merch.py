@@ -3,6 +3,8 @@ import os
 import re
 import json
 
+from PIL import Image
+
 ZIP_PATH = "Daftar produk halu lagi kh.zip"
 DEST_DIR = "public/images/catalog/items"
 
@@ -13,7 +15,7 @@ ARTISTS = ["RD", "AYD", "ENN", "CHKN", "TSN", "LUKI", "DNE", "MERU"]
 def clean_slug(name):
     name_no_ext = os.path.splitext(name)[0]
     slug = re.sub(r'[^a-zA-Z0-9]+', '-', name_no_ext.lower()).strip('-')
-    return slug + ".png"
+    return slug + ".webp"
 
 products_meta = []
 
@@ -27,9 +29,17 @@ with zipfile.ZipFile(ZIP_PATH, 'r') as z:
         slug_filename = clean_slug(filename)
         dest_path = os.path.join(DEST_DIR, slug_filename)
         
-        # Extract file
-        with z.open(info) as src_file, open(dest_path, 'wb') as dst_file:
-            dst_file.write(src_file.read())
+        # Extract and convert to WebP
+        with z.open(info) as src_file:
+            with Image.open(src_file) as img:
+                if img.mode in ('P', 'PA'):
+                    img = img.convert('RGBA')
+                elif img.mode not in ('RGB', 'RGBA', 'L', 'LA'):
+                    img = img.convert('RGBA')
+                if max(img.size) > 900:
+                    ratio = 900 / float(max(img.size))
+                    img = img.resize((int(img.size[0] * ratio), int(img.size[1] * ratio)), Image.Resampling.LANCZOS)
+                img.save(dest_path, 'WEBP', quality=88, method=4)
         
         # Parse metadata
         raw_base = os.path.splitext(filename)[0]

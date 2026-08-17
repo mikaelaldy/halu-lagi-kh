@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Product, ProductVariant } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { X, Plus, Minus, ShoppingBag, Pill, Sparkles, Store, ShieldCheck, CheckCircle2, FileText, AlertCircle, Sparkle } from 'lucide-react';
+import { OptimizedImage } from './OptimizedImage';
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -102,10 +103,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
             {/* Image Preview with Zoom / Catalog Switcher */}
             <div className="space-y-2">
               <div className="relative aspect-square rounded-2xl overflow-hidden border-3 border-[#3E2723] bg-amber-50 shadow-[4px_4px_0px_#3E2723] flex items-center justify-center group">
-                <img
+                <OptimizedImage
                   src={showCatalogPage && product.catalogPageImage ? product.catalogPageImage : product.image}
                   alt={product.name}
+                  priority={true}
+                  showPlaceholder={true}
+                  objectFit="contain"
                   className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                  containerClassName="w-full h-full"
                 />
                 
                 {product.badge && (

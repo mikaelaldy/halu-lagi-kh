@@ -36,6 +36,8 @@ def enrich_item(item, idx):
     shelf_code = f"HLK-{raw_artist_code}-{cat[:2].upper()}{idx+1:02d}"
     barcode = f"4 901234 {560000 + idx + 1}"
     
+    variants = None
+    
     # Specific tailoring
     if "GENSHIN DATE" in raw:
         name = "Photocard Genshin Date Series"
@@ -205,8 +207,12 @@ def enrich_item(item, idx):
     elif "HTTD FROSTED" in raw:
         name = "Frosted Keychain How To Train Your Dragon"
         size = "6 x 5 cm Frosted Acrylic"
-        desc = "Gantungan kunci akrilik doff Toothless & Light Fury dengan efek frosted elegan."
+        desc = "Gantungan kunci akrilik doff Toothless & Light Fury dengan efek frosted elegan. Tersedia 2 pilihan karakter: Toothless (Hitam / Kiri) & Light Fury (Putih / Kanan)."
         dosage = "Pendamping setia perjalanan menjelajahi langit mimpi."
+        variants = [
+            {"id": "toothless", "name": "Toothless (Hitam / Kiri)"},
+            {"id": "light-fury", "name": "Light Fury (Putih / Kanan)"}
+        ]
     elif "GAME MC" in raw and cat == "pin":
         name = "Can Badge Pin Game MC Protagonist"
         size = "58mm Matte Pin"
@@ -232,7 +238,7 @@ def enrich_item(item, idx):
         "image": item["image"],
         "artist": artist,
         "isClearance": is_clearance,
-        "catalogPageImage": "/images/catalog/pages/page-2.png",
+        "catalogPageImage": "/images/catalog/pages/page-2.webp",
         "description": desc,
         "size": size,
         "badge": badge,
@@ -243,6 +249,8 @@ def enrich_item(item, idx):
         "shelfCode": shelf_code,
         "visualType": cat
     }
+    if variants:
+        prod["variants"] = variants
     if is_clearance:
         prod["originalPrice"] = item["price"] + 3000
     return prod

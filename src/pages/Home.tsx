@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { CLINIC_INFO } from '../data/products';
+import { OptimizedImage } from '../components/OptimizedImage';
 
 export const Home: React.FC = () => {
   return (
@@ -60,12 +61,16 @@ export const Home: React.FC = () => {
               
               {/* Authentic PDF Cover Image Graphic */}
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#3E2723] bg-amber-50 shadow-inner group">
-                <img
-                  src="/images/catalog/pages/page-1.png"
+                <OptimizedImage
+                  src="/images/catalog/pages/page-1.webp"
                   alt="Halu Lagi Kh Cover"
+                  priority={true}
+                  showPlaceholder={true}
+                  objectFit="cover"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  containerClassName="w-full h-full"
                 />
-                <div className="absolute top-2 right-2 bg-[#F6C358] text-[#3E2723] text-[10px] font-heading font-black px-2.5 py-1 rounded-full border border-[#3E2723] shadow-xs">
+                <div className="absolute top-2 right-2 bg-[#F6C358] text-[#3E2723] text-[10px] font-heading font-black px-2.5 py-1 rounded-full border border-[#3E2723] shadow-xs z-10">
                   KATALOG RESMI
                 </div>
               </div>

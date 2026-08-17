@@ -1,17 +1,20 @@
 import React from 'react';
 import { Product } from '../data/products';
-import { Eye, ShoppingBag, Sparkles, Tag } from 'lucide-react';
+import { Eye, ShoppingBag } from 'lucide-react';
+import { OptimizedImage } from './OptimizedImage';
 
 interface ProductCutoutGraphicProps {
   product: Product;
   onClickDetail: () => void;
   currentQty: number;
+  priority?: boolean;
 }
 
 export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
   product,
   onClickDetail,
-  currentQty
+  currentQty,
+  priority = false
 }) => {
   return (
     <div
@@ -35,11 +38,13 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
 
       {/* DIRECT UNWRAPPED PRODUCT CUTOUT ARTWORK */}
       <div className="relative w-full h-36 sm:h-52 md:h-64 lg:h-72 flex items-end justify-center p-1 sm:p-2">
-        <img
+        <OptimizedImage
           src={product.image}
           alt={product.name}
-          loading="lazy"
+          priority={priority}
+          objectFit="contain"
           className="max-h-full max-w-full w-auto h-auto object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.2)] sm:drop-shadow-[0_8px_16px_rgba(0,0,0,0.22)] group-hover:scale-108 group-hover:drop-shadow-[0_16px_28px_rgba(0,0,0,0.35)] transition-transform duration-300"
+          containerClassName="w-full h-full flex items-end justify-center"
         />
       </div>
 

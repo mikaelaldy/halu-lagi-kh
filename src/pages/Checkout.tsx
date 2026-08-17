@@ -21,6 +21,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { compressImage, submitOrderToGoogleScript } from '../services/orderService';
+import { OptimizedImage } from '../components/OptimizedImage';
 
 export const Checkout: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
@@ -713,10 +714,12 @@ export const Checkout: React.FC = () => {
                   key={item.id}
                   className="bg-[#FFFCF5] p-3 rounded-2xl border-2 border-[#3E2723] flex items-center gap-3 shadow-xs"
                 >
-                  <img
+                  <OptimizedImage
                     src={item.product.image}
                     alt={item.product.name}
-                    className="w-14 h-14 object-contain p-1 rounded-xl border border-[#3E2723] bg-amber-50/50 shrink-0"
+                    objectFit="contain"
+                    className="w-full h-full object-contain p-1"
+                    containerClassName="w-14 h-14 rounded-xl border border-[#3E2723] bg-amber-50/50 shrink-0"
                   />
 
                   <div className="flex-1 min-w-0">

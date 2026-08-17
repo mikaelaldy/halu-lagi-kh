@@ -49,6 +49,7 @@ export const ShelfDisplayRow: React.FC<ShelfDisplayRowProps> = ({
                 product={product}
                 onClickDetail={() => onSelectProduct(product)}
                 currentQty={currentQty}
+                priority={shelfIndex === 0}
               />
             </div>
           );

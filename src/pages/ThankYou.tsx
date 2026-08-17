@@ -24,7 +24,7 @@ export const ThankYou: React.FC = () => {
     poli: 'aov' as const,
     category: 'sticker' as const,
     price: 15000,
-    image: '/images/catalog/pages/page-2.png',
+    image: '/images/catalog/pages/page-2.webp',
     description: 'Sticker Chibi'
   };
 
