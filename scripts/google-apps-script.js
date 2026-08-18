@@ -327,12 +327,6 @@ function initStockCatalog() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = setupStockSheetIfNeeded(ss);
 
-  // Jika sudah ada data, jangan timpa kecuali baris header saja
-  if (sheet.getLastRow() > 1) {
-    Logger.log("Tab Stok_Produk sudah memiliki data. Tidak menimpa.");
-    return;
-  }
-
   // Data katalog awal hasil ekstraksi products.ts
   const SEED_ITEMS = [
     ["hlk-photocard-sale-ayd-genshin-date", "genshin", "Photocard Genshin Date Series", "-", "Limited", 10, "Clearance"],
@@ -384,9 +378,8 @@ function initStockCatalog() {
     ["hlk-photocard-sale-rd-genshin-male", "genshin", "Photocard Genshin Male", "-", "Limited", 10, "Clearance"]
   ];
 
-  for (let i = 0; i < SEED_ITEMS.length; i++) {
-    sheet.appendRow(SEED_ITEMS[i]);
-  }
+  // Tulis seluruh baris secara instan ke spreadsheet
+  sheet.getRange(2, 1, SEED_ITEMS.length, SEED_ITEMS[0].length).setValues(SEED_ITEMS);
 
   sheet.setColumnWidth(1, 260); // Item ID
   sheet.setColumnWidth(2, 100); // Poli
