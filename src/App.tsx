@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { CartProvider } from './context/CartContext';
 import { StockProvider } from './context/StockContext';
 import { Navbar } from './components/Navbar';
@@ -28,6 +29,7 @@ export const App: React.FC = () => {
             </main>
             <Footer />
           </div>
+          <Analytics />
         </Router>
       </CartProvider>
     </StockProvider>
