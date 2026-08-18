@@ -1,7 +1,8 @@
 import React from 'react';
 import { Product } from '../data/products';
-import { Eye, ShoppingBag } from 'lucide-react';
+import { Eye, ShoppingBag, AlertTriangle } from 'lucide-react';
 import { OptimizedImage } from './OptimizedImage';
+import { useStock } from '../context/StockContext';
 
 interface ProductCutoutGraphicProps {
   product: Product;
@@ -16,6 +17,12 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
   currentQty,
   priority = false
 }) => {
+  const { isProductAllVariantsSoldOut, isLowStock, getAvailableStock } = useStock();
+  const allSoldOut = isProductAllVariantsSoldOut(product);
+  const singleVariantId = product.variants?.[0]?.id;
+  const isSingleLowStock = (!product.variants || product.variants.length <= 1) && isLowStock(product.id, singleVariantId);
+  const availableQty = getAvailableStock(product.id, singleVariantId);
+
   return (
     <div
       onClick={onClickDetail}
@@ -29,6 +36,21 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
         </div>
       )}
 
+      {/* Sold Out Badge Stamp Overlay */}
+      {allSoldOut && (
+        <div className="absolute top-4 z-30 bg-red-600 text-white font-heading font-black text-[10px] sm:text-xs px-3 py-1 rounded-full border-2 border-white shadow-lg tracking-wider uppercase rotate-[-6deg] animate-pulse">
+          HABIS / SOLD OUT
+        </div>
+      )}
+
+      {/* Low Stock Warning Pill on Cutout */}
+      {!allSoldOut && isSingleLowStock && (
+        <div className="absolute top-2 left-1 sm:left-3 z-30 bg-amber-500 text-white font-heading font-black text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full border border-[#261A14] shadow-xs flex items-center gap-1">
+          <AlertTriangle className="w-2.5 h-2.5 text-white" />
+          <span>Sisa {availableQty} pcs!</span>
+        </div>
+      )}
+
       {/* Quick View Hover Pill */}
       <div className="absolute top-2 right-2 sm:right-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none hidden sm:block">
         <span className="bg-[#261A14]/90 backdrop-blur-xs text-white text-[10px] sm:text-xs font-heading font-bold px-2.5 py-1 rounded-full border border-[#F6C358] shadow-md flex items-center gap-1 whitespace-nowrap">
@@ -37,7 +59,7 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
       </div>
 
       {/* DIRECT UNWRAPPED PRODUCT CUTOUT ARTWORK */}
-      <div className="relative w-full h-36 sm:h-52 md:h-64 lg:h-72 flex items-end justify-center p-1 sm:p-2">
+      <div className={`relative w-full h-36 sm:h-52 md:h-64 lg:h-72 flex items-end justify-center p-1 sm:p-2 transition-all duration-300 ${allSoldOut ? 'opacity-55 grayscale-[60%]' : ''}`}>
         <OptimizedImage
           src={product.image}
           alt={product.name}

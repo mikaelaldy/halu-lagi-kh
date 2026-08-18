@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Product, ProductVariant } from '../data/products';
 import { useCart } from '../context/CartContext';
-import { X, Plus, Minus, ShoppingBag, Pill, Sparkles, Store, ShieldCheck, CheckCircle2, FileText, AlertCircle, Sparkle } from 'lucide-react';
+import { useStock } from '../context/StockContext';
+import { X, Plus, Minus, ShoppingBag, Pill, Sparkles, Store, ShieldCheck, FileText, AlertCircle, Sparkle, CheckCircle, Ban } from 'lucide-react';
 import { OptimizedImage } from './OptimizedImage';
 
 interface ProductDetailModalProps {
@@ -11,6 +12,7 @@ interface ProductDetailModalProps {
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClose }) => {
   const { cart, addToCart, updateQuantity, removeFromCart } = useCart();
+  const { isSoldOut, isLowStock, getAvailableStock } = useStock();
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   const [showCatalogPage, setShowCatalogPage] = useState(false);
 
@@ -40,6 +42,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const cartItem = cart.find((item) => item.id === currentItemId);
   const currentQty = cartItem ? cartItem.quantity : 0;
 
+  const selectedVariantSoldOut = isSoldOut(product.id, selectedVariant?.id);
+  const selectedVariantLowStock = isLowStock(product.id, selectedVariant?.id);
+  const availableStock = getAvailableStock(product.id, selectedVariant?.id);
+
   const formatRupiah = (val: number) => {
     return new Intl.NumberFormat('id-ID', {
       style: 'currency',
@@ -49,6 +55,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   };
 
   const handleAdd = () => {
+    if (selectedVariantSoldOut) return;
+    if (currentQty >= availableStock) return;
+
     if (currentQty === 0) {
       addToCart(product, 1, selectedVariant || undefined);
     } else {
@@ -109,7 +118,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   priority={true}
                   showPlaceholder={true}
                   objectFit="contain"
-                  className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                  className={`w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105 ${selectedVariantSoldOut ? 'opacity-60 grayscale-[50%]' : ''}`}
                   containerClassName="w-full h-full"
                 />
                 
@@ -117,6 +126,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   <div className="absolute top-2 left-2 bg-[#FF4B4B] text-white font-heading font-black text-[10px] px-2 py-0.5 rounded-md border border-[#3E2723] shadow-xs flex items-center gap-1">
                     <Sparkles className="w-3 h-3" />
                     {product.badge}
+                  </div>
+                )}
+
+                {selectedVariantSoldOut && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span className="bg-red-600 text-white font-heading font-black text-xs sm:text-sm px-4 py-1.5 rounded-full border-2 border-white shadow-xl rotate-[-8deg] uppercase tracking-wider">
+                      HABIS / SOLD OUT
+                    </span>
                   </div>
                 )}
 
@@ -182,7 +199,25 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 )}
               </div>
 
-              <div className="bg-amber-50 border-2 border-dashed border-[#F6C358] p-3 rounded-xl text-xs space-y-1">
+              {/* Real-time Stock Status Banner */}
+              {selectedVariantSoldOut ? (
+                <div className="bg-red-100 border-2 border-red-500 p-2.5 rounded-xl text-xs text-red-900 font-bold flex items-center gap-2">
+                  <Ban className="w-4 h-4 text-red-600 shrink-0" />
+                  <span>Stok habis / sold out untuk varian ini.</span>
+                </div>
+              ) : selectedVariantLowStock ? (
+                <div className="bg-amber-100 border-2 border-amber-500 p-2.5 rounded-xl text-xs text-amber-900 font-bold flex items-center gap-2 animate-pulse">
+                  <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Stok terbatas! Hanya tersisa <strong>{availableStock} pcs</strong> di gudang.</span>
+                </div>
+              ) : (
+                <div className="bg-emerald-50 border-2 border-emerald-400 p-2 rounded-xl text-[11px] text-emerald-900 font-bold flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Stok tersedia untuk Pre-Order Comifuro.</span>
+                </div>
+              )}
+
+              <div className="bg-amber-50 border-2 border-dashed border-[#F6C358] p-2.5 rounded-xl text-xs space-y-1">
                 <div className="flex items-center justify-between text-[#6D4C41] font-mono text-[11px]">
                   <span>SKU: {product.shelfCode || product.id}</span>
                   <span>Barcode: {product.barcode || '4 901234'}</span>
@@ -214,6 +249,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   const isSelected = selectedVariant?.id === variant.id;
                   const variantCartId = `${product.id}__${variant.id}`;
                   const variantQty = cart.find((i) => i.id === variantCartId)?.quantity || 0;
+                  const varSoldOut = isSoldOut(product.id, variant.id);
+                  const varLowStock = isLowStock(product.id, variant.id);
+                  const varStock = getAvailableStock(product.id, variant.id);
 
                   return (
                     <button
@@ -223,29 +261,37 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                       className={`relative p-2 rounded-xl text-left text-xs font-heading font-bold border-2 transition-all cursor-pointer flex items-center justify-between gap-1.5 ${
                         isSelected
                           ? 'bg-[#3E2723] text-white border-[#3E2723] shadow-[2px_2px_0px_#F6C358]'
+                          : varSoldOut
+                          ? 'bg-gray-100 text-gray-400 border-gray-300'
                           : 'bg-white text-[#3E2723] border-[#3E2723]/60 hover:border-[#3E2723] hover:bg-amber-50'
                       }`}
                     >
-                      <span className="truncate">{variant.name}</span>
-                      {variant.isLimited && (
-                        <span className="shrink-0 w-2 h-2 rounded-full bg-red-500" title="Limited Stock" />
-                      )}
-                      {variantQty > 0 && (
+                      <span className="truncate">
+                        {variant.name} {varSoldOut ? '(Habis)' : varLowStock ? `(${varStock} pcs)` : ''}
+                      </span>
+                      {varSoldOut ? (
+                        <span className="shrink-0 text-[9px] font-black text-red-500">HABIS</span>
+                      ) : variantQty > 0 ? (
                         <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-[#F6C358] text-[#3E2723] text-[9px] font-black leading-none">
                           {variantQty}x
                         </span>
-                      )}
+                      ) : null}
                     </button>
                   );
                 })}
               </div>
 
-              {selectedVariant?.isLimited && (
+              {selectedVariantSoldOut ? (
                 <div className="text-[11px] text-red-600 font-bold flex items-center gap-1">
                   <AlertCircle className="w-3.5 h-3.5" />
+                  Varian <strong>{selectedVariant?.name}</strong> saat ini habis. Silakan pilih varian karakter lainnya!
+                </div>
+              ) : selectedVariant?.isLimited ? (
+                <div className="text-[11px] text-amber-800 font-bold flex items-center gap-1">
+                  <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
                   Varian ini bertanda <strong>LIMITED STOCK</strong> di katalog fisik. Segera pesan sebelum kehabisan!
                 </div>
-              )}
+              ) : null}
             </div>
           )}
 
@@ -288,12 +334,25 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               {selectedVariant ? `Jumlah (${selectedVariant.name})` : 'Jumlah di Kantung'}
             </span>
             <span className="font-heading font-black text-base sm:text-lg text-[#3E2723]">
-              {currentQty > 0 ? `${currentQty} pcs` : 'Belum ada di resep'}
+              {selectedVariantSoldOut
+                ? 'Stok Habis'
+                : currentQty > 0
+                ? `${currentQty} pcs`
+                : 'Belum ada di resep'}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            {currentQty > 0 ? (
+            {selectedVariantSoldOut ? (
+              <button
+                type="button"
+                disabled
+                className="bg-gray-200 text-gray-500 font-heading font-black text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-2xl border-2 border-gray-400 cursor-not-allowed flex items-center gap-2"
+              >
+                <Ban className="w-4 h-4" />
+                Varian Habis / Sold Out
+              </button>
+            ) : currentQty > 0 ? (
               <div className="flex items-center gap-2 bg-[#FFF9E6] p-1 rounded-2xl border-2 border-[#3E2723]">
                 <button
                   type="button"
@@ -308,7 +367,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 <button
                   type="button"
                   onClick={handleAdd}
-                  className="w-8 h-8 bg-[#F6C358] text-[#3E2723] hover:bg-amber-400 rounded-xl border border-[#3E2723] flex items-center justify-center font-black cursor-pointer"
+                  disabled={currentQty >= availableStock}
+                  className={`w-8 h-8 rounded-xl border border-[#3E2723] flex items-center justify-center font-black ${
+                    currentQty >= availableStock
+                      ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                      : 'bg-[#F6C358] text-[#3E2723] hover:bg-amber-400 cursor-pointer'
+                  }`}
+                  title={currentQty >= availableStock ? `Maksimal stok tersedia: ${availableStock} pcs` : 'Tambah'}
                 >
                   <Plus className="w-4 h-4" />
                 </button>

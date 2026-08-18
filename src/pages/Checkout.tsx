@@ -22,9 +22,11 @@ import {
 } from 'lucide-react';
 import { compressImage, submitOrderToGoogleScript } from '../services/orderService';
 import { OptimizedImage } from '../components/OptimizedImage';
+import { useStock } from '../context/StockContext';
 
 export const Checkout: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
+  const { getAvailableStock, isSoldOut, refreshStocks } = useStock();
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
@@ -127,6 +129,14 @@ export const Checkout: React.FC = () => {
 
     if (!paymentFile && !previewUrl) {
       alert('Mohon unggah (upload) foto Bukti Pembayaran transfer kamu terlebih dahulu!');
+      return;
+    }
+
+    // Validasi stok sebelum submit
+    const soldOutItem = cart.find((i) => isSoldOut(i.product.id, i.selectedVariant?.id));
+    if (soldOutItem) {
+      const varName = soldOutItem.selectedVariant ? ` (Varian: ${soldOutItem.selectedVariant.name})` : '';
+      alert(`Maaf, barang "${soldOutItem.product.name}${varName}" saat ini sudah HABIS / SOLD OUT. Mohon hapus dari kantung resep kamu terlebih dahulu.`);
       return;
     }
 
@@ -709,63 +719,98 @@ export const Checkout: React.FC = () => {
 
             {/* Cart Items List */}
             <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-              {cart.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-[#FFFCF5] p-3 rounded-2xl border-2 border-[#3E2723] flex items-center gap-3 shadow-xs"
-                >
-                  <OptimizedImage
-                    src={item.product.image}
-                    alt={item.product.name}
-                    objectFit="contain"
-                    className="w-full h-full object-contain p-1"
-                    containerClassName="w-14 h-14 rounded-xl border border-[#3E2723] bg-amber-50/50 shrink-0"
-                  />
+              {cart.map((item) => {
+                const itemAvailableStock = getAvailableStock(item.product.id, item.selectedVariant?.id);
+                const isItemSoldOut = isSoldOut(item.product.id, item.selectedVariant?.id);
 
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-heading font-bold text-xs text-[#3E2723] truncate">
-                      {item.product.name}
-                    </h4>
-                    {item.selectedVariant && (
-                      <span className="text-[11px] text-[#8D6E63] font-doodle block truncate">
-                        Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
-                      </span>
-                    )}
-                    <p className="text-xs text-[#FF4B4B] font-black mt-0.5">
-                      {formatRupiah(item.product.price)}
-                    </p>
-
-                    {/* Quantity controls */}
-                    <div className="flex items-center gap-2 mt-1.5">
-                      <button
-                        type="button"
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200 cursor-pointer"
-                      >
-                        <Minus className="w-3 h-3" />
-                      </button>
-                      <span className="font-heading font-bold text-xs px-2">
-                        {item.quantity}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200 cursor-pointer"
-                      >
-                        <Plus className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => removeFromCart(item.id)}
-                    className="text-red-500 hover:text-red-700 p-1.5 rounded-lg hover:bg-red-50 cursor-pointer shrink-0"
+                return (
+                  <div
+                    key={item.id}
+                    className={`p-3 rounded-2xl border-2 flex items-center gap-3 shadow-xs ${
+                      isItemSoldOut
+                        ? 'bg-red-50/70 border-red-400'
+                        : 'bg-[#FFFCF5] border-[#3E2723]'
+                    }`}
                   >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-              ))}
+                    <OptimizedImage
+                      src={item.product.image}
+                      alt={item.product.name}
+                      objectFit="contain"
+                      className={`w-full h-full object-contain p-1 ${isItemSoldOut ? 'grayscale opacity-60' : ''}`}
+                      containerClassName="w-14 h-14 rounded-xl border border-[#3E2723] bg-amber-50/50 shrink-0"
+                    />
+
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <h4 className="font-heading font-bold text-xs text-[#3E2723] truncate">
+                          {item.product.name}
+                        </h4>
+                        {isItemSoldOut && (
+                          <span className="bg-red-600 text-white text-[9px] font-black px-1.5 py-0.2 rounded-md">
+                            HABIS
+                          </span>
+                        )}
+                      </div>
+                      {item.selectedVariant && (
+                        <span className="text-[11px] text-[#8D6E63] font-doodle block truncate">
+                          Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
+                        </span>
+                      )}
+                      
+                      <div className="flex items-center justify-between mt-0.5">
+                        <p className="text-xs text-[#FF4B4B] font-black">
+                          {formatRupiah(item.product.price)}
+                        </p>
+                        {itemAvailableStock < 999 && !isItemSoldOut && (
+                          <span className="text-[10px] text-amber-800 font-bold">
+                            Sisa: {itemAvailableStock}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Quantity controls */}
+                      <div className="flex items-center gap-2 mt-1.5">
+                        <button
+                          type="button"
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className="w-6 h-6 bg-amber-100 rounded-md flex items-center justify-center text-[#3E2723] font-bold border border-[#3E2723] hover:bg-amber-200 cursor-pointer"
+                        >
+                          <Minus className="w-3 h-3" />
+                        </button>
+                        <span className="font-heading font-bold text-xs px-2">
+                          {item.quantity}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          disabled={item.quantity >= itemAvailableStock || isItemSoldOut}
+                          className={`w-6 h-6 rounded-md flex items-center justify-center font-bold border border-[#3E2723] ${
+                            item.quantity >= itemAvailableStock || isItemSoldOut
+                              ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-400'
+                              : 'bg-amber-100 text-[#3E2723] hover:bg-amber-200 cursor-pointer'
+                          }`}
+                          title={
+                            item.quantity >= itemAvailableStock
+                              ? `Maksimal stok: ${itemAvailableStock} pcs`
+                              : 'Tambah'
+                          }
+                        >
+                          <Plus className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => removeFromCart(item.id)}
+                      className="text-red-500 hover:text-red-700 p-1.5 rounded-lg hover:bg-red-50 cursor-pointer shrink-0"
+                      title="Hapus dari resep"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Total Calculation */}

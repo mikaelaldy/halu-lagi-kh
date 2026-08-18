@@ -1,7 +1,8 @@
 import React from 'react';
 import { Product } from '../data/products';
 import { useCart } from '../context/CartContext';
-import { Plus, Minus, Info, Sparkles } from 'lucide-react';
+import { useStock } from '../context/StockContext';
+import { Plus, Minus, Info, Sparkles, AlertTriangle } from 'lucide-react';
 
 interface ShelfTagLabelProps {
   product: Product;
@@ -10,11 +11,21 @@ interface ShelfTagLabelProps {
 
 export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDetail }) => {
   const { cart, addToCart, updateQuantity, removeFromCart } = useCart();
+  const { isSoldOut, isLowStock, getAvailableStock, isProductAllVariantsSoldOut } = useStock();
 
   const productCartItems = cart.filter((item) => item.product.id === product.id);
   const totalQty = productCartItems.reduce((acc, i) => acc + i.quantity, 0);
 
   const hasMultipleVariants = Boolean(product.variants && product.variants.length > 1);
+  const defaultVariant = product.variants?.[0];
+  const singleItemId = defaultVariant ? `${product.id}__${defaultVariant.id}` : product.id;
+
+  const itemSoldOut = hasMultipleVariants
+    ? isProductAllVariantsSoldOut(product)
+    : isSoldOut(product.id, defaultVariant?.id);
+
+  const itemLowStock = !hasMultipleVariants && isLowStock(product.id, defaultVariant?.id);
+  const availableStock = hasMultipleVariants ? 999 : getAvailableStock(product.id, defaultVariant?.id);
 
   const handleAction = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -23,11 +34,18 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
       return;
     }
 
+    if (itemSoldOut) {
+      return;
+    }
+
+    if (totalQty >= availableStock) {
+      return;
+    }
+
     if (totalQty === 0) {
-      addToCart(product, 1, product.variants?.[0]);
+      addToCart(product, 1, defaultVariant);
     } else {
-      const defaultItemId = product.variants?.[0] ? `${product.id}__${product.variants[0].id}` : product.id;
-      updateQuantity(defaultItemId, totalQty + 1);
+      updateQuantity(singleItemId, totalQty + 1);
     }
   };
 
@@ -38,11 +56,10 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
       return;
     }
 
-    const defaultItemId = product.variants?.[0] ? `${product.id}__${product.variants[0].id}` : product.id;
     if (totalQty <= 1) {
-      removeFromCart(defaultItemId);
+      removeFromCart(singleItemId);
     } else {
-      updateQuantity(defaultItemId, totalQty - 1);
+      updateQuantity(singleItemId, totalQty - 1);
     }
   };
 
@@ -67,14 +84,16 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
           <div>
             <div
               className={`font-heading font-black text-[8.5px] sm:text-[10.5px] md:text-[11.5px] leading-none tracking-tight italic truncate ${
-                product.isClearance || tagBadge === 'Clearance' || tagBadge === 'Hot!' || tagBadge === 'Limited!'
+                itemSoldOut
+                  ? 'text-[#9E9E9E]'
+                  : product.isClearance || tagBadge === 'Clearance' || tagBadge === 'Hot!' || tagBadge === 'Limited!'
                   ? 'text-[#E53935]'
                   : tagBadge === 'Top 1'
                   ? 'text-[#261A14]'
                   : 'text-[#00897B]'
               }`}
             >
-              {product.isClearance ? 'CLEARANCE' : tagBadge}
+              {itemSoldOut ? 'SOLD OUT' : product.isClearance ? 'CLEARANCE' : tagBadge}
             </div>
             <div className="text-[7px] sm:text-[8.5px] font-bold text-[#8D6E63] font-mono leading-tight mt-1 uppercase truncate">
               {product.category}
@@ -114,15 +133,27 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
               </button>
             </div>
 
-            {/* Doctor Attribution Pill */}
-            {product.artist && (
-              <div className="mt-1 flex items-center gap-1.5">
+            {/* Doctor Attribution Pill & Stock Alert Pill */}
+            <div className="mt-1 flex flex-wrap items-center gap-1.5">
+              {product.artist && (
                 <span className="text-[9px] sm:text-[10px] md:text-[10.5px] font-bold text-[#00695C] bg-[#E0F2F1] px-1.5 py-0.2 rounded border border-[#80CBC4] inline-flex items-center gap-1 leading-normal truncate">
                   <span className="text-[8px] sm:text-[9px]">🩺</span>
                   <span className="truncate">Dr. {product.artist}</span>
                 </span>
-              </div>
-            )}
+              )}
+
+              {/* Real-Time Stock Badges */}
+              {itemSoldOut ? (
+                <span className="text-[8.5px] sm:text-[9.5px] font-black text-white bg-red-600 px-1.5 py-0.2 rounded border border-red-800 inline-flex items-center gap-0.5 leading-normal">
+                  HABIS
+                </span>
+              ) : itemLowStock ? (
+                <span className="text-[8.5px] sm:text-[9.5px] font-black text-amber-900 bg-amber-200 px-1.5 py-0.2 rounded border border-amber-400 inline-flex items-center gap-0.5 leading-normal animate-pulse">
+                  <AlertTriangle className="w-2.5 h-2.5 text-amber-800" />
+                  Sisa {availableStock} pcs
+                </span>
+              ) : null}
+            </div>
 
             {/* Concise Product Description */}
             <p className="text-[8.5px] sm:text-[9.5px] text-[#5D4037] line-clamp-1 leading-tight mt-1">
@@ -157,7 +188,15 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
 
             {/* Interactive Quantity Stepper / Quick Add Button */}
             <div className="shrink-0">
-              {totalQty > 0 ? (
+              {itemSoldOut && !hasMultipleVariants ? (
+                <button
+                  type="button"
+                  disabled
+                  className="bg-gray-200 text-gray-500 font-heading font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-lg border border-gray-400 cursor-not-allowed opacity-75"
+                >
+                  Habis
+                </button>
+              ) : totalQty > 0 ? (
                 <div className="flex items-center gap-0.5 bg-[#FFF9E6] border border-[#261A14] rounded-lg p-0.5 shadow-2xs">
                   {!hasMultipleVariants && (
                     <button
@@ -179,8 +218,19 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
                   <button
                     type="button"
                     onClick={handleAction}
-                    className="w-4 h-4 sm:w-5 sm:h-5 bg-[#F6C358] text-[#261A14] hover:bg-amber-400 rounded border border-[#261A14] flex items-center justify-center font-bold text-[10px] cursor-pointer active:scale-95"
-                    title={hasMultipleVariants ? 'Pilih varian lain' : 'Tambah'}
+                    disabled={!hasMultipleVariants && totalQty >= availableStock}
+                    className={`w-4 h-4 sm:w-5 sm:h-5 rounded border border-[#261A14] flex items-center justify-center font-bold text-[10px] ${
+                      !hasMultipleVariants && totalQty >= availableStock
+                        ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                        : 'bg-[#F6C358] text-[#261A14] hover:bg-amber-400 cursor-pointer active:scale-95'
+                    }`}
+                    title={
+                      !hasMultipleVariants && totalQty >= availableStock
+                        ? `Stok terbatas: maksimal ${availableStock} pcs`
+                        : hasMultipleVariants
+                        ? 'Pilih varian lain'
+                        : 'Tambah'
+                    }
                   >
                     <Plus className="w-2.5 h-2.5" />
                   </button>

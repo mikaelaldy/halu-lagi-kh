@@ -58,8 +58,47 @@ Panduan ini digunakan untuk memasang sistem penerima pesanan gratis tanpa server
 
 ---
 
-## 🎉 Selesai! Apa yang terjadi saat pembeli memesan?
+## 📦 Langkah 5: Inisialisasi & Pengelolaan Tab Stok (Stok_Produk)
 
-1. Data pesanan langsung tercatat rapi di Google Sheet.
-2. Foto bukti transfer otomatis tersimpan di folder Google Drive bernama **"Bukti Pembayaran Halu Lagi Kh"**.
-3. Email notifikasi berformat resep klinik otomatis masuk ke inbox Gmail admin.
+Sistem inventaris terhubung langsung dengan tab **`Stok_Produk`** di Google Spreadsheet Anda.
+
+### A. Inisialisasi Seluruh Produk ke Spreadsheet (1-Klik)
+1. Di editor Google Apps Script, perhatikan dropdown fungsi di bagian atas (di samping tombol **Debug** / **Run**).
+2. Pilih fungsi **`initStockCatalog`**.
+3. Klik tombol **Run (Jalankan)** ▶️.
+4. Tab baru bernama **`Stok_Produk`** akan otomatis dibuat di Google Sheets Anda lengkap dengan seluruh 47+ item merchandise & varian karakter!
+
+### B. Cara Admin Mengedit Stok
+Buka Google Spreadsheet pada tab **`Stok_Produk`**:
+- **Kolom E (`Tipe Stok`)**: 
+  - `Limited`: Barang dengan kuantitas terbatas (Clearance / Sale).
+  - `PO Unlimited`: Barang cetak Pre-Order tanpa batasan stok kaku.
+- **Kolom F (`Sisa Stok`)**:
+  - Ketik angka sisa barang fisik yang tersedia di booth/gudang (misal `5` atau `0`).
+  - Ketika pembeli berhasil submit pesanan di website, angka di kolom ini akan **otomatis berkurang secara real-time**.
+  - Jika stok habis ($0$), website akan otomatis menampilkan badge **"HABIS / SOLD OUT"** dan mengunci tombol pemesanan.
+  - Jika stok menipis ($\le 5$), website akan otomatis menampilkan badge kuning **"Sisa X pcs!"**.
+
+### C. Penanganan Pembatalan Pesanan / Restock Manual
+Jika ada pesanan di tab `Pesanan` yang ditolak (misal bukti transfer palsu atau pembeli batal):
+- Admin cukup menambahkan kembali angka di kolom **`Sisa Stok`** (Kolom F) pada tab `Stok_Produk`.
+
+---
+
+## 🔄 Cara Memperbarui Script yang Sudah Berjalan (Update Deployment)
+
+Jika Anda sebelumnya sudah pernah men-deploy script ini dan memperbarui kodenya:
+1. Di Apps Script editor, klik **Deploy** ➡️ **Manage deployments (Kelola penerapan)**.
+2. Klik ikon pensil ✏️ (**Edit**) di pojok kanan atas dialog.
+3. Pada dropdown **Version (Versi)**, pilih **New version (Versi baru)**.
+4. Klik **Deploy**. URL Webhook Anda akan tetap sama dan langsung menjalankan kode terbaru!
+
+---
+
+## 🎉 Ringkasan Alur Otomatisasi
+
+1. **Sinkronisasi Stok Real-Time**: Website membaca tab `Stok_Produk` dan membatasi pembelian sesuai stok fisik.
+2. **Pencatatan Pesanan**: Data pesanan langsung tercatat di tab `Pesanan`.
+3. **Pengurangan Stok Aman**: Stok terbatas otomatis dipotong menggunakan *Script Lock* agar bebas dari *race condition*.
+4. **Penyimpanan Foto Drive**: Foto bukti transfer otomatis tersimpan di folder Google Drive **"Bukti Pembayaran Halu Lagi Kh"**.
+5. **Notifikasi Email & Oversold Alert**: Email resep klinik otomatis dikirim ke admin, lengkap dengan peringatan khusus jika terjadi *Oversold*.
