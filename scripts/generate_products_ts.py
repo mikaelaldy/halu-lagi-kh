@@ -235,7 +235,7 @@ def enrich_item(item, idx):
         "poli": poli,
         "category": cat,
         "price": item["price"],
-        "image": item["image"],
+        "image": item["image"].replace(".png", ".webp"),
         "artist": artist,
         "isClearance": is_clearance,
         "isLimited": True,
