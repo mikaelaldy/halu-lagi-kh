@@ -208,12 +208,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               ) : selectedVariantLowStock ? (
                 <div className="bg-amber-100 border-2 border-amber-500 p-2.5 rounded-xl text-xs text-amber-900 font-bold flex items-center gap-2 animate-pulse">
                   <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>Stok terbatas! Hanya tersisa <strong>{availableStock} pcs</strong> di gudang.</span>
+                  <span>Stok menipis! Hanya tersisa <strong>{availableStock} pcs</strong> di gudang.</span>
+                </div>
+              ) : availableStock < 999 ? (
+                <div className="bg-amber-50 border-2 border-amber-400 p-2.5 rounded-xl text-xs text-amber-950 font-bold flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Stok terbatas di gudang: Tersedia <strong>{availableStock} pcs</strong>.</span>
                 </div>
               ) : (
                 <div className="bg-emerald-50 border-2 border-emerald-400 p-2 rounded-xl text-[11px] text-emerald-900 font-bold flex items-center gap-1.5">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Stok tersedia untuk Pre-Order Comifuro.</span>
+                  <span>Stok kuota Pre-Order Comifuro terbuka (Ready PO).</span>
                 </div>
               )}
 
@@ -267,7 +272,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                       }`}
                     >
                       <span className="truncate">
-                        {variant.name} {varSoldOut ? '(Habis)' : varLowStock ? `(${varStock} pcs)` : ''}
+                        {variant.name} {varSoldOut ? '(Habis)' : varStock < 999 ? `(Sisa ${varStock} pcs)` : ''}
                       </span>
                       {varSoldOut ? (
                         <span className="shrink-0 text-[9px] font-black text-red-500">HABIS</span>

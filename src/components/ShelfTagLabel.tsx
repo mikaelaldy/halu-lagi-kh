@@ -150,6 +150,10 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
               ) : itemLowStock ? (
                 <span className="text-[8.5px] sm:text-[9.5px] font-black text-amber-900 bg-amber-200 px-1.5 py-0.2 rounded border border-amber-400 inline-flex items-center gap-0.5 leading-normal animate-pulse">
                   <AlertTriangle className="w-2.5 h-2.5 text-amber-800" />
+                  Sisa {availableStock} pcs!
+                </span>
+              ) : availableStock < 999 && !hasMultipleVariants ? (
+                <span className="text-[8.5px] sm:text-[9.5px] font-bold text-amber-950 bg-[#FFF3E0] px-1.5 py-0.2 rounded border border-amber-300 inline-flex items-center gap-0.5 leading-normal">
                   Sisa {availableStock} pcs
                 </span>
               ) : null}

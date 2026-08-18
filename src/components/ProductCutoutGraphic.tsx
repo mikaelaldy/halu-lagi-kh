@@ -43,11 +43,15 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
         </div>
       )}
 
-      {/* Low Stock Warning Pill on Cutout */}
-      {!allSoldOut && isSingleLowStock && (
-        <div className="absolute top-2 left-1 sm:left-3 z-30 bg-amber-500 text-white font-heading font-black text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full border border-[#261A14] shadow-xs flex items-center gap-1">
-          <AlertTriangle className="w-2.5 h-2.5 text-white" />
-          <span>Sisa {availableQty} pcs!</span>
+      {/* Stock Pill on Cutout */}
+      {!allSoldOut && (!product.variants || product.variants.length <= 1) && availableQty < 999 && (
+        <div className={`absolute top-2 left-1 sm:left-3 z-30 font-heading font-black text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full border shadow-xs flex items-center gap-1 ${
+          isSingleLowStock
+            ? 'bg-amber-500 text-white border-[#261A14] animate-pulse'
+            : 'bg-[#FFF3E0] text-amber-950 border-amber-400'
+        }`}>
+          {isSingleLowStock && <AlertTriangle className="w-2.5 h-2.5 text-white" />}
+          <span>Sisa {availableQty} pcs{isSingleLowStock ? '!' : ''}</span>
         </div>
       )}
 
