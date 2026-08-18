@@ -224,7 +224,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
               <div className="bg-amber-50 border-2 border-dashed border-[#F6C358] p-2.5 rounded-xl text-xs space-y-1">
                 <div className="flex items-center justify-between text-[#6D4C41] font-mono text-[11px]">
-                  <span>SKU: {product.shelfCode || product.id}</span>
+                  <span>SKU: <strong className="text-[#3E2723]">{currentItemId}</strong></span>
                   <span>Barcode: {product.barcode || '4 901234'}</span>
                 </div>
                 <div className="text-[11px] text-emerald-800 font-bold flex items-center gap-1">
