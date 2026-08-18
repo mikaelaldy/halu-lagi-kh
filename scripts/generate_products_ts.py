@@ -22,7 +22,7 @@ def enrich_item(item, idx):
     poli = item["poli"]
     raw_artist_code = item["artist"] or "Team HLK"
     artist = ARTIST_MAP.get(raw_artist_code, raw_artist_code)
-    is_clearance = item["isClearance"]
+    is_clearance = True
     raw = item["title_raw"]
     
     # Custom titles & details based on item
@@ -30,10 +30,10 @@ def enrich_item(item, idx):
     size = "Standard"
     desc = f"Merchandise estetik original dari klinik Halu Lagi Kah karya Dr. {artist}."
     dosage = "Gunakan 1-2 kali sehari untuk meredakan halusinasi wibu akut."
-    badge = "CLEARANCE SALE" if is_clearance else "NEW ARRIVAL"
-    shelf_tag = "Clearance" if is_clearance else ("Top 1" if idx % 5 == 0 else "Best!")
+    badge = "CLEARANCE SALE"
+    shelf_tag = "Clearance"
     shelf_sub = f"Dr. {artist} Resep"
-    shelf_code = f"HLK-{raw_artist_code}-{cat[:2].upper()}{idx+1:02d}"
+    shelf_code = item["id"]
     barcode = f"4 901234 {560000 + idx + 1}"
     
     variants = None
@@ -238,6 +238,7 @@ def enrich_item(item, idx):
         "image": item["image"],
         "artist": artist,
         "isClearance": is_clearance,
+        "isLimited": True,
         "catalogPageImage": "/images/catalog/pages/page-2.webp",
         "description": desc,
         "size": size,
