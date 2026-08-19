@@ -329,55 +329,1159 @@ function initStockCatalog() {
 
   // Data katalog awal hasil ekstraksi products.ts
   const SEED_ITEMS = [
-    ["hlk-photocard-sale-ayd-genshin-date", "genshin", "Photocard Genshin Date Series", "-", "Limited", 10, "Clearance"],
-    ["hlk-artprint-sale-enn-game-femaleposter", "anime", "Art Print Female Game Heroines Poster", "-", "Limited", 8, "Clearance"],
-    ["hlk-photocard-sale-ayd-genshin-bf", "genshin", "Photocard Genshin Boyfriend Series", "-", "Limited", 15, "Clearance"],
-    ["hlk-pick-sale-enn-bocchi-tr", "anime", "Guitar Pick Bocchi The Rock! Special", "-", "Limited", 6, "Clearance"],
-    ["hlk-photocard-sale-rd-anemo-boys", "genshin", "Photocard Anemo Boys Boyband Series", "-", "Limited", 12, "Clearance"],
-    ["hlk-photocard-sale-chkn-jujutsu-kaisen", "anime", "Photocard Jujutsu Kaisen Sorcerer Series", "-", "Limited", 4, "Clearance"],
-    ["hlk-sticker-tsn-bangaboo", "zzz", "Sticker Die-Cut Bangaboo ZZZ", "-", "Limited", 7, "Clearance"],
-    ["hlk-photocard-sale-tsn-genshin-chair", "genshin", "Photocard Genshin Sitting Chair Series", "-", "Limited", 14, "Clearance"],
-    ["hlk-ticket-sale-enn-kpop-demon-hunter", "anime", "Special Event Ticket Demon Hunter K-Pop Edition", "-", "Limited", 5, "Clearance"],
-    ["hlk-sticker-rd-ikan", "original", "Sticker Die-Cut Ikan Estetik RD", "-", "Limited", 9, "Clearance"],
-    ["hlk-sticker-tsn-zzz", "zzz", "Sticker Set Zenless Zone Zero Agents", "-", "Limited", 11, "Clearance"],
-    ["hlk-pas-foto-enn-genhsin", "genshin", "Pas Foto 3x4 Formal Teyvat Clinic ID", "-", "Limited", 8, "Clearance"],
-    ["hlk-keychain-tsn-zzz", "zzz", "Acrylic Keychain Zenless Zone Zero", "-", "Limited", 12, "Clearance"],
-    ["hlk-decacde-card-sale-enn-kamen-raider", "kamen-rider", "Decade Ride Card Kamen Rider Collection", "-", "Limited", 6, "Clearance"],
-    ["hlk-sticker-sale-rd-wriothesley", "genshin", "Sticker Die-Cut Wriothesley Duke of Meropide", "-", "Limited", 10, "Clearance"],
-    ["hlk-sticker-luki-dandadan", "anime", "Sticker Set Dandadan Chibi Spirits", "-", "Limited", 7, "Clearance"],
-    ["hlk-sticker-tsn-wuwa", "wuwa", "Sticker Die-Cut Wuthering Waves Resonators", "-", "Limited", 15, "Clearance"],
-    ["hlk-pin-sale-enn-umamusume", "anime", "Can Badge Pin Uma Musume Pretty Derby", "-", "Limited", 4, "Clearance"],
-    ["hlk-keychain-sale-dne-mihoyo", "genshin", "Keychain Mihoyo", "-", "Limited", 8, "Clearance"],
-    ["hlk-keychain-luki-dandadan", "anime", "Acrylic Keychain Dandadan Turbo Action", "-", "Limited", 12, "Clearance"],
-    ["hlk-sticker-sale-ayd-genshin", "genshin", "Sticker Genshin", "-", "Limited", 5, "Clearance"],
-    ["hlk-artprint-sale-chkn-mihoyo-bf", "genshin", "Print Mihoyo Bf", "-", "Limited", 9, "Clearance"],
-    ["hlk-sticker-sale-dne-suisei", "vtuber", "Sticker Die-Cut Hoshimachi Suisei Idol", "-", "Limited", 14, "Clearance"],
-    ["hlk-artprint-sale-ayd-genshin-bf", "genshin", "Art Print A5 Genshin Boyfriend Series", "-", "Limited", 6, "Clearance"],
-    ["hlk-photocard-sale-meru-genhsin", "genshin", "Photocard Genhsin", "-", "Limited", 10, "Clearance"],
-    ["hlk-keychain-sale-dne-suisei", "vtuber", "Acrylic Keychain Hoshimachi Suisei Stellar", "-", "Limited", 7, "Clearance"],
-    ["hlk-pin-sale-meru-genshin-male", "genshin", "Pin Genshin Male", "-", "Limited", 11, "Clearance"],
-    ["hlk-photocard-sale-enn-kamen-raider", "kamen-rider", "Photocard Kamen Rider Legend Series", "-", "Limited", 8, "Clearance"],
-    ["hlk-sticker-chkn-mie-ayam", "original", "Sticker Die-Cut Mie Ayam Abang-Abang", "-", "Limited", 15, "Clearance"],
-    ["hlk-sticker-meru-alien-stage", "anime", "Sticker Set Alien Stage Ivan & Till", "-", "Limited", 4, "Clearance"],
-    ["hlk-polaroid-dne-vtuber-mc-mihoyo", "vtuber", "Polaroid Vtuber Mc Mihoyo", "-", "Limited", 6, "Clearance"],
-    ["hlk-keychain-tsn-wuwa", "wuwa", "Acrylic Keychain Wuthering Waves", "-", "Limited", 12, "Clearance"],
-    ["hlk-keychain-sale-dne-vtuber", "vtuber", "Keychain Vtuber", "-", "Limited", 8, "Clearance"],
-    ["hlk-sticker-sale-tsn-kucing-jelek", "original", "Sticker Die-Cut Kucing Jelek Tapi Sayang", "-", "Limited", 5, "Clearance"],
-    ["hlk-artprint-dne-suisei-vtuber", "vtuber", "Art Print A5 Hoshimachi Suisei Concert Stage", "-", "Limited", 10, "Clearance"],
-    ["hlk-sticker-sale-dne-mihoyo", "genshin", "Sticker Mihoyo", "-", "Limited", 9, "Clearance"],
-    ["hlk-artprint-sale-meru-hsr", "hsr", "Art Print A5 Honkai Star Rail Astral Journey", "-", "Limited", 7, "Clearance"],
-    ["hlk-sticker-sale-rd-sumeru-barbie", "genshin", "Sticker Sumeru Barbie Alhaitham & Kaveh", "-", "Limited", 14, "Clearance"],
-    ["hlk-sticker-sale-ayd-aov", "aov", "Sticker Chibi Pack Arena of Valor", "-", "Limited", 6, "Clearance"],
-    ["hlk-keychain-tsn-httd-frosted__toothless", "anime", "Frosted Keychain How To Train Your Dragon", "Toothless (Hitam / Kiri)", "Limited", 11, "Clearance"],
-    ["hlk-keychain-tsn-httd-frosted__light-fury", "anime", "Frosted Keychain How To Train Your Dragon", "Light Fury (Putih / Kanan)", "Limited", 8, "Clearance"],
-    ["hlk-pin-sale-ayd-game-mc", "anime", "Can Badge Pin Game MC Protagonist", "-", "Limited", 12, "Clearance"],
-    ["hlk-keychain-tsn-bangaboo", "zzz", "Acrylic Keychain Bangaboo ZZZ", "-", "Limited", 5, "Clearance"],
-    ["hlk-sticker-chkn-genshin-hsr", "genshin", "Sticker Genshin Hsr", "-", "Limited", 10, "Clearance"],
-    ["hlk-photocard-sale-chkn-genshin-male", "genshin", "Photocard Genshin Male", "-", "Limited", 7, "Clearance"],
-    ["hlk-artprint-sale-dne-mihoyo-mc", "genshin", "Print Mihoyo Mc", "-", "Limited", 15, "Clearance"],
-    ["hlk-sticker-sale-rd-cynonari", "genshin", "Sticker Die-Cut Cyno & Tighnari Cynonari", "-", "Limited", 8, "Clearance"],
-    ["hlk-photocard-sale-rd-genshin-male", "genshin", "Photocard Genshin Male", "-", "Limited", 10, "Clearance"]
-  ];
+    [
+        "hlk-artprint-sale-ayd-genshin-bf__a-lyney",
+        "genshin",
+        "Art Print Genshin Boyfriend Series",
+        "A. Lyney",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-ayd-genshin-bf__a-lyney-idol",
+        "genshin",
+        "Art Print Genshin Boyfriend Series",
+        "A. Lyney Idol",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-ayd-genshin-bf__a-scara",
+        "genshin",
+        "Art Print Genshin Boyfriend Series",
+        "A. Scara",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-ayd-genshin-bf__a-childe",
+        "genshin",
+        "Art Print Genshin Boyfriend Series",
+        "A. Childe",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-chkn-mihoyo-bf__aventurine",
+        "hsr",
+        "Art Print MiHoYo Boyfriend Series",
+        "Aventurine",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-chkn-mihoyo-bf__childe",
+        "hsr",
+        "Art Print MiHoYo Boyfriend Series",
+        "Childe",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-dne-mihoyo-mc__stelle",
+        "hsr",
+        "Art Print MiHoYo Main Character Heroines",
+        "Stelle",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-dne-mihoyo-mc__belle",
+        "hsr",
+        "Art Print MiHoYo Main Character Heroines",
+        "Belle",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-dne-mihoyo-mc__kiana",
+        "hsr",
+        "Art Print MiHoYo Main Character Heroines",
+        "Kiana",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-dne-mihoyo-mc__lumine",
+        "hsr",
+        "Art Print MiHoYo Main Character Heroines",
+        "Lumine",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-enn-game-femaleposter__yelan",
+        "anime",
+        "Art Print Game Female Heroines Poster",
+        "Yelan",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-enn-game-femaleposter__lumine",
+        "anime",
+        "Art Print Game Female Heroines Poster",
+        "Lumine",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-enn-game-femaleposter__ei-miko",
+        "anime",
+        "Art Print Game Female Heroines Poster",
+        "Ei & Miko",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-enn-game-femaleposter__ei-masak",
+        "anime",
+        "Art Print Game Female Heroines Poster",
+        "Ei Masak",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-enn-game-femaleposter__yor-pns",
+        "anime",
+        "Art Print Game Female Heroines Poster",
+        "Yor PNS",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-enn-game-femaleposter__black-swan",
+        "anime",
+        "Art Print Game Female Heroines Poster",
+        "Black Swan",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-meru-hsr__dan-heng",
+        "hsr",
+        "Art Print Honkai Star Rail Husbu Collection",
+        "Dan Heng",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-meru-hsr__jing-yuan",
+        "hsr",
+        "Art Print Honkai Star Rail Husbu Collection",
+        "Jing Yuan",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-meru-hsr__blade",
+        "hsr",
+        "Art Print Honkai Star Rail Husbu Collection",
+        "Blade",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-meru-hsr__dan-heng-topless",
+        "hsr",
+        "Art Print Honkai Star Rail Husbu Collection",
+        "Dan Heng (Topless)",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-meru-hsr__jing-yuan-topless",
+        "hsr",
+        "Art Print Honkai Star Rail Husbu Collection",
+        "Jing Yuan (Topless)",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-artprint-sale-meru-hsr__blade-topless",
+        "hsr",
+        "Art Print Honkai Star Rail Husbu Collection",
+        "Blade (Topless)",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-decacde-card-sale-enn-kamen-raider",
+        "kamen-rider",
+        "Decade Ride Card Kamen Rider Collection",
+        "-",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-suisei__s-sad",
+        "vtuber",
+        "Acrylic Keychain Hoshimachi Suisei Expression",
+        "S. Sad",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-suisei__s-battle-axe",
+        "vtuber",
+        "Acrylic Keychain Hoshimachi Suisei Expression",
+        "S. Battle Axe",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-suisei__s-smirk",
+        "vtuber",
+        "Acrylic Keychain Hoshimachi Suisei Expression",
+        "S. Smirk",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-suisei__s-sparkle",
+        "vtuber",
+        "Acrylic Keychain Hoshimachi Suisei Expression",
+        "S. Sparkle",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-suisei__s-wink",
+        "vtuber",
+        "Acrylic Keychain Hoshimachi Suisei Expression",
+        "S. Wink",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-vtuber__suisei-bisik",
+        "vtuber",
+        "Acrylic Keychain VTuber Hololive Series",
+        "Suisei Bisik",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-vtuber__suisei-maid",
+        "vtuber",
+        "Acrylic Keychain VTuber Hololive Series",
+        "Suisei Maid",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-vtuber__zeta-neko",
+        "vtuber",
+        "Acrylic Keychain VTuber Hololive Series",
+        "Zeta Neko",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-vtuber__s-peace-sign",
+        "vtuber",
+        "Acrylic Keychain VTuber Hololive Series",
+        "S. Peace Sign",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-vtuber__kobo",
+        "vtuber",
+        "Acrylic Keychain VTuber Hololive Series",
+        "Kobo",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-keychain-sale-dne-vtuber__z-peace-sign",
+        "vtuber",
+        "Acrylic Keychain VTuber Hololive Series",
+        "Z. Peace Sign",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-pas-foto-sale-enn-genhsin",
+        "genshin",
+        "Pas Foto 3x4 Formal Teyvat Clinic ID",
+        "-",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-bf__baizhu",
+        "genshin",
+        "Photocard Genshin Boyfriend Series",
+        "Baizhu",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-bf__lyney",
+        "genshin",
+        "Photocard Genshin Boyfriend Series",
+        "Lyney",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-bf__childe",
+        "genshin",
+        "Photocard Genshin Boyfriend Series",
+        "Childe",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-date__gaming",
+        "genshin",
+        "Photocard Genshin Date Series",
+        "Gaming",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-date__wanderer",
+        "genshin",
+        "Photocard Genshin Date Series",
+        "Wanderer",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-date__lyney",
+        "genshin",
+        "Photocard Genshin Date Series",
+        "Lyney",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-ayd-genshin-date__baizhu",
+        "genshin",
+        "Photocard Genshin Date Series",
+        "Baizhu",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-genshin-male__venti",
+        "genshin",
+        "Photocard Genshin Male Husbu Pack",
+        "Venti",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-genshin-male__wanderer",
+        "genshin",
+        "Photocard Genshin Male Husbu Pack",
+        "Wanderer",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-genshin-male__childe",
+        "genshin",
+        "Photocard Genshin Male Husbu Pack",
+        "Childe",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-genshin-male__ayato",
+        "genshin",
+        "Photocard Genshin Male Husbu Pack",
+        "Ayato",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-genshin-male__alhaitham",
+        "genshin",
+        "Photocard Genshin Male Husbu Pack",
+        "Alhaitham",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-jujutsu-kaisen__geto",
+        "anime",
+        "Photocard Jujutsu Kaisen Sorcerers",
+        "Geto",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-jujutsu-kaisen__gojo",
+        "anime",
+        "Photocard Jujutsu Kaisen Sorcerers",
+        "Gojo",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-chkn-jujutsu-kaisen__choso",
+        "anime",
+        "Photocard Jujutsu Kaisen Sorcerers",
+        "Choso",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-enn-kamen-raider",
+        "kamen-rider",
+        "Photocard Kamen Rider Legend Series",
+        "-",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-meru-genhsin__wanderer",
+        "genshin",
+        "Photocard Genshin Archons & MC Collection",
+        "Wanderer",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-meru-genhsin__venti",
+        "genshin",
+        "Photocard Genshin Archons & MC Collection",
+        "Venti",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-meru-genhsin__mc-genshin",
+        "genshin",
+        "Photocard Genshin Archons & MC Collection",
+        "MC Genshin",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-meru-genhsin__zhongli",
+        "genshin",
+        "Photocard Genshin Archons & MC Collection",
+        "Zhongli",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-meru-genhsin__ei",
+        "genshin",
+        "Photocard Genshin Archons & MC Collection",
+        "Ei",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-meru-genhsin__nahida",
+        "genshin",
+        "Photocard Genshin Archons & MC Collection",
+        "Nahida",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-anemo-boys__heizou",
+        "genshin",
+        "Photocard Anemo Boys Boyband Series",
+        "Heizou",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-anemo-boys__wanderer",
+        "genshin",
+        "Photocard Anemo Boys Boyband Series",
+        "Wanderer",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-anemo-boys__kazuha",
+        "genshin",
+        "Photocard Anemo Boys Boyband Series",
+        "Kazuha",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-anemo-boys__xiao",
+        "genshin",
+        "Photocard Anemo Boys Boyband Series",
+        "Xiao",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-anemo-boys__aether",
+        "genshin",
+        "Photocard Anemo Boys Boyband Series",
+        "Aether",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-anemo-boys__venti",
+        "genshin",
+        "Photocard Anemo Boys Boyband Series",
+        "Venti",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-genshin-male__kaeya",
+        "genshin",
+        "Photocard Genshin Male Lineup",
+        "Kaeya",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-genshin-male__diluc",
+        "genshin",
+        "Photocard Genshin Male Lineup",
+        "Diluc",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-genshin-male__childe",
+        "genshin",
+        "Photocard Genshin Male Lineup",
+        "Childe",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-genshin-male__zhongli",
+        "genshin",
+        "Photocard Genshin Male Lineup",
+        "Zhongli",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-genshin-male__wriothesley",
+        "genshin",
+        "Photocard Genshin Male Lineup",
+        "Wriothesley",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-rd-genshin-male__neuvillette",
+        "genshin",
+        "Photocard Genshin Male Lineup",
+        "Neuvillette",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-tsn-genshin-chair__wriothesley",
+        "genshin",
+        "Photocard Genshin Sitting Chair Series",
+        "Wriothesley",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-tsn-genshin-chair__wanderer",
+        "genshin",
+        "Photocard Genshin Sitting Chair Series",
+        "Wanderer",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-tsn-genshin-chair__diluc",
+        "genshin",
+        "Photocard Genshin Sitting Chair Series",
+        "Diluc",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-tsn-genshin-chair__alhaitham",
+        "genshin",
+        "Photocard Genshin Sitting Chair Series",
+        "Alhaitham",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-photocard-sale-tsn-genshin-chair__xiao",
+        "genshin",
+        "Photocard Genshin Sitting Chair Series",
+        "Xiao",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-pick-sale-enn-bocchi-tr__kita",
+        "anime",
+        "Guitar Pick Bocchi The Rock! Special",
+        "Kita",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-pick-sale-enn-bocchi-tr__nijika",
+        "anime",
+        "Guitar Pick Bocchi The Rock! Special",
+        "Nijika",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-pick-sale-enn-bocchi-tr__ryo",
+        "anime",
+        "Guitar Pick Bocchi The Rock! Special",
+        "Ryo",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-pick-sale-enn-bocchi-tr__bocchi",
+        "anime",
+        "Guitar Pick Bocchi The Rock! Special",
+        "Bocchi",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-pick-sale-enn-bocchi-tr__bocchi-segitiga",
+        "anime",
+        "Guitar Pick Bocchi The Rock! Special",
+        "Bocchi Segitiga",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-ayd-game-mc__furina",
+        "anime",
+        "Can Badge Pin Game Heroines MC",
+        "Furina",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-ayd-game-mc__lumine",
+        "anime",
+        "Can Badge Pin Game Heroines MC",
+        "Lumine",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-ayd-game-mc__miku",
+        "anime",
+        "Can Badge Pin Game Heroines MC",
+        "Miku",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-ayd-game-mc__firefly",
+        "anime",
+        "Can Badge Pin Game Heroines MC",
+        "Firefly",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-ayd-game-mc__amiya",
+        "anime",
+        "Can Badge Pin Game Heroines MC",
+        "Amiya",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-enn-umamusume__gas",
+        "anime",
+        "Can Badge Pin Uma Musume Meme Expressions",
+        "Gas",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-enn-umamusume__cihuy",
+        "anime",
+        "Can Badge Pin Uma Musume Meme Expressions",
+        "Cihuy",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-enn-umamusume__waduh",
+        "anime",
+        "Can Badge Pin Uma Musume Meme Expressions",
+        "Waduh",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-enn-umamusume__turu",
+        "anime",
+        "Can Badge Pin Uma Musume Meme Expressions",
+        "Turu",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-enn-umamusume__malas",
+        "anime",
+        "Can Badge Pin Uma Musume Meme Expressions",
+        "Malas",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__xiao",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Xiao",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__aether",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Aether",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__kazuha",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Kazuha",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__venti",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Venti",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__wanderer",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Wanderer",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__aventurine",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Aventurine",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__dr-ratio",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Dr. Ratio",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__gepard",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Gepard",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__misha",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Misha",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-pin-sale-meru-genshin-male__sampo",
+        "genshin",
+        "Can Badge Pin Genshin & HSR Male Stars",
+        "Sampo",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-ayd-aov",
+        "aov",
+        "Sticker Chibi Pack Arena of Valor",
+        "-",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-ayd-genshin",
+        "genshin",
+        "Sticker Die-Cut Chibi Genshin Impact",
+        "-",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-dne-mihoyo",
+        "hsr",
+        "Sticker Set MiHoYo Universes",
+        "-",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-dne-suisei__s-wink",
+        "vtuber",
+        "Sticker Die-Cut Hoshimachi Suisei Expressions",
+        "S. Wink",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-dne-suisei__s-smirk",
+        "vtuber",
+        "Sticker Die-Cut Hoshimachi Suisei Expressions",
+        "S. Smirk",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-dne-suisei__s-sad",
+        "vtuber",
+        "Sticker Die-Cut Hoshimachi Suisei Expressions",
+        "S. Sad",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-dne-suisei__s-battle-axe",
+        "vtuber",
+        "Sticker Die-Cut Hoshimachi Suisei Expressions",
+        "S. Battle Axe",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-dne-suisei__s-sparkle",
+        "vtuber",
+        "Sticker Die-Cut Hoshimachi Suisei Expressions",
+        "S. Sparkle",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-cynonari__cyno-cabe-merah",
+        "genshin",
+        "Sticker Die-Cut Cyno & Tighnari Cynonari",
+        "Cyno Cabe Merah",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-cynonari__tighnari-cabe-hijau",
+        "genshin",
+        "Sticker Die-Cut Cyno & Tighnari Cynonari",
+        "Tighnari Cabe Hijau",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-cynonari__cyno-jelek",
+        "genshin",
+        "Sticker Die-Cut Cyno & Tighnari Cynonari",
+        "Cyno Jelek",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-cynonari__tighnari-jelek",
+        "genshin",
+        "Sticker Die-Cut Cyno & Tighnari Cynonari",
+        "Tighnari Jelek",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-sumeru-barbie__barbie-kaveh",
+        "genshin",
+        "Sticker Sumeru Barbie Edition",
+        "Barbie Kaveh",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-sumeru-barbie__barbie-alhaitham",
+        "genshin",
+        "Sticker Sumeru Barbie Edition",
+        "Barbie Alhaitham",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-sumeru-barbie__barbie-cyno",
+        "genshin",
+        "Sticker Sumeru Barbie Edition",
+        "Barbie Cyno",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-sumeru-barbie__barbie-tighnari",
+        "genshin",
+        "Sticker Sumeru Barbie Edition",
+        "Barbie Tighnari",
+        "Limited",
+        5,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-asu",
+        "genshin",
+        "Sticker Die-Cut Wriothesley Duke Teh",
+        "Wriothesley Teh Asu",
+        "Limited",
+        9,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-wriothesley__wriothesley-sigewinne",
+        "genshin",
+        "Sticker Die-Cut Wriothesley Duke Teh",
+        "Wriothesley Sigewinne",
+        "Limited",
+        14,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-besar",
+        "genshin",
+        "Sticker Die-Cut Wriothesley Duke Teh",
+        "Wriothesley Teh Besar",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-infus",
+        "genshin",
+        "Sticker Die-Cut Wriothesley Duke Teh",
+        "Wriothesley Teh Infus",
+        "Limited",
+        10,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-cekek",
+        "genshin",
+        "Sticker Die-Cut Wriothesley Duke Teh",
+        "Wriothesley Teh Cekek",
+        "Limited",
+        7,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-item",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Item",
+        "Limited",
+        11,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-sapi",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Sapi",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-pipop",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Pipop",
+        "Limited",
+        15,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-jalan",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Jalan",
+        "Limited",
+        4,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-loading",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Loading",
+        "Limited",
+        6,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-turu",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Turu",
+        "Limited",
+        12,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-hah",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Hah",
+        "Limited",
+        8,
+        "Clearance"
+    ],
+    [
+        "hlk-sticker-sale-tsn-kucing-jelek__k-bontot",
+        "original",
+        "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+        "K. Bontot",
+        "Limited",
+        5,
+        "Clearance"
+    ]
+];
 
   // Tulis seluruh baris secara instan ke spreadsheet
   sheet.getRange(2, 1, SEED_ITEMS.length, SEED_ITEMS[0].length).setValues(SEED_ITEMS);

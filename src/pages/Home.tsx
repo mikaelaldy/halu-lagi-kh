@@ -6,10 +6,10 @@ import { OptimizedImage } from '../components/OptimizedImage';
 
 export const Home: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFF9E6]">
+    <div className="min-h-screen flex flex-col mart-shelf-canvas">
       
       {/* HERO BANNER SECTION */}
-      <section className="relative flex-1 bg-[#F6C358] border-b-4 border-[#3E2723] overflow-hidden pt-8 pb-14 px-4 sm:px-6 lg:px-8">
+      <section className="relative flex-1 mart-shelf-canvas overflow-hidden pt-8 pb-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Text */}
@@ -46,7 +46,7 @@ export const Home: React.FC = () => {
             <div className="pt-2">
               <Link
                 to="/catalog"
-                className="inline-flex items-center gap-3 bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] px-8 py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base sm:text-lg shadow-[4px_4px_0px_#FFF9E6] hover:shadow-none transition-all active:translate-y-1"
+                className="inline-flex items-center gap-3 bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] px-8 py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base sm:text-lg shadow-[4px_4px_0px_#F6C358] hover:shadow-none transition-all active:translate-y-1"
               >
                 <Sparkles className="w-5 h-5 text-amber-400 fill-amber-400 animate-pulse" />
                 Buka Etalase Resep Merchandise

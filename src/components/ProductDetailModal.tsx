@@ -14,6 +14,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const { cart, addToCart, updateQuantity, removeFromCart } = useCart();
   const { isSoldOut, isLowStock, getAvailableStock } = useStock();
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
+  const [variantSearch, setVariantSearch] = useState('');
   const [showCatalogPage, setShowCatalogPage] = useState(false);
 
   // Initialize or reset selected variant when product changes and lock body scroll
@@ -23,6 +24,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
     } else {
       setSelectedVariant(null);
     }
+    setVariantSearch('');
     setShowCatalogPage(false);
 
     if (product) {
@@ -237,7 +239,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
           {/* VARIANT SELECTOR (IF PRODUCT HAS MULTIPLE CHARACTER VARIANTS) */}
           {product.variants && product.variants.length > 0 && (
             <div className="bg-[#FFF9E6] p-4 rounded-2xl border-2 border-[#3E2723] space-y-2.5">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                 <label className="font-heading font-black text-xs sm:text-sm text-[#3E2723] flex items-center gap-1.5">
                   <Sparkle className="w-4 h-4 text-amber-500" />
                   PILIH VARIAN KARAKTER ({product.variants.length} OPSI):
@@ -249,41 +251,65 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 )}
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-48 overflow-y-auto p-1 scrollbar-thin">
-                {product.variants.map((variant) => {
-                  const isSelected = selectedVariant?.id === variant.id;
-                  const variantCartId = `${product.id}__${variant.id}`;
-                  const variantQty = cart.find((i) => i.id === variantCartId)?.quantity || 0;
-                  const varSoldOut = isSoldOut(product.id, variant.id);
-                  const varLowStock = isLowStock(product.id, variant.id);
-                  const varStock = getAvailableStock(product.id, variant.id);
-
-                  return (
+              {/* Instant Search Bar if more than 6 variants */}
+              {product.variants.length > 6 && (
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={variantSearch}
+                    onChange={(e) => setVariantSearch(e.target.value)}
+                    placeholder="🔍 Cari nama karakter / varian..."
+                    className="w-full px-3 py-1.5 bg-white border-2 border-[#3E2723]/60 rounded-xl text-xs font-heading placeholder:text-gray-400 focus:outline-none focus:border-[#3E2723] focus:ring-1 focus:ring-[#F6C358]"
+                  />
+                  {variantSearch && (
                     <button
-                      key={variant.id}
                       type="button"
-                      onClick={() => setSelectedVariant(variant)}
-                      className={`relative p-2 rounded-xl text-left text-xs font-heading font-bold border-2 transition-all cursor-pointer flex items-center justify-between gap-1.5 ${
-                        isSelected
-                          ? 'bg-[#3E2723] text-white border-[#3E2723] shadow-[2px_2px_0px_#F6C358]'
-                          : varSoldOut
-                          ? 'bg-gray-100 text-gray-400 border-gray-300'
-                          : 'bg-white text-[#3E2723] border-[#3E2723]/60 hover:border-[#3E2723] hover:bg-amber-50'
-                      }`}
+                      onClick={() => setVariantSearch('')}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 text-xs font-bold"
                     >
-                      <span className="truncate">
-                        {variant.name} {varSoldOut ? '(Habis)' : varStock < 999 ? `(Sisa ${varStock} pcs)` : ''}
-                      </span>
-                      {varSoldOut ? (
-                        <span className="shrink-0 text-[9px] font-black text-red-500">HABIS</span>
-                      ) : variantQty > 0 ? (
-                        <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-[#F6C358] text-[#3E2723] text-[9px] font-black leading-none">
-                          {variantQty}x
-                        </span>
-                      ) : null}
+                      ✕
                     </button>
-                  );
-                })}
+                  )}
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-52 overflow-y-auto p-1 scrollbar-thin">
+                {product.variants
+                  .filter((v) => !variantSearch || v.name.toLowerCase().includes(variantSearch.toLowerCase()))
+                  .map((variant) => {
+                    const isSelected = selectedVariant?.id === variant.id;
+                    const variantCartId = `${product.id}__${variant.id}`;
+                    const variantQty = cart.find((i) => i.id === variantCartId)?.quantity || 0;
+                    const varSoldOut = isSoldOut(product.id, variant.id);
+                    const varLowStock = isLowStock(product.id, variant.id);
+                    const varStock = getAvailableStock(product.id, variant.id);
+
+                    return (
+                      <button
+                        key={variant.id}
+                        type="button"
+                        onClick={() => setSelectedVariant(variant)}
+                        className={`relative p-2 rounded-xl text-left text-xs font-heading font-bold border-2 transition-all cursor-pointer flex items-center justify-between gap-1.5 ${
+                          isSelected
+                            ? 'bg-[#3E2723] text-white border-[#3E2723] shadow-[2px_2px_0px_#F6C358]'
+                            : varSoldOut
+                            ? 'bg-gray-100 text-gray-400 border-gray-300'
+                            : 'bg-white text-[#3E2723] border-[#3E2723]/60 hover:border-[#3E2723] hover:bg-amber-50'
+                        }`}
+                      >
+                        <span className="truncate">
+                          {variant.name} {varSoldOut ? '(Habis)' : varStock < 999 ? `(Sisa ${varStock})` : ''}
+                        </span>
+                        {varSoldOut ? (
+                          <span className="shrink-0 text-[9px] font-black text-red-500">HABIS</span>
+                        ) : variantQty > 0 ? (
+                          <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-[#F6C358] text-[#3E2723] text-[9px] font-black leading-none">
+                            {variantQty}x
+                          </span>
+                        ) : null}
+                      </button>
+                    );
+                  })}
               </div>
 
               {selectedVariantSoldOut ? (

@@ -1,119 +1,200 @@
 [
   {
-    "itemId": "hlk-photocard-sale-ayd-genshin-date",
+    "itemId": "hlk-artprint-sale-ayd-genshin-bf__a-lyney",
     "poli": "genshin",
-    "productName": "Photocard Genshin Date Series",
-    "variantName": "-",
+    "productName": "Art Print Genshin Boyfriend Series",
+    "variantName": "A. Lyney",
     "stockType": "Limited",
     "stockQuantity": 10,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-artprint-sale-enn-game-femaleposter",
-    "poli": "anime",
-    "productName": "Art Print Female Game Heroines Poster",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-ayd-genshin-bf__a-lyney-idol",
+    "poli": "genshin",
+    "productName": "Art Print Genshin Boyfriend Series",
+    "variantName": "A. Lyney Idol",
     "stockType": "Limited",
     "stockQuantity": 8,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-photocard-sale-ayd-genshin-bf",
+    "itemId": "hlk-artprint-sale-ayd-genshin-bf__a-scara",
     "poli": "genshin",
-    "productName": "Photocard Genshin Boyfriend Series",
-    "variantName": "-",
+    "productName": "Art Print Genshin Boyfriend Series",
+    "variantName": "A. Scara",
     "stockType": "Limited",
     "stockQuantity": 15,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-pick-sale-enn-bocchi-tr",
-    "poli": "anime",
-    "productName": "Guitar Pick Bocchi The Rock! Special",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-ayd-genshin-bf__a-childe",
+    "poli": "genshin",
+    "productName": "Art Print Genshin Boyfriend Series",
+    "variantName": "A. Childe",
     "stockType": "Limited",
     "stockQuantity": 6,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-photocard-sale-rd-anemo-boys",
-    "poli": "genshin",
-    "productName": "Photocard Anemo Boys Boyband Series",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-chkn-mihoyo-bf__aventurine",
+    "poli": "hsr",
+    "productName": "Art Print MiHoYo Boyfriend Series",
+    "variantName": "Aventurine",
     "stockType": "Limited",
     "stockQuantity": 12,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-photocard-sale-chkn-jujutsu-kaisen",
-    "poli": "anime",
-    "productName": "Photocard Jujutsu Kaisen Sorcerer Series",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-chkn-mihoyo-bf__childe",
+    "poli": "hsr",
+    "productName": "Art Print MiHoYo Boyfriend Series",
+    "variantName": "Childe",
     "stockType": "Limited",
     "stockQuantity": 4,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-tsn-bangaboo",
-    "poli": "zzz",
-    "productName": "Sticker Die-Cut Bangaboo ZZZ",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-dne-mihoyo-mc__stelle",
+    "poli": "hsr",
+    "productName": "Art Print MiHoYo Main Character Heroines",
+    "variantName": "Stelle",
     "stockType": "Limited",
     "stockQuantity": 7,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-photocard-sale-tsn-genshin-chair",
-    "poli": "genshin",
-    "productName": "Photocard Genshin Sitting Chair Series",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-dne-mihoyo-mc__belle",
+    "poli": "hsr",
+    "productName": "Art Print MiHoYo Main Character Heroines",
+    "variantName": "Belle",
     "stockType": "Limited",
     "stockQuantity": 14,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-ticket-sale-enn-kpop-demon-hunter",
-    "poli": "anime",
-    "productName": "Special Event Ticket Demon Hunter K-Pop Edition",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-dne-mihoyo-mc__kiana",
+    "poli": "hsr",
+    "productName": "Art Print MiHoYo Main Character Heroines",
+    "variantName": "Kiana",
     "stockType": "Limited",
     "stockQuantity": 5,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-rd-ikan",
-    "poli": "original",
-    "productName": "Sticker Die-Cut Ikan Estetik RD",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-dne-mihoyo-mc__lumine",
+    "poli": "hsr",
+    "productName": "Art Print MiHoYo Main Character Heroines",
+    "variantName": "Lumine",
     "stockType": "Limited",
     "stockQuantity": 9,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-tsn-zzz",
-    "poli": "zzz",
-    "productName": "Sticker Set Zenless Zone Zero Agents",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-enn-game-femaleposter__yelan",
+    "poli": "anime",
+    "productName": "Art Print Game Female Heroines Poster",
+    "variantName": "Yelan",
     "stockType": "Limited",
     "stockQuantity": 11,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-pas-foto-enn-genhsin",
-    "poli": "genshin",
-    "productName": "Pas Foto 3x4 Formal Teyvat Clinic ID",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-enn-game-femaleposter__lumine",
+    "poli": "anime",
+    "productName": "Art Print Game Female Heroines Poster",
+    "variantName": "Lumine",
     "stockType": "Limited",
     "stockQuantity": 8,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-keychain-tsn-zzz",
-    "poli": "zzz",
-    "productName": "Acrylic Keychain Zenless Zone Zero",
-    "variantName": "-",
+    "itemId": "hlk-artprint-sale-enn-game-femaleposter__ei-miko",
+    "poli": "anime",
+    "productName": "Art Print Game Female Heroines Poster",
+    "variantName": "Ei & Miko",
     "stockType": "Limited",
     "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-enn-game-femaleposter__ei-masak",
+    "poli": "anime",
+    "productName": "Art Print Game Female Heroines Poster",
+    "variantName": "Ei Masak",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-enn-game-femaleposter__yor-pns",
+    "poli": "anime",
+    "productName": "Art Print Game Female Heroines Poster",
+    "variantName": "Yor PNS",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-enn-game-femaleposter__black-swan",
+    "poli": "anime",
+    "productName": "Art Print Game Female Heroines Poster",
+    "variantName": "Black Swan",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-meru-hsr__dan-heng",
+    "poli": "hsr",
+    "productName": "Art Print Honkai Star Rail Husbu Collection",
+    "variantName": "Dan Heng",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-meru-hsr__jing-yuan",
+    "poli": "hsr",
+    "productName": "Art Print Honkai Star Rail Husbu Collection",
+    "variantName": "Jing Yuan",
+    "stockType": "Limited",
+    "stockQuantity": 4,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-meru-hsr__blade",
+    "poli": "hsr",
+    "productName": "Art Print Honkai Star Rail Husbu Collection",
+    "variantName": "Blade",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-meru-hsr__dan-heng-topless",
+    "poli": "hsr",
+    "productName": "Art Print Honkai Star Rail Husbu Collection",
+    "variantName": "Dan Heng (Topless)",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-meru-hsr__jing-yuan-topless",
+    "poli": "hsr",
+    "productName": "Art Print Honkai Star Rail Husbu Collection",
+    "variantName": "Jing Yuan (Topless)",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-artprint-sale-meru-hsr__blade-topless",
+    "poli": "hsr",
+    "productName": "Art Print Honkai Star Rail Husbu Collection",
+    "variantName": "Blade (Topless)",
+    "stockType": "Limited",
+    "stockQuantity": 9,
     "status": "Clearance"
   },
   {
@@ -122,124 +203,250 @@
     "productName": "Decade Ride Card Kamen Rider Collection",
     "variantName": "-",
     "stockType": "Limited",
+    "stockQuantity": 14,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-keychain-sale-dne-suisei__s-sad",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain Hoshimachi Suisei Expression",
+    "variantName": "S. Sad",
+    "stockType": "Limited",
     "stockQuantity": 6,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-sale-rd-wriothesley",
-    "poli": "genshin",
-    "productName": "Sticker Die-Cut Wriothesley Duke of Meropide",
-    "variantName": "-",
+    "itemId": "hlk-keychain-sale-dne-suisei__s-battle-axe",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain Hoshimachi Suisei Expression",
+    "variantName": "S. Battle Axe",
     "stockType": "Limited",
     "stockQuantity": 10,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-luki-dandadan",
-    "poli": "anime",
-    "productName": "Sticker Set Dandadan Chibi Spirits",
-    "variantName": "-",
+    "itemId": "hlk-keychain-sale-dne-suisei__s-smirk",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain Hoshimachi Suisei Expression",
+    "variantName": "S. Smirk",
     "stockType": "Limited",
     "stockQuantity": 7,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-tsn-wuwa",
-    "poli": "wuwa",
-    "productName": "Sticker Die-Cut Wuthering Waves Resonators",
-    "variantName": "-",
+    "itemId": "hlk-keychain-sale-dne-suisei__s-sparkle",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain Hoshimachi Suisei Expression",
+    "variantName": "S. Sparkle",
     "stockType": "Limited",
-    "stockQuantity": 15,
+    "stockQuantity": 11,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-pin-sale-enn-umamusume",
-    "poli": "anime",
-    "productName": "Can Badge Pin Uma Musume Pretty Derby",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 4,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-keychain-sale-dne-mihoyo",
-    "poli": "genshin",
-    "productName": "Keychain Mihoyo",
-    "variantName": "-",
+    "itemId": "hlk-keychain-sale-dne-suisei__s-wink",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain Hoshimachi Suisei Expression",
+    "variantName": "S. Wink",
     "stockType": "Limited",
     "stockQuantity": 8,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-keychain-luki-dandadan",
-    "poli": "anime",
-    "productName": "Acrylic Keychain Dandadan Turbo Action",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 12,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-sale-ayd-genshin",
-    "poli": "genshin",
-    "productName": "Sticker Genshin",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 5,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-artprint-sale-chkn-mihoyo-bf",
-    "poli": "genshin",
-    "productName": "Print Mihoyo Bf",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 9,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-sale-dne-suisei",
+    "itemId": "hlk-keychain-sale-dne-vtuber__suisei-bisik",
     "poli": "vtuber",
-    "productName": "Sticker Die-Cut Hoshimachi Suisei Idol",
-    "variantName": "-",
+    "productName": "Acrylic Keychain VTuber Hololive Series",
+    "variantName": "Suisei Bisik",
     "stockType": "Limited",
-    "stockQuantity": 14,
+    "stockQuantity": 15,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-artprint-sale-ayd-genshin-bf",
-    "poli": "genshin",
-    "productName": "Art Print A5 Genshin Boyfriend Series",
-    "variantName": "-",
+    "itemId": "hlk-keychain-sale-dne-vtuber__suisei-maid",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain VTuber Hololive Series",
+    "variantName": "Suisei Maid",
+    "stockType": "Limited",
+    "stockQuantity": 4,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-keychain-sale-dne-vtuber__zeta-neko",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain VTuber Hololive Series",
+    "variantName": "Zeta Neko",
     "stockType": "Limited",
     "stockQuantity": 6,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-photocard-sale-meru-genhsin",
+    "itemId": "hlk-keychain-sale-dne-vtuber__s-peace-sign",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain VTuber Hololive Series",
+    "variantName": "S. Peace Sign",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-keychain-sale-dne-vtuber__kobo",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain VTuber Hololive Series",
+    "variantName": "Kobo",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-keychain-sale-dne-vtuber__z-peace-sign",
+    "poli": "vtuber",
+    "productName": "Acrylic Keychain VTuber Hololive Series",
+    "variantName": "Z. Peace Sign",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pas-foto-sale-enn-genhsin",
     "poli": "genshin",
-    "productName": "Photocard Genhsin",
+    "productName": "Pas Foto 3x4 Formal Teyvat Clinic ID",
     "variantName": "-",
     "stockType": "Limited",
     "stockQuantity": 10,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-keychain-sale-dne-suisei",
-    "poli": "vtuber",
-    "productName": "Acrylic Keychain Hoshimachi Suisei Stellar",
-    "variantName": "-",
+    "itemId": "hlk-photocard-sale-ayd-genshin-bf__baizhu",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Boyfriend Series",
+    "variantName": "Baizhu",
+    "stockType": "Limited",
+    "stockQuantity": 9,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-ayd-genshin-bf__lyney",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Boyfriend Series",
+    "variantName": "Lyney",
     "stockType": "Limited",
     "stockQuantity": 7,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-pin-sale-meru-genshin-male",
+    "itemId": "hlk-photocard-sale-ayd-genshin-bf__childe",
     "poli": "genshin",
-    "productName": "Pin Genshin Male",
-    "variantName": "-",
+    "productName": "Photocard Genshin Boyfriend Series",
+    "variantName": "Childe",
+    "stockType": "Limited",
+    "stockQuantity": 14,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-ayd-genshin-date__gaming",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Date Series",
+    "variantName": "Gaming",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-ayd-genshin-date__wanderer",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Date Series",
+    "variantName": "Wanderer",
     "stockType": "Limited",
     "stockQuantity": 11,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-ayd-genshin-date__lyney",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Date Series",
+    "variantName": "Lyney",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-ayd-genshin-date__baizhu",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Date Series",
+    "variantName": "Baizhu",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-genshin-male__venti",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Husbu Pack",
+    "variantName": "Venti",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-genshin-male__wanderer",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Husbu Pack",
+    "variantName": "Wanderer",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-genshin-male__childe",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Husbu Pack",
+    "variantName": "Childe",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-genshin-male__ayato",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Husbu Pack",
+    "variantName": "Ayato",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-genshin-male__alhaitham",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Husbu Pack",
+    "variantName": "Alhaitham",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-jujutsu-kaisen__geto",
+    "poli": "anime",
+    "productName": "Photocard Jujutsu Kaisen Sorcerers",
+    "variantName": "Geto",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-jujutsu-kaisen__gojo",
+    "poli": "anime",
+    "productName": "Photocard Jujutsu Kaisen Sorcerers",
+    "variantName": "Gojo",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-chkn-jujutsu-kaisen__choso",
+    "poli": "anime",
+    "productName": "Photocard Jujutsu Kaisen Sorcerers",
+    "variantName": "Choso",
+    "stockType": "Limited",
+    "stockQuantity": 15,
     "status": "Clearance"
   },
   {
@@ -248,97 +455,439 @@
     "productName": "Photocard Kamen Rider Legend Series",
     "variantName": "-",
     "stockType": "Limited",
-    "stockQuantity": 8,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-chkn-mie-ayam",
-    "poli": "original",
-    "productName": "Sticker Die-Cut Mie Ayam Abang-Abang",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 15,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-meru-alien-stage",
-    "poli": "anime",
-    "productName": "Sticker Set Alien Stage Ivan & Till",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 4,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-polaroid-dne-vtuber-mc-mihoyo",
-    "poli": "vtuber",
-    "productName": "Polaroid Vtuber Mc Mihoyo",
-    "variantName": "-",
-    "stockType": "Limited",
     "stockQuantity": 6,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-keychain-tsn-wuwa",
-    "poli": "wuwa",
-    "productName": "Acrylic Keychain Wuthering Waves",
-    "variantName": "-",
+    "itemId": "hlk-photocard-sale-meru-genhsin__wanderer",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Archons & MC Collection",
+    "variantName": "Wanderer",
     "stockType": "Limited",
     "stockQuantity": 12,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-keychain-sale-dne-vtuber",
-    "poli": "vtuber",
-    "productName": "Keychain Vtuber",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 8,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-sale-tsn-kucing-jelek",
-    "poli": "original",
-    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 5,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-artprint-dne-suisei-vtuber",
-    "poli": "vtuber",
-    "productName": "Art Print A5 Hoshimachi Suisei Concert Stage",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 10,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-sale-dne-mihoyo",
+    "itemId": "hlk-photocard-sale-meru-genhsin__venti",
     "poli": "genshin",
-    "productName": "Sticker Mihoyo",
-    "variantName": "-",
+    "productName": "Photocard Genshin Archons & MC Collection",
+    "variantName": "Venti",
     "stockType": "Limited",
-    "stockQuantity": 9,
+    "stockQuantity": 4,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-artprint-sale-meru-hsr",
-    "poli": "hsr",
-    "productName": "Art Print A5 Honkai Star Rail Astral Journey",
-    "variantName": "-",
+    "itemId": "hlk-photocard-sale-meru-genhsin__mc-genshin",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Archons & MC Collection",
+    "variantName": "MC Genshin",
     "stockType": "Limited",
     "stockQuantity": 7,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-sale-rd-sumeru-barbie",
+    "itemId": "hlk-photocard-sale-meru-genhsin__zhongli",
     "poli": "genshin",
-    "productName": "Sticker Sumeru Barbie Alhaitham & Kaveh",
-    "variantName": "-",
+    "productName": "Photocard Genshin Archons & MC Collection",
+    "variantName": "Zhongli",
     "stockType": "Limited",
     "stockQuantity": 14,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-meru-genhsin__ei",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Archons & MC Collection",
+    "variantName": "Ei",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-meru-genhsin__nahida",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Archons & MC Collection",
+    "variantName": "Nahida",
+    "stockType": "Limited",
+    "stockQuantity": 9,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-anemo-boys__heizou",
+    "poli": "genshin",
+    "productName": "Photocard Anemo Boys Boyband Series",
+    "variantName": "Heizou",
+    "stockType": "Limited",
+    "stockQuantity": 11,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-anemo-boys__wanderer",
+    "poli": "genshin",
+    "productName": "Photocard Anemo Boys Boyband Series",
+    "variantName": "Wanderer",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-anemo-boys__kazuha",
+    "poli": "genshin",
+    "productName": "Photocard Anemo Boys Boyband Series",
+    "variantName": "Kazuha",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-anemo-boys__xiao",
+    "poli": "genshin",
+    "productName": "Photocard Anemo Boys Boyband Series",
+    "variantName": "Xiao",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-anemo-boys__aether",
+    "poli": "genshin",
+    "productName": "Photocard Anemo Boys Boyband Series",
+    "variantName": "Aether",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-anemo-boys__venti",
+    "poli": "genshin",
+    "productName": "Photocard Anemo Boys Boyband Series",
+    "variantName": "Venti",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-genshin-male__kaeya",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Lineup",
+    "variantName": "Kaeya",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-genshin-male__diluc",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Lineup",
+    "variantName": "Diluc",
+    "stockType": "Limited",
+    "stockQuantity": 4,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-genshin-male__childe",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Lineup",
+    "variantName": "Childe",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-genshin-male__zhongli",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Lineup",
+    "variantName": "Zhongli",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-genshin-male__wriothesley",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Lineup",
+    "variantName": "Wriothesley",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-rd-genshin-male__neuvillette",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Male Lineup",
+    "variantName": "Neuvillette",
+    "stockType": "Limited",
+    "stockQuantity": 9,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-tsn-genshin-chair__wriothesley",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Sitting Chair Series",
+    "variantName": "Wriothesley",
+    "stockType": "Limited",
+    "stockQuantity": 14,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-tsn-genshin-chair__wanderer",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Sitting Chair Series",
+    "variantName": "Wanderer",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-tsn-genshin-chair__diluc",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Sitting Chair Series",
+    "variantName": "Diluc",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-tsn-genshin-chair__alhaitham",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Sitting Chair Series",
+    "variantName": "Alhaitham",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-photocard-sale-tsn-genshin-chair__xiao",
+    "poli": "genshin",
+    "productName": "Photocard Genshin Sitting Chair Series",
+    "variantName": "Xiao",
+    "stockType": "Limited",
+    "stockQuantity": 11,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pick-sale-enn-bocchi-tr__kita",
+    "poli": "anime",
+    "productName": "Guitar Pick Bocchi The Rock! Special",
+    "variantName": "Kita",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pick-sale-enn-bocchi-tr__nijika",
+    "poli": "anime",
+    "productName": "Guitar Pick Bocchi The Rock! Special",
+    "variantName": "Nijika",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pick-sale-enn-bocchi-tr__ryo",
+    "poli": "anime",
+    "productName": "Guitar Pick Bocchi The Rock! Special",
+    "variantName": "Ryo",
+    "stockType": "Limited",
+    "stockQuantity": 4,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pick-sale-enn-bocchi-tr__bocchi",
+    "poli": "anime",
+    "productName": "Guitar Pick Bocchi The Rock! Special",
+    "variantName": "Bocchi",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pick-sale-enn-bocchi-tr__bocchi-segitiga",
+    "poli": "anime",
+    "productName": "Guitar Pick Bocchi The Rock! Special",
+    "variantName": "Bocchi Segitiga",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-ayd-game-mc__furina",
+    "poli": "anime",
+    "productName": "Can Badge Pin Game Heroines MC",
+    "variantName": "Furina",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-ayd-game-mc__lumine",
+    "poli": "anime",
+    "productName": "Can Badge Pin Game Heroines MC",
+    "variantName": "Lumine",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-ayd-game-mc__miku",
+    "poli": "anime",
+    "productName": "Can Badge Pin Game Heroines MC",
+    "variantName": "Miku",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-ayd-game-mc__firefly",
+    "poli": "anime",
+    "productName": "Can Badge Pin Game Heroines MC",
+    "variantName": "Firefly",
+    "stockType": "Limited",
+    "stockQuantity": 9,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-ayd-game-mc__amiya",
+    "poli": "anime",
+    "productName": "Can Badge Pin Game Heroines MC",
+    "variantName": "Amiya",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-enn-umamusume__gas",
+    "poli": "anime",
+    "productName": "Can Badge Pin Uma Musume Meme Expressions",
+    "variantName": "Gas",
+    "stockType": "Limited",
+    "stockQuantity": 14,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-enn-umamusume__cihuy",
+    "poli": "anime",
+    "productName": "Can Badge Pin Uma Musume Meme Expressions",
+    "variantName": "Cihuy",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-enn-umamusume__waduh",
+    "poli": "anime",
+    "productName": "Can Badge Pin Uma Musume Meme Expressions",
+    "variantName": "Waduh",
+    "stockType": "Limited",
+    "stockQuantity": 11,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-enn-umamusume__turu",
+    "poli": "anime",
+    "productName": "Can Badge Pin Uma Musume Meme Expressions",
+    "variantName": "Turu",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-enn-umamusume__malas",
+    "poli": "anime",
+    "productName": "Can Badge Pin Uma Musume Meme Expressions",
+    "variantName": "Malas",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__xiao",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Xiao",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__aether",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Aether",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__kazuha",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Kazuha",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__venti",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Venti",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__wanderer",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Wanderer",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__aventurine",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Aventurine",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__dr-ratio",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Dr. Ratio",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__gepard",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Gepard",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__misha",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Misha",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-pin-sale-meru-genshin-male__sampo",
+    "poli": "genshin",
+    "productName": "Can Badge Pin Genshin & HSR Male Stars",
+    "variantName": "Sampo",
+    "stockType": "Limited",
+    "stockQuantity": 12,
     "status": "Clearance"
   },
   {
@@ -347,88 +896,259 @@
     "productName": "Sticker Chibi Pack Arena of Valor",
     "variantName": "-",
     "stockType": "Limited",
-    "stockQuantity": 6,
+    "stockQuantity": 4,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-keychain-tsn-httd-frosted__toothless",
-    "poli": "anime",
-    "productName": "Frosted Keychain How To Train Your Dragon",
-    "variantName": "Toothless (Hitam / Kiri)",
-    "stockType": "Limited",
-    "stockQuantity": 11,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-keychain-tsn-httd-frosted__light-fury",
-    "poli": "anime",
-    "productName": "Frosted Keychain How To Train Your Dragon",
-    "variantName": "Light Fury (Putih / Kanan)",
-    "stockType": "Limited",
-    "stockQuantity": 8,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-pin-sale-ayd-game-mc",
-    "poli": "anime",
-    "productName": "Can Badge Pin Game MC Protagonist",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 12,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-keychain-tsn-bangaboo",
-    "poli": "zzz",
-    "productName": "Acrylic Keychain Bangaboo ZZZ",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 5,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-sticker-chkn-genshin-hsr",
+    "itemId": "hlk-sticker-sale-ayd-genshin",
     "poli": "genshin",
-    "productName": "Sticker Genshin Hsr",
-    "variantName": "-",
-    "stockType": "Limited",
-    "stockQuantity": 10,
-    "status": "Clearance"
-  },
-  {
-    "itemId": "hlk-photocard-sale-chkn-genshin-male",
-    "poli": "genshin",
-    "productName": "Photocard Genshin Male",
+    "productName": "Sticker Die-Cut Chibi Genshin Impact",
     "variantName": "-",
     "stockType": "Limited",
     "stockQuantity": 7,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-artprint-sale-dne-mihoyo-mc",
-    "poli": "genshin",
-    "productName": "Print Mihoyo Mc",
+    "itemId": "hlk-sticker-sale-dne-mihoyo",
+    "poli": "hsr",
+    "productName": "Sticker Set MiHoYo Universes",
     "variantName": "-",
     "stockType": "Limited",
-    "stockQuantity": 15,
+    "stockQuantity": 14,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-sticker-sale-rd-cynonari",
-    "poli": "genshin",
-    "productName": "Sticker Die-Cut Cyno & Tighnari Cynonari",
-    "variantName": "-",
+    "itemId": "hlk-sticker-sale-dne-suisei__s-wink",
+    "poli": "vtuber",
+    "productName": "Sticker Die-Cut Hoshimachi Suisei Expressions",
+    "variantName": "S. Wink",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-dne-suisei__s-smirk",
+    "poli": "vtuber",
+    "productName": "Sticker Die-Cut Hoshimachi Suisei Expressions",
+    "variantName": "S. Smirk",
+    "stockType": "Limited",
+    "stockQuantity": 9,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-dne-suisei__s-sad",
+    "poli": "vtuber",
+    "productName": "Sticker Die-Cut Hoshimachi Suisei Expressions",
+    "variantName": "S. Sad",
+    "stockType": "Limited",
+    "stockQuantity": 11,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-dne-suisei__s-battle-axe",
+    "poli": "vtuber",
+    "productName": "Sticker Die-Cut Hoshimachi Suisei Expressions",
+    "variantName": "S. Battle Axe",
     "stockType": "Limited",
     "stockQuantity": 8,
     "status": "Clearance"
   },
   {
-    "itemId": "hlk-photocard-sale-rd-genshin-male",
+    "itemId": "hlk-sticker-sale-dne-suisei__s-sparkle",
+    "poli": "vtuber",
+    "productName": "Sticker Die-Cut Hoshimachi Suisei Expressions",
+    "variantName": "S. Sparkle",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-cynonari__cyno-cabe-merah",
     "poli": "genshin",
-    "productName": "Photocard Genshin Male",
-    "variantName": "-",
+    "productName": "Sticker Die-Cut Cyno & Tighnari Cynonari",
+    "variantName": "Cyno Cabe Merah",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-cynonari__tighnari-cabe-hijau",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Cyno & Tighnari Cynonari",
+    "variantName": "Tighnari Cabe Hijau",
     "stockType": "Limited",
     "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-cynonari__cyno-jelek",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Cyno & Tighnari Cynonari",
+    "variantName": "Cyno Jelek",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-cynonari__tighnari-jelek",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Cyno & Tighnari Cynonari",
+    "variantName": "Tighnari Jelek",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-sumeru-barbie__barbie-kaveh",
+    "poli": "genshin",
+    "productName": "Sticker Sumeru Barbie Edition",
+    "variantName": "Barbie Kaveh",
+    "stockType": "Limited",
+    "stockQuantity": 4,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-sumeru-barbie__barbie-alhaitham",
+    "poli": "genshin",
+    "productName": "Sticker Sumeru Barbie Edition",
+    "variantName": "Barbie Alhaitham",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-sumeru-barbie__barbie-cyno",
+    "poli": "genshin",
+    "productName": "Sticker Sumeru Barbie Edition",
+    "variantName": "Barbie Cyno",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-sumeru-barbie__barbie-tighnari",
+    "poli": "genshin",
+    "productName": "Sticker Sumeru Barbie Edition",
+    "variantName": "Barbie Tighnari",
+    "stockType": "Limited",
+    "stockQuantity": 5,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-asu",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Wriothesley Duke Teh",
+    "variantName": "Wriothesley Teh Asu",
+    "stockType": "Limited",
+    "stockQuantity": 9,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-wriothesley__wriothesley-sigewinne",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Wriothesley Duke Teh",
+    "variantName": "Wriothesley Sigewinne",
+    "stockType": "Limited",
+    "stockQuantity": 14,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-besar",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Wriothesley Duke Teh",
+    "variantName": "Wriothesley Teh Besar",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-infus",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Wriothesley Duke Teh",
+    "variantName": "Wriothesley Teh Infus",
+    "stockType": "Limited",
+    "stockQuantity": 10,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-rd-wriothesley__wriothesley-teh-cekek",
+    "poli": "genshin",
+    "productName": "Sticker Die-Cut Wriothesley Duke Teh",
+    "variantName": "Wriothesley Teh Cekek",
+    "stockType": "Limited",
+    "stockQuantity": 7,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-item",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Item",
+    "stockType": "Limited",
+    "stockQuantity": 11,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-sapi",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Sapi",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-pipop",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Pipop",
+    "stockType": "Limited",
+    "stockQuantity": 15,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-jalan",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Jalan",
+    "stockType": "Limited",
+    "stockQuantity": 4,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-loading",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Loading",
+    "stockType": "Limited",
+    "stockQuantity": 6,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-turu",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Turu",
+    "stockType": "Limited",
+    "stockQuantity": 12,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-hah",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Hah",
+    "stockType": "Limited",
+    "stockQuantity": 8,
+    "status": "Clearance"
+  },
+  {
+    "itemId": "hlk-sticker-sale-tsn-kucing-jelek__k-bontot",
+    "poli": "original",
+    "productName": "Sticker Die-Cut Kucing Jelek Tapi Sayang",
+    "variantName": "K. Bontot",
+    "stockType": "Limited",
+    "stockQuantity": 5,
     "status": "Clearance"
   }
 ]
