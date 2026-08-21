@@ -95,7 +95,7 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
             >
               {itemSoldOut ? 'SOLD OUT' : product.isClearance ? 'CLEARANCE' : tagBadge}
             </div>
-            <div className="text-[7px] sm:text-[8.5px] font-bold text-[#8D6E63] font-mono leading-tight mt-1 uppercase truncate">
+            <div className="text-[7px] sm:text-[8.5px] font-bold text-[#5D4037] font-mono leading-tight mt-1 uppercase truncate">
               {product.category}
             </div>
           </div>
@@ -104,7 +104,7 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
             <div className="text-[7px] sm:text-[8.5px] text-[#261A14] font-mono leading-none truncate font-bold uppercase">
               {product.poli}
             </div>
-            <div className="text-[6.5px] sm:text-[7.5px] text-[#8D6E63] font-mono leading-none truncate">
+            <div className="text-[6.5px] sm:text-[7.5px] text-[#5D4037] font-mono leading-none truncate">
               {product.size || 'STD'}
             </div>
           </div>
@@ -126,7 +126,7 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
               <button
                 type="button"
                 onClick={onOpenDetail}
-                className="shrink-0 text-[#8D6E63] hover:text-[#261A14] p-0.5 rounded transition-colors cursor-pointer mt-0.5"
+                className="shrink-0 text-[#5D4037] hover:text-[#261A14] p-0.5 rounded transition-colors cursor-pointer mt-0.5"
                 title="Lihat Dosis & Varian Lengkap"
               >
                 <Info className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -148,7 +148,7 @@ export const ShelfTagLabel: React.FC<ShelfTagLabelProps> = ({ product, onOpenDet
                   HABIS
                 </span>
               ) : itemLowStock ? (
-                <span className="text-[8.5px] sm:text-[9.5px] font-black text-amber-900 bg-amber-200 px-1.5 py-0.2 rounded border border-amber-400 inline-flex items-center gap-0.5 leading-normal animate-pulse">
+                <span className="text-[8.5px] sm:text-[9.5px] font-black text-amber-900 bg-amber-200 px-1.5 py-0.2 rounded border border-amber-400 inline-flex items-center gap-0.5 leading-normal">
                   <AlertTriangle className="w-2.5 h-2.5 text-amber-800" />
                   Sisa {availableStock} pcs!
                 </span>

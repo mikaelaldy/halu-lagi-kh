@@ -68,7 +68,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
                 KLINIK HALU LAGI KH?
               </h2>
             </div>
-            <p className="font-doodle text-xs text-[#8D6E63] font-semibold mt-0.5">
+            <p className="font-doodle text-xs text-[#5D4037] font-semibold mt-0.5">
               {CLINIC_INFO.tagline}
             </p>
           </div>
@@ -87,32 +87,32 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
         {/* Patient & Payment Details */}
         <div className="bg-amber-50/80 p-4 rounded-2xl border border-[#3E2723] grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold">
           <div>
-            <span className="text-[#8D6E63] block text-[10px]">NAMA PASIEN / PEMESAN:</span>
+            <span className="text-[#5D4037] block text-[10px]">NAMA PASIEN / PEMESAN:</span>
             <span className="font-heading font-bold text-sm text-[#3E2723]">
               {order.customerInfo.name}
             </span>
           </div>
           <div>
-            <span className="text-[#8D6E63] block text-[10px]">KONTAK (EMAIL & WA):</span>
+            <span className="text-[#5D4037] block text-[10px]">KONTAK (EMAIL & WA):</span>
             <span className="text-[#3E2723]">{order.customerInfo.email} | {order.customerInfo.phone}</span>
           </div>
 
           <div>
-            <span className="text-[#8D6E63] block text-[10px]">PEMBAYARAN DITRANSFER KE:</span>
+            <span className="text-[#5D4037] block text-[10px]">PEMBAYARAN DITRANSFER KE:</span>
             <span className="font-bold text-[#3E2723]">
               Bank {order.customerInfo.targetBank || 'BCA'}
             </span>
           </div>
 
           <div>
-            <span className="text-[#8D6E63] block text-[10px]">NAMA REKENING PENGIRIM:</span>
+            <span className="text-[#5D4037] block text-[10px]">NAMA REKENING PENGIRIM:</span>
             <span className="font-bold text-[#3E2723]">
               {order.customerInfo.senderAccountName || '-'}
             </span>
           </div>
 
-          <div className="sm:col-span-2 pt-1 border-t border-[#8D6E63]/20">
-            <span className="text-[#8D6E63] block text-[10px]">METODE PENYERAHAN MERCHANDISE:</span>
+          <div className="sm:col-span-2 pt-1 border-t border-[#5D4037]/20">
+            <span className="text-[#5D4037] block text-[10px]">METODE PENYERAHAN MERCHANDISE:</span>
             <span className="font-bold text-emerald-800">
               {order.customerInfo.deliveryMethod === 'pickup'
                 ? `🎪 PICK UP @ BOOTH COMIFURO (${order.customerInfo.pickupDay === 'day1' ? 'Day 1 (Sabtu)' : order.customerInfo.pickupDay === 'day2' ? 'Day 2 (Minggu)' : 'Flexible Day 1 / Day 2'})`
@@ -173,7 +173,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
                           )}
                         </div>
                         {item.selectedVariant && (
-                          <span className="text-[11px] text-[#8D6E63] font-doodle pl-5">
+                          <span className="text-[11px] text-[#5D4037] font-doodle pl-5">
                             ↳ Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
                           </span>
                         )}
@@ -190,7 +190,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
                       </div>
                     </td>
                     <td className="p-3 text-center font-bold">{item.quantity}</td>
-                    <td className="p-3 text-right font-bold text-[#FF4B4B]">
+                    <td className="p-3 text-right font-bold text-[#C62828]">
                       {formatRupiah(item.product.price * item.quantity)}
                     </td>
                   </tr>
@@ -205,20 +205,20 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
           <div className="font-doodle text-xs text-[#5D4037]">
             <p>Hormat kami,</p>
             <p className="font-heading font-bold text-base text-[#3E2723]">{CLINIC_INFO.doctors}</p>
-            <p className="text-[10px] text-[#8D6E63]">Klinik Wibu Kepercayaan Ningentachi</p>
+            <p className="text-[10px] text-[#5D4037]">Klinik Wibu Kepercayaan Ningentachi</p>
           </div>
 
           <div className="bg-[#F6C358] p-3 rounded-2xl border-2 border-[#3E2723] text-right w-full sm:w-auto shadow-[3px_3px_0px_#3E2723]">
             <span className="text-[10px] font-bold text-[#3E2723] block uppercase tracking-wider">
               TOTAL PEMBAYARAN LUNAS
             </span>
-            <span className="font-heading font-black text-xl text-[#FF4B4B]">
+            <span className="font-heading font-black text-xl text-[#C62828]">
               {formatRupiah(totalPrice)}
             </span>
           </div>
         </div>
 
-        <div className="text-center font-doodle text-[11px] text-[#8D6E63] pt-2">
+        <div className="text-center font-doodle text-[11px] text-[#5D4037] pt-2">
           "{CLINIC_INFO.messageThankYou}"
         </div>
       </div>

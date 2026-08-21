@@ -70,7 +70,7 @@ export const ThankYou: React.FC = () => {
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full border-3 border-[#3E2723] flex items-center justify-center text-4xl shadow-md animate-bounce">
               👻🩺
             </div>
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full border-3 border-[#3E2723] flex items-center justify-center text-4xl shadow-md animate-bounce delay-150">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full border-3 border-[#3E2723] flex items-center justify-center text-4xl shadow-md">
               👻💊
             </div>
           </div>
@@ -136,7 +136,7 @@ export const ThankYou: React.FC = () => {
         {/* PRESCRIPTION RECEIPT DISPLAY */}
         <div>
           <div className="text-center mb-4">
-            <span className="font-heading font-extrabold text-sm text-[#8D6E63] uppercase tracking-wider">
+            <span className="font-heading font-extrabold text-sm text-[#5D4037] uppercase tracking-wider">
               Surat Resep Digital Kamu Ready!
             </span>
           </div>

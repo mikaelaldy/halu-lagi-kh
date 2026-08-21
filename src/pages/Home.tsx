@@ -37,7 +37,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="text-xs text-[#3E2723] font-semibold space-y-0.5">
                   <p>📍 <strong>Pick Up @ Booth Comifuro</strong> atau 📦 <strong>Kirim via Mail Order</strong>.</p>
-                  <p className="text-[#8D6E63] font-normal">Tersedia untuk Poli Genshin, Honkai Star Rail, Kamen Rider, AoV, & Spy x Family!</p>
+                  <p className="text-[#5D4037] font-normal">Tersedia untuk Poli Genshin, Honkai Star Rail, Kamen Rider, AoV, & Spy x Family!</p>
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
                 to="/catalog"
                 className="inline-flex items-center gap-3 bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] px-8 py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base sm:text-lg shadow-[4px_4px_0px_#F6C358] hover:shadow-none transition-all active:translate-y-1"
               >
-                <Sparkles className="w-5 h-5 text-amber-400 fill-amber-400 animate-pulse" />
+                <Sparkles className="w-5 h-5 text-amber-400 fill-amber-400" />
                 Buka Etalase Resep Merchandise
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -79,7 +79,7 @@ export const Home: React.FC = () => {
                 "Halu lagi kh? Jangan panik, periksa dulu resepnya di sini!"
               </div>
 
-              <div className="flex items-center justify-between text-xs font-heading font-bold text-[#8D6E63] px-1">
+              <div className="flex items-center justify-between text-xs font-heading font-bold text-[#5D4037] px-1">
                 <span>🩺 {CLINIC_INFO.doctors}</span>
                 <span className="bg-[#F6C358] text-[#3E2723] px-3 py-0.5 rounded-full border border-[#3E2723]">
                   100% Ampuh

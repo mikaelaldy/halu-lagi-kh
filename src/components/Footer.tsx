@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-[#6D4C41]">
           
           {/* Dokter Penanggung Jawab (Left) */}
-          <div className="bg-[#4A2E16] p-5 rounded-2xl border-2 border-[#8D6E63] shadow-inner flex flex-col justify-between">
+          <div className="bg-[#4A2E16] p-5 rounded-2xl border-2 border-[#5D4037] shadow-inner flex flex-col justify-between">
             <div>
               <h4 className="font-heading font-bold text-lg text-[#F6C358] mb-3 flex items-center gap-2">
                 <Stethoscope className="w-5 h-5 text-[#F6C358]" />
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Jadwal Praktek (Center) */}
-          <div className="bg-[#4A2E16] p-5 rounded-2xl border-2 border-[#8D6E63] shadow-inner flex flex-col justify-between">
+          <div className="bg-[#4A2E16] p-5 rounded-2xl border-2 border-[#5D4037] shadow-inner flex flex-col justify-between">
             <div>
               <h4 className="font-heading font-bold text-lg text-[#F6C358] mb-3 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-[#F6C358]" />
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Hubungi Kami & Info Tagging (Right) */}
-          <div className="bg-[#4A2E16] p-5 rounded-2xl border-2 border-[#8D6E63] shadow-inner flex flex-col justify-between">
+          <div className="bg-[#4A2E16] p-5 rounded-2xl border-2 border-[#5D4037] shadow-inner flex flex-col justify-between">
             <div>
               <h4 className="font-heading font-bold text-lg text-[#F6C358] mb-3 flex items-center gap-2">
                 <Mail className="w-5 h-5 text-[#F6C358]" />
