@@ -5,6 +5,19 @@ import { CLINIC_INFO, PRODUCTS } from '../data/products';
 import { OptimizedImage } from '../components/OptimizedImage';
 import { LandingCarousel } from '../components/LandingCarousel';
 
+const MASCOTS: { src: string; alt: string }[] = [
+  { src: '/images/brand/mascot-1.webp', alt: 'Dr. LULU' },
+  { src: '/images/brand/mascot-2.webp', alt: 'Haha' },
+  { src: '/images/brand/mascot-3.webp', alt: 'Dr. LULU' },
+  { src: '/images/brand/mascot-4.webp', alt: 'Haha' },
+  { src: '/images/brand/mascot-5.webp', alt: 'Dr. LULU' },
+  { src: '/images/brand/mascot-6.webp', alt: 'Haha' },
+  { src: '/images/brand/mascot-7.webp', alt: 'Dr. LULU' },
+  { src: '/images/brand/mascot-8.webp', alt: 'Haha' },
+  { src: '/images/brand/mascot-9.webp', alt: 'Dr. LULU' },
+  { src: '/images/brand/mascot-10.webp', alt: 'Haha' },
+];
+
 export const Home: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col mart-shelf-canvas">
@@ -90,6 +103,43 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* MASCOT STRIP - original Dr. LULU & Haha art */}
+      <section className="pb-14 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white rounded-3xl border-2 border-[#3E2723] shadow-[4px_4px_0px_#3E2723] p-5 sm:p-7 space-y-4">
+            <div className="flex items-end justify-between gap-3 px-1">
+              <div>
+                <h2 className="font-heading text-xl sm:text-2xl font-black text-[#3E2723]">
+                  Kenalan sama Dokternya 🩺
+                </h2>
+                <p className="font-doodle text-xs sm:text-sm text-[#5D4037] font-bold">
+                  Ilustrasi resmi Dr. LULU &amp; Haha — staf klinik paling ngerti halumu.
+                </p>
+              </div>
+              <span className="hidden sm:inline-block bg-[#FFF4D0] text-[#3E2723] px-3 py-1 rounded-full border border-[#3E2723]/40 text-xs font-heading font-bold shrink-0">
+                Original Art
+              </span>
+            </div>
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4">
+              {MASCOTS.map((m) => (
+                <figure key={m.src} className="group relative rounded-2xl bg-[#FFF9E6] border-2 border-[#3E2723] overflow-hidden aspect-square hover:-translate-y-1 hover:shadow-[4px_4px_0px_#3E2723] transition-all">
+                  <OptimizedImage
+                    src={m.src}
+                    alt={m.alt}
+                    objectFit="contain"
+                    className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                    containerClassName="w-full h-full"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-[#3E2723]/85 text-[#FFF9E6] text-[10px] sm:text-xs font-heading font-bold text-center py-1 translate-y-full group-hover:translate-y-0 transition-transform">
+                    {m.alt}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
