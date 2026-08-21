@@ -18,7 +18,8 @@ import {
   X, 
   CreditCard,
   Building2,
-  AlertCircle
+  AlertCircle,
+  ChevronDown
 } from 'lucide-react';
 import { compressImage, submitOrderToGoogleScript } from '../services/orderService';
 import { OptimizedImage } from '../components/OptimizedImage';
@@ -26,6 +27,15 @@ import { useStock } from '../context/StockContext';
 
 export const Checkout: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, updateNote, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const [pouchExpanded, setPouchExpanded] = useState(false);
+
+  // Sticky mobile total bar: show once user scrolls into the long form
+  useEffect(() => {
+    const onScroll = () => setShowStickyBar(window.scrollY > 420);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   const { getAvailableStock, isSoldOut, refreshStocks } = useStock();
   const navigate = useNavigate();
 
@@ -243,6 +253,21 @@ export const Checkout: React.FC = () => {
           
           {/* LEFT COLUMN: CUSTOMER & PAYMENT FORM */}
           <div className="lg:col-span-7 bg-[#FFFCF5] p-6 sm:p-8 rounded-3xl border-3 border-[#3E2723] shadow-[6px_6px_0px_#3E2723] space-y-6">
+            {/* Mobile compact cart strip: total always visible while filling the form */}
+            <button
+              type="button"
+              onClick={() => setPouchExpanded((v) => !v)}
+              className="lg:hidden w-full flex items-center justify-between bg-[#FFF9E6] border-2 border-[#3E2723] px-4 py-2.5 rounded-xl font-heading font-bold text-xs text-[#3E2723] cursor-pointer"
+            >
+              <span>
+                {totalItems} item di Kantung Obat
+                {pouchExpanded ? ' - tutup' : ''}
+              </span>
+              <span className="flex items-center gap-1.5">
+                {formatRupiah(totalPrice)}
+                <ChevronDown className={`w-4 h-4 transition-transform ${pouchExpanded ? 'rotate-180' : ''}`} />
+              </span>
+            </button>
             <div>
               <span className="bg-[#F6C358] text-[#3E2723] font-heading font-bold text-xs px-3 py-1 rounded-full border border-[#3E2723]">
                 LANGKAH CHECKOUT
@@ -682,6 +707,7 @@ export const Checkout: React.FC = () => {
 
               {/* Submit Button */}
               <button
+                id="checkout-submit"
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base flex items-center justify-center gap-3 shadow-[4px_4px_0px_#F6C358] transition-all active:translate-y-1 cursor-pointer disabled:opacity-75"
@@ -698,6 +724,26 @@ export const Checkout: React.FC = () => {
                   </>
                 )}
               </button>
+
+        {/* Sticky mobile total + submit bar */}
+        {showStickyBar && (
+          <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#FFFCF5]/95 backdrop-blur border-t-3 border-[#3E2723] px-4 py-3 flex items-center justify-between gap-3 shadow-[0_-4px_12px_rgba(62,39,35,0.15)]">
+            <div className="min-w-0">
+              <span className="block text-[10px] font-bold text-[#5D4037] uppercase leading-none">Total Bayar</span>
+              <span className="font-heading font-black text-base text-[#C62828]">{formatRupiah(totalPrice)}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('checkout-submit')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }}
+              className="bg-[#3E2723] text-[#FFF9E6] font-heading font-black text-xs px-5 py-2.5 rounded-xl border-2 border-[#3E2723] shadow-[2px_2px_0px_#F6C358] flex items-center gap-1.5 active:translate-y-0.5 cursor-pointer transition-all shrink-0"
+            >
+              <Send className="w-3.5 h-3.5 text-amber-400" />
+              Ke Form Submit
+            </button>
+          </div>
+        )}
             </form>
           </div>
 
