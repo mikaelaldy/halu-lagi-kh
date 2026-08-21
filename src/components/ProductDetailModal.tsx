@@ -16,6 +16,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   const [variantSearch, setVariantSearch] = useState('');
   const [showCatalogPage, setShowCatalogPage] = useState(false);
+  const [note, setNote] = useState('');
 
   // Initialize or reset selected variant when product changes and lock body scroll
   useEffect(() => {
@@ -26,6 +27,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
     }
     setVariantSearch('');
     setShowCatalogPage(false);
+    setNote('');
 
     if (product) {
       document.body.style.overflow = 'hidden';
@@ -41,7 +43,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   if (!product) return null;
 
   const currentItemId = selectedVariant ? `${product.id}__${selectedVariant.id}` : product.id;
-  const cartItem = cart.find((item) => item.id === currentItemId);
+  const normNote = note.trim();
+  const cartItem = cart.find((item) => item.id === currentItemId && (item.note || '') === normNote);
   const currentQty = cartItem ? cartItem.quantity : 0;
 
   const selectedVariantSoldOut = isSoldOut(product.id, selectedVariant?.id);
@@ -61,7 +64,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
     if (currentQty >= availableStock) return;
 
     if (currentQty === 0) {
-      addToCart(product, 1, selectedVariant || undefined);
+      addToCart(product, 1, selectedVariant || undefined, note);
     } else {
       updateQuantity(currentItemId, currentQty + 1);
     }
@@ -325,6 +328,25 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               ) : null}
             </div>
           )}
+
+          {/* Per-item character note */}
+          <div className="bg-white p-4 rounded-2xl border-2 border-[#3E2723] space-y-2">
+            <label className="block font-heading font-bold text-xs sm:text-sm text-[#3E2723]">
+              Catatan varian / karakter <span className="font-normal text-[#8D6E63]">(opsional, per produk)</span>
+            </label>
+            <textarea
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              rows={2}
+              maxLength={120}
+              placeholder="Tulis varian/karakter yang diinginkan: mis. Aventurine, Childe..."
+              className="w-full bg-[#FFF9E6] border-2 border-[#3E2723] p-3 rounded-xl text-sm font-semibold text-[#3E2723] placeholder-[#8D6E63]/60 focus:ring-2 focus:ring-[#F6C358] outline-none resize-none"
+            />
+            <div className="flex items-center justify-between text-[11px] text-[#8D6E63]">
+              <span>Item sama + catatan beda = baris terpisah di keranjang.</span>
+              <span>{note.length}/120</span>
+            </div>
+          </div>
 
           {/* Description */}
           <div className="bg-white p-4 rounded-2xl border-2 border-[#3E2723] shadow-xs">

@@ -42,7 +42,7 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
       `Tujuan Transfer: Bank ${order.customerInfo.targetBank || 'BCA'} (Pengirim: ${order.customerInfo.senderAccountName || '-'})\n` +
       `Metode Ambil: ${order.customerInfo.deliveryMethod === 'pickup' ? `Comifuro Booth Pickup (${order.customerInfo.pickupDay})` : `Mail Order Shipping (${order.customerInfo.address})`}\n\n` +
       `*Daftar Resep:* \n` +
-      order.cart.map((i) => `- ${i.product.name}${i.selectedVariant ? ` [Varian: ${i.selectedVariant.name}]` : ''} (x${i.quantity}) - ${formatRupiah(i.product.price * i.quantity)}`).join('\n') +
+      order.cart.map((i) => `- ${i.product.name}${i.selectedVariant ? ` [Varian: ${i.selectedVariant.name}]` : ''}${i.note ? ` — catatan: ${i.note}` : ''} (x${i.quantity}) - ${formatRupiah(i.product.price * i.quantity)}`).join('\n') +
       `\n\n*Total Pembayaran:* ${formatRupiah(totalPrice)}\n` +
       `Status: Menunggu Verifikasi Admin via Email\n` +
       `Instagram: @halulagi_kh`;
@@ -175,6 +175,11 @@ export const PrescriptionReceipt: React.FC<PrescriptionReceiptProps> = ({ order 
                         {item.selectedVariant && (
                           <span className="text-[11px] text-[#8D6E63] font-doodle pl-5">
                             ↳ Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
+                          </span>
+                        )}
+                        {item.note && (
+                          <span className="text-[11px] text-[#5D4037] font-doodle pl-5">
+                            ↳ Catatan: <strong>{item.note}</strong>
                           </span>
                         )}
                         {item.product.dosage && (

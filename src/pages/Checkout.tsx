@@ -25,7 +25,7 @@ import { OptimizedImage } from '../components/OptimizedImage';
 import { useStock } from '../context/StockContext';
 
 export const Checkout: React.FC = () => {
-  const { cart, removeFromCart, updateQuantity, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
+  const { cart, removeFromCart, updateQuantity, updateNote, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
   const { getAvailableStock, isSoldOut, refreshStocks } = useStock();
   const navigate = useNavigate();
 
@@ -756,6 +756,11 @@ export const Checkout: React.FC = () => {
                           Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
                         </span>
                       )}
+                      {item.note && (
+                        <span className="text-[11px] text-[#5D4037] font-doodle block truncate">
+                          Catatan: <strong className="text-[#3E2723]">{item.note}</strong>
+                        </span>
+                      )}
                       
                       <div className="flex items-center justify-between mt-0.5">
                         <p className="text-xs text-[#FF4B4B] font-black">
@@ -798,6 +803,14 @@ export const Checkout: React.FC = () => {
                           <Plus className="w-3 h-3" />
                         </button>
                       </div>
+                      <input
+                        type="text"
+                        value={item.note || ''}
+                        onChange={(e) => updateNote(item.id, e.target.value)}
+                        maxLength={120}
+                        placeholder="Catatan varian/karakter..."
+                        className="mt-2 w-full bg-white border border-[#3E2723] px-2.5 py-1.5 rounded-xl text-[11px] font-semibold text-[#3E2723] placeholder-[#8D6E63]/50 focus:ring-1 focus:ring-[#F6C358] outline-none"
+                      />
                     </div>
 
                     <button

@@ -6,6 +6,7 @@ export interface CartItem {
   product: Product;
   selectedVariant?: ProductVariant;
   quantity: number;
+  note?: string; // catatan varian/karakter per item (opsional)
 }
 
 export interface CustomerInfo {
@@ -23,9 +24,10 @@ export interface CustomerInfo {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product, quantity?: number, selectedVariant?: ProductVariant) => void;
+  addToCart: (product: Product, quantity?: number, selectedVariant?: ProductVariant, note?: string) => void;
   removeFromCart: (cartItemId: string) => void;
   updateQuantity: (cartItemId: string, quantity: number) => void;
+  updateNote: (cartItemId: string, note: string) => void;
   clearCart: () => void;
   totalItems: number;
   totalPrice: number;
@@ -92,16 +94,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [lastOrder]);
 
-  const addToCart = (product: Product, quantity = 1, selectedVariant?: ProductVariant) => {
+  const addToCart = (product: Product, quantity = 1, selectedVariant?: ProductVariant, note?: string) => {
     const itemId = selectedVariant ? `${product.id}__${selectedVariant.id}` : product.id;
+    const norm = (note || '').trim();
     setCart((prev) => {
-      const existingIndex = prev.findIndex((item) => item.id === itemId);
+      const existingIndex = prev.findIndex((item) => item.id === itemId && (item.note || '') === norm);
       if (existingIndex > -1) {
         const updated = [...prev];
         updated[existingIndex].quantity += quantity;
         return updated;
       }
-      return [...prev, { id: itemId, product, selectedVariant, quantity }];
+      return [...prev, { id: itemId, product, selectedVariant, quantity, note: norm || undefined }];
     });
   };
 
@@ -121,6 +124,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   };
 
+  const updateNote = (cartItemId: string, note: string) => {
+    const norm = note.trim();
+    setCart((prev) =>
+      prev.map((item) => (item.id === cartItemId ? { ...item, note: norm || undefined } : item))
+    );
+  };
+
   const clearCart = () => {
     setCart([]);
   };
@@ -135,6 +145,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         addToCart,
         removeFromCart,
         updateQuantity,
+        updateNote,
         clearCart,
         totalItems,
         totalPrice,
