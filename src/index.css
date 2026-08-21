@@ -8,7 +8,6 @@
   --text-main: #3E2723;
   --text-muted: #6D4C41;
   --accent-red: #FF4B4B;
-  --accent-pill: #4DD0E1;
   --accent-green: #66BB6A;
   --border-doodle: #3E2723;
 }
@@ -39,8 +38,8 @@ h1, h2, h3, .font-heading {
 .mart-shelf-canvas {
   background-color: #FFF9E6;
   background-image:
-    linear-gradient(to right, rgba(61, 62, 83, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(61, 62, 83, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(62, 39, 35, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(62, 39, 35, 0.06) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -89,4 +88,13 @@ h1, h2, h3, .font-heading {
 ::-webkit-scrollbar-thumb {
   background: #F6C358;
   border-radius: 5px;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

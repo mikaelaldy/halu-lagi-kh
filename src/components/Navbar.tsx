@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
                   <h1 className="font-heading text-sm sm:text-xl md:text-2xl font-extrabold text-[#3E2723] tracking-wide leading-tight truncate">
                     {CLINIC_INFO.name}
                   </h1>
-                  <p className="font-doodle text-[10px] sm:text-xs text-[#8D6E63] font-semibold hidden md:block">
+                  <p className="font-doodle text-[10px] sm:text-xs text-[#5D4037] font-semibold hidden md:block">
                     {CLINIC_INFO.tagline}
                   </p>
                 </div>
@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
                   : 'bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037]'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400" />
               Katalog Merch
             </Link>
           </nav>
@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
               <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-[#3E2723]" />
               <span className="hidden sm:inline">Kantung Obat</span>
               {totalItems > 0 && (
-                <span className="bg-[#FF4B4B] text-white text-[10px] sm:text-xs font-black px-1.5 sm:px-2.5 py-0.2 sm:py-0.5 rounded-full border border-[#3E2723] shadow-xs animate-bounce">
+                <span className="bg-[#FF4B4B] text-white text-[10px] sm:text-xs font-black px-1.5 sm:px-2.5 py-0.2 sm:py-0.5 rounded-full border border-[#3E2723] shadow-xs">
                   {totalItems}
                 </span>
               )}
@@ -98,7 +98,7 @@ export const Navbar: React.FC = () => {
                   : 'bg-[#3E2723] text-[#FFF9E6] border-[#3E2723] hover:bg-[#5D4037]'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400" />
               Katalog Merch
             </Link>
           </div>

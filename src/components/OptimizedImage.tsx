@@ -73,7 +73,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
       {/* Error Fallback */}
       {hasError ? (
-        <div className="flex flex-col items-center justify-center p-3 text-[#8D6E63] text-center w-full h-full bg-[#FFFDF7] border-2 border-dashed border-[#3E2723]/30 rounded-xl">
+        <div className="flex flex-col items-center justify-center p-3 text-[#5D4037] text-center w-full h-full bg-[#FFFDF7] border-2 border-dashed border-[#3E2723]/30 rounded-xl">
           <Pill className="w-6 h-6 text-[#F6C358] mb-1" />
           <span className="text-[10px] font-heading font-bold">Resep Obat</span>
         </div>

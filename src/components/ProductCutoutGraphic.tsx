@@ -30,7 +30,7 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
     >
       {/* Floating Cart Quantity Badge */}
       {currentQty > 0 && (
-        <div className="absolute top-0 right-1 sm:right-3 z-30 bg-[#E53935] text-white font-heading font-black text-[11px] sm:text-xs px-2.5 py-0.5 sm:py-1 rounded-full border-2 border-[#261A14] shadow-md flex items-center gap-1 animate-bounce">
+        <div className="absolute top-0 right-1 sm:right-3 z-30 bg-[#E53935] text-white font-heading font-black text-[11px] sm:text-xs px-2.5 py-0.5 sm:py-1 rounded-full border-2 border-[#261A14] shadow-md flex items-center gap-1">
           <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           <span>x{currentQty}</span>
         </div>
@@ -38,7 +38,7 @@ export const ProductCutoutGraphic: React.FC<ProductCutoutGraphicProps> = ({
 
       {/* Sold Out Badge Stamp Overlay */}
       {allSoldOut && (
-        <div className="absolute top-4 z-30 bg-red-600 text-white font-heading font-black text-[10px] sm:text-xs px-3 py-1 rounded-full border-2 border-white shadow-lg tracking-wider uppercase rotate-[-6deg] animate-pulse">
+        <div className="absolute top-4 z-30 bg-red-600 text-white font-heading font-black text-[10px] sm:text-xs px-3 py-1 rounded-full border-2 border-white shadow-lg tracking-wider uppercase rotate-[-6deg]">
           HABIS / SOLD OUT
         </div>
       )}

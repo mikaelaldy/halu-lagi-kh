@@ -258,7 +258,7 @@ export const Checkout: React.FC = () => {
             <form onSubmit={handleSubmitOrder} className="space-y-6">
               
               {/* SECTION 1: DATA PASIEN */}
-              <div className="space-y-4 pb-6 border-b-2 border-dashed border-[#8D6E63]/30">
+              <div className="space-y-4 pb-6 border-b-2 border-dashed border-[#5D4037]/30">
                 <div className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-[#3E2723] text-white flex items-center justify-center text-xs font-heading font-bold">
                     1
@@ -299,7 +299,7 @@ export const Checkout: React.FC = () => {
                       required
                       className="w-full bg-white border-2 border-[#3E2723] p-3 rounded-2xl font-semibold text-[#3E2723] focus:ring-2 focus:ring-[#F6C358] outline-none"
                     />
-                    <span className="text-[11px] text-[#8D6E63] font-doodle block mt-1">
+                    <span className="text-[11px] text-[#5D4037] font-doodle block mt-1">
                       Admin akan menghubungi kamu via email ini
                     </span>
                   </div>
@@ -370,7 +370,7 @@ export const Checkout: React.FC = () => {
                       />
                       <div>
                         <span className="font-heading font-bold text-sm text-[#3E2723] flex items-center gap-1">
-                          <Package className="w-4 h-4 text-[#FF4B4B]" />
+                          <Package className="w-4 h-4 text-[#C62828]" />
                           Mail Order (Kirim ke Rumah)
                         </span>
                         <p className="text-xs text-[#6D4C41] mt-0.5">
@@ -432,7 +432,7 @@ export const Checkout: React.FC = () => {
               </div>
 
               {/* SECTION 2: INFORMASI REKENING PEMBAYARAN */}
-              <div className="space-y-4 pb-6 border-b-2 border-dashed border-[#8D6E63]/30">
+              <div className="space-y-4 pb-6 border-b-2 border-dashed border-[#5D4037]/30">
                 <div className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-[#3E2723] text-white flex items-center justify-center text-xs font-heading font-bold">
                     2
@@ -443,7 +443,7 @@ export const Checkout: React.FC = () => {
                 </div>
 
                 <p className="font-doodle text-xs text-[#6D4C41]">
-                  Silakan transfer total pembayaran sejumlah <strong className="text-[#FF4B4B]">{formatRupiah(totalPrice)}</strong> ke salah satu rekening resmi di bawah ini:
+                  Silakan transfer total pembayaran sejumlah <strong className="text-[#C62828]">{formatRupiah(totalPrice)}</strong> ke salah satu rekening resmi di bawah ini:
                 </p>
 
                 {/* Bank Cards Grid */}
@@ -459,7 +459,7 @@ export const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <div className="text-xs text-[#8D6E63] font-semibold">Nomor Rekening:</div>
+                      <div className="text-xs text-[#5D4037] font-semibold">Nomor Rekening:</div>
                       <div className="font-mono font-black text-lg text-[#3E2723] tracking-wider select-all">
                         4452763536
                       </div>
@@ -499,7 +499,7 @@ export const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <div className="text-xs text-[#8D6E63] font-semibold">Nomor Rekening:</div>
+                      <div className="text-xs text-[#5D4037] font-semibold">Nomor Rekening:</div>
                       <div className="font-mono font-black text-lg text-[#3E2723] tracking-wider select-all">
                         1370020521874
                       </div>
@@ -601,7 +601,7 @@ export const Checkout: React.FC = () => {
                     required
                     className="w-full bg-white border-2 border-[#3E2723] p-3 rounded-2xl font-semibold text-[#3E2723] focus:ring-2 focus:ring-[#F6C358] outline-none text-sm"
                   />
-                  <span className="text-[11px] text-[#8D6E63] font-doodle block mt-1">
+                  <span className="text-[11px] text-[#5D4037] font-doodle block mt-1">
                     Sesuai nama pada mutasi rekening yang kamu pakai mentransfer
                   </span>
                 </div>
@@ -664,7 +664,7 @@ export const Checkout: React.FC = () => {
                         <span className="font-heading font-bold text-sm text-[#3E2723] block">
                           Klik untuk Memilih Foto Struk Transfer
                         </span>
-                        <span className="text-xs text-[#8D6E63] font-doodle block mt-0.5">
+                        <span className="text-xs text-[#5D4037] font-doodle block mt-0.5">
                           Mendukung JPG, PNG, WEBP (Maksimal 5MB)
                         </span>
                       </div>
@@ -711,7 +711,7 @@ export const Checkout: React.FC = () => {
                   <h3 className="font-heading font-bold text-xl text-[#3E2723]">
                     Kantung Obat Halu
                   </h3>
-                  <p className="text-xs text-[#8D6E63] font-doodle">Resep pesanan kamu ({totalItems} item)</p>
+                  <p className="text-xs text-[#5D4037] font-doodle">Resep pesanan kamu ({totalItems} item)</p>
                 </div>
               </div>
               <span className="medicine-stamp">HALU OK</span>
@@ -752,7 +752,7 @@ export const Checkout: React.FC = () => {
                         )}
                       </div>
                       {item.selectedVariant && (
-                        <span className="text-[11px] text-[#8D6E63] font-doodle block truncate">
+                        <span className="text-[11px] text-[#5D4037] font-doodle block truncate">
                           Varian: <strong className="text-[#3E2723]">{item.selectedVariant.name}</strong>
                         </span>
                       )}
@@ -763,7 +763,7 @@ export const Checkout: React.FC = () => {
                       )}
                       
                       <div className="flex items-center justify-between mt-0.5">
-                        <p className="text-xs text-[#FF4B4B] font-black">
+                        <p className="text-xs text-[#C62828] font-black">
                           {formatRupiah(item.product.price)}
                         </p>
                         {itemAvailableStock < 999 && !isItemSoldOut && (
@@ -809,7 +809,7 @@ export const Checkout: React.FC = () => {
                         onChange={(e) => updateNote(item.id, e.target.value)}
                         maxLength={120}
                         placeholder="Catatan varian/karakter..."
-                        className="mt-2 w-full bg-white border border-[#3E2723] px-2.5 py-1.5 rounded-xl text-[11px] font-semibold text-[#3E2723] placeholder-[#8D6E63]/50 focus:ring-1 focus:ring-[#F6C358] outline-none"
+                        className="mt-2 w-full bg-white border border-[#3E2723] px-2.5 py-1.5 rounded-xl text-[11px] font-semibold text-[#3E2723] placeholder-[#5D4037]/50 focus:ring-1 focus:ring-[#F6C358] outline-none"
                       />
                     </div>
 
@@ -836,9 +836,9 @@ export const Checkout: React.FC = () => {
                 <span>Estimasi Pembuatan</span>
                 <span>Pre-Order Ready</span>
               </div>
-              <div className="flex justify-between text-lg font-black text-[#3E2723] pt-2 border-t border-[#8D6E63]/20">
+              <div className="flex justify-between text-lg font-black text-[#3E2723] pt-2 border-t border-[#5D4037]/20">
                 <span>Total Pembayaran</span>
-                <span className="text-[#FF4B4B]">{formatRupiah(totalPrice)}</span>
+                <span className="text-[#C62828]">{formatRupiah(totalPrice)}</span>
               </div>
             </div>
 

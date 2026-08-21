@@ -136,7 +136,7 @@ export const Catalog: React.FC = () => {
             <h1 className="font-heading text-lg sm:text-2xl md:text-3xl font-black text-[#3E2723] tracking-tight">
               Katalog Resep Merchandise
             </h1>
-            <p className="font-doodle text-[11px] sm:text-sm text-[#8D6E63] font-bold hidden sm:block">
+            <p className="font-doodle text-[11px] sm:text-sm text-[#5D4037] font-bold hidden sm:block">
               Resep merchandise obat halu resmi Ningentachi untuk kesembuhan husbu & waifu.
             </p>
           </div>
@@ -157,7 +157,7 @@ export const Catalog: React.FC = () => {
 
             {/* Sort Dropdown */}
             <div className="flex-1 md:flex-none flex items-center justify-center gap-1.5 bg-[#FFF9E6] border-2 border-[#3E2723] px-3 py-2 rounded-xl shadow-2xs">
-              <span className="text-xs font-heading font-bold text-[#8D6E63] hidden sm:inline">Urutkan:</span>
+              <span className="text-xs font-heading font-bold text-[#5D4037] hidden sm:inline">Urutkan:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
@@ -191,9 +191,9 @@ export const Catalog: React.FC = () => {
                     placeholder="Cari karakter / item..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-[#FFF9E6] border-2 border-[#3E2723] rounded-2xl py-2 pl-8.5 pr-7 text-xs font-bold text-[#3E2723] placeholder-[#8D6E63] focus:outline-none focus:ring-2 focus:ring-[#F6C358] shadow-[1.5px_1.5px_0px_#3E2723]"
+                    className="w-full bg-[#FFF9E6] border-2 border-[#3E2723] rounded-2xl py-2 pl-8.5 pr-7 text-xs font-bold text-[#3E2723] placeholder-[#5D4037] focus:outline-none focus:ring-2 focus:ring-[#F6C358] shadow-[1.5px_1.5px_0px_#3E2723]"
                   />
-                  <Search className="w-4 h-4 text-[#8D6E63] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <Search className="w-4 h-4 text-[#5D4037] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   {searchQuery && (
                     <button
                       type="button"
@@ -253,7 +253,7 @@ export const Catalog: React.FC = () => {
                         Reset
                       </span>
                     )}
-                    <ChevronDown className={`w-4 h-4 text-[#8D6E63] transition-transform duration-200 ${isPoliOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 text-[#5D4037] transition-transform duration-200 ${isPoliOpen ? 'rotate-180' : ''}`} />
                   </div>
                 </button>
 
@@ -308,9 +308,9 @@ export const Catalog: React.FC = () => {
                   className="w-full flex items-center justify-between font-heading font-black text-xs text-[#3E2723] uppercase tracking-wider cursor-pointer hover:text-[#261A14] transition-colors select-none"
                 >
                   <span className="flex items-center gap-1.5">
-                    <Filter className="w-3.5 h-3.5 text-[#8D6E63]" /> Tipe Merchandise:
+                    <Filter className="w-3.5 h-3.5 text-[#5D4037]" /> Tipe Merchandise:
                   </span>
-                  <ChevronDown className={`w-4 h-4 text-[#8D6E63] transition-transform duration-200 ${isCategoryOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-[#5D4037] transition-transform duration-200 ${isCategoryOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isCategoryOpen && (
@@ -377,7 +377,7 @@ export const Catalog: React.FC = () => {
             </div>
 
             {/* Results Count & Filter Pills Active Bar */}
-            <div className="flex items-center justify-between text-[11px] sm:text-xs font-heading font-bold text-[#8D6E63] px-1">
+            <div className="flex items-center justify-between text-[11px] sm:text-xs font-heading font-bold text-[#5D4037] px-1">
               <span>Menampilkan {filteredProducts.length} Resep Merchandise</span>
               {isAnyFilterActive && (
                 <button
@@ -404,7 +404,7 @@ export const Catalog: React.FC = () => {
                 ))
               ) : (
                 <div className="text-center py-14 bg-[#FFFDF7] rounded-3xl border-3 border-[#3E2723] shadow-[4px_4px_0px_#3E2723] my-4">
-                  <span className="text-5xl block mb-2.5 animate-bounce">💊</span>
+                  <span className="text-5xl block mb-2.5">💊</span>
                   <p className="font-heading font-black text-lg text-[#3E2723]">
                     Tidak ada produk yang cocok dengan filter atau pencarian.
                   </p>
@@ -485,7 +485,7 @@ export const Catalog: React.FC = () => {
                   <span className="flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-[#F6C358]" /> Poli Spesialis (Fandom):
                   </span>
-                  <ChevronDown className={`w-4 h-4 text-[#8D6E63] transition-transform duration-200 ${isPoliOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-[#5D4037] transition-transform duration-200 ${isPoliOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isPoliOpen && (
@@ -536,9 +536,9 @@ export const Catalog: React.FC = () => {
                   className="w-full flex items-center justify-between font-heading font-black text-xs text-[#3E2723] uppercase tracking-wider cursor-pointer select-none"
                 >
                   <span className="flex items-center gap-1.5">
-                    <Filter className="w-3.5 h-3.5 text-[#8D6E63]" /> Tipe Merchandise:
+                    <Filter className="w-3.5 h-3.5 text-[#5D4037]" /> Tipe Merchandise:
                   </span>
-                  <ChevronDown className={`w-4 h-4 text-[#8D6E63] transition-transform duration-200 ${isCategoryOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-[#5D4037] transition-transform duration-200 ${isCategoryOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isCategoryOpen && (
@@ -614,7 +614,7 @@ export const Catalog: React.FC = () => {
         >
           <div className="relative">
             {/* Red Pill Notification Badge */}
-            <div className="absolute -top-2 -right-1.5 z-20 bg-[#FF4B4B] text-white text-[10px] sm:text-xs font-heading font-black px-1.5 sm:px-2 py-0.2 sm:py-0.5 rounded-full border-2 border-[#3E2723] shadow-[2px_2px_0px_#3E2723] flex items-center gap-0.5 sm:gap-1 animate-bounce">
+            <div className="absolute -top-2 -right-1.5 z-20 bg-[#FF4B4B] text-white text-[10px] sm:text-xs font-heading font-black px-1.5 sm:px-2 py-0.2 sm:py-0.5 rounded-full border-2 border-[#3E2723] shadow-[2px_2px_0px_#3E2723] flex items-center gap-0.5 sm:gap-1">
               <span>💊</span>
               <span>{totalItems}</span>
             </div>

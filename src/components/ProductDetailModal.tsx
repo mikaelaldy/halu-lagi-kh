@@ -189,7 +189,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               </h2>
 
               <div className="flex items-baseline gap-2">
-                <span className="font-heading font-black text-2xl text-[#FF4B4B]">
+                <span className="font-heading font-black text-2xl text-[#C62828]">
                   {formatRupiah(product.price)}
                 </span>
                 {product.originalPrice && (
@@ -198,7 +198,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   </span>
                 )}
                 {product.isLimited && (
-                  <span className="bg-red-600 text-white font-heading font-extrabold text-[10px] px-2 py-0.5 rounded-full animate-pulse">
+                  <span className="bg-[#F6C358] text-[#3E2723] font-heading font-extrabold text-[10px] px-2 py-0.5 rounded-full border border-[#3E2723]">
                     LIMITED STOCK!
                   </span>
                 )}
@@ -211,7 +211,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   <span>Stok habis / sold out untuk varian ini.</span>
                 </div>
               ) : selectedVariantLowStock ? (
-                <div className="bg-amber-100 border-2 border-amber-500 p-2.5 rounded-xl text-xs text-amber-900 font-bold flex items-center gap-2 animate-pulse">
+                <div className="bg-amber-100 border-2 border-amber-400 p-2.5 rounded-xl text-xs text-amber-900 font-bold flex items-center gap-2 animate-pulse">
                   <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Stok menipis! Hanya tersisa <strong>{availableStock} pcs</strong> di gudang.</span>
                 </div>
@@ -248,7 +248,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   PILIH VARIAN KARAKTER ({product.variants.length} OPSI):
                 </label>
                 {selectedVariant && (
-                  <span className="text-xs font-heading font-extrabold text-[#FF4B4B]">
+                  <span className="text-xs font-heading font-extrabold text-[#C62828]">
                     Terpilih: {selectedVariant.name}
                   </span>
                 )}
@@ -332,7 +332,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
           {/* Per-item character note */}
           <div className="bg-white p-4 rounded-2xl border-2 border-[#3E2723] space-y-2">
             <label className="block font-heading font-bold text-xs sm:text-sm text-[#3E2723]">
-              Catatan varian / karakter <span className="font-normal text-[#8D6E63]">(opsional, per produk)</span>
+              Catatan varian / karakter <span className="font-normal text-[#5D4037]">(opsional, per produk)</span>
             </label>
             <textarea
               value={note}
@@ -340,9 +340,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               rows={2}
               maxLength={120}
               placeholder="Tulis varian/karakter yang diinginkan: mis. Aventurine, Childe..."
-              className="w-full bg-[#FFF9E6] border-2 border-[#3E2723] p-3 rounded-xl text-sm font-semibold text-[#3E2723] placeholder-[#8D6E63]/60 focus:ring-2 focus:ring-[#F6C358] outline-none resize-none"
+              className="w-full bg-[#FFF9E6] border-2 border-[#3E2723] p-3 rounded-xl text-sm font-semibold text-[#3E2723] placeholder-[#5D4037]/60 focus:ring-2 focus:ring-[#F6C358] outline-none resize-none"
             />
-            <div className="flex items-center justify-between text-[11px] text-[#8D6E63]">
+            <div className="flex items-center justify-between text-[11px] text-[#5D4037]">
               <span>Item sama + catatan beda = baris terpisah di keranjang.</span>
               <span>{note.length}/120</span>
             </div>
@@ -383,7 +383,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
         {/* Footer Actions */}
         <div className="bg-[#FFFCF5] border-t-3 border-[#3E2723] p-4 px-6 flex items-center justify-between gap-4">
           <div>
-            <span className="text-[10px] font-bold text-[#8D6E63] block uppercase">
+            <span className="text-[10px] font-bold text-[#5D4037] block uppercase">
               {selectedVariant ? `Jumlah (${selectedVariant.name})` : 'Jumlah di Kantung'}
             </span>
             <span className="font-heading font-black text-base sm:text-lg text-[#3E2723]">
