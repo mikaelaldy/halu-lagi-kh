@@ -217,7 +217,7 @@ export const Checkout: React.FC = () => {
           </p>
           <Link
             to="/catalog"
-            className="inline-flex items-center gap-2 bg-[#F6C358] text-[#3E2723] px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-extrabold shadow-[3px_3px_0px_#3E2723] cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#3E2723] text-[#FFF9E6] px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-extrabold shadow-[3px_3px_0px_#F6C358] cursor-pointer hover:bg-[#5D4037]"
           >
             Buka Katalog Merch
           </Link>

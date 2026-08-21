@@ -435,7 +435,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               <button
                 type="button"
                 onClick={handleAdd}
-                className="bg-[#F6C358] hover:bg-[#FDD835] text-[#3E2723] font-heading font-black text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] flex items-center gap-2 active:translate-y-0.5 cursor-pointer transition-all"
+                className="bg-[#3E2723] hover:bg-[#5D4037] text-[#FFF9E6] font-heading font-black text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#F6C358] flex items-center gap-2 active:translate-y-0.5 cursor-pointer transition-all"
               >
                 <ShoppingBag className="w-4 h-4" />
                 + Resepkan ke Kantung

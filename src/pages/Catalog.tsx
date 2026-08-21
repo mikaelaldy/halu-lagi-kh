@@ -413,7 +413,7 @@ export const Catalog: React.FC = () => {
                   </p>
                   <button
                     onClick={resetAllFilters}
-                    className="mt-4 bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-5 py-2 rounded-xl border-2 border-[#3E2723] font-heading font-extrabold text-xs shadow-[2px_2px_0px_#3E2723] cursor-pointer"
+                    className="mt-4 bg-white text-[#3E2723] hover:bg-[#FFF4D0] px-5 py-2 rounded-xl border-2 border-[#3E2723] font-heading font-extrabold text-xs shadow-[2px_2px_0px_#3E2723] cursor-pointer"
                   >
                     Lihat Semua Rak & Poli ({PRODUCTS.length} Produk)
                   </button>

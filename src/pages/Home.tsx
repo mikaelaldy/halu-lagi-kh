@@ -15,7 +15,7 @@ export const Home: React.FC = () => {
           {/* Left Text */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 bg-[#FFF9E6] border-2 border-[#3E2723] px-4 py-1.5 rounded-full shadow-[2px_2px_0px_#3E2723]">
-              <span className="animate-spin text-lg">💊</span>
+              <span className="text-lg">💊</span>
               <span className="font-heading font-extrabold text-xs sm:text-sm text-[#3E2723] uppercase tracking-wider">
                 {CLINIC_INFO.eventBadge}
               </span>
