@@ -15,10 +15,18 @@ export const Footer: React.FC = () => {
                 <Stethoscope className="w-5 h-5 text-[#F6C358]" />
                 Dokter Penanggung Jawab
               </h4>
-              <p className="font-doodle text-base text-amber-100 font-semibold">
-                Hormat kami,<br />
-                <span className="text-xl font-bold text-amber-300">{CLINIC_INFO.doctors}</span>
-              </p>
+              <div className="flex items-end gap-3">
+                <img
+                  src="/images/brand/mascot-1.webp"
+                  alt="Maskot Dr. LULU dan Haha"
+                  loading="lazy"
+                  className="w-16 h-16 object-contain shrink-0 drop-shadow-md"
+                />
+                <p className="font-doodle text-base text-amber-100 font-semibold">
+                  Hormat kami,<br />
+                  <span className="text-xl font-bold text-amber-300">{CLINIC_INFO.doctors}</span>
+                </p>
+              </div>
             </div>
             <p className="text-xs text-amber-200/70 mt-3 pt-2 border-t border-[#6D4C41]">
               Klinik Spesialis Halu & Konsultasi Merch Wibu
