@@ -457,13 +457,13 @@ export const Checkout: React.FC = () => {
               </div>
 
               {/* SECTION 2: INFORMASI REKENING PEMBAYARAN */}
-              <div className="space-y-4 pb-6 border-b-2 border-dashed border-[#5D4037]/30">
+              <div className="space-y-4 pb-6">
                 <div className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-[#3E2723] text-white flex items-center justify-center text-xs font-heading font-bold">
                     2
                   </span>
                   <h2 className="font-heading font-extrabold text-lg text-[#3E2723]">
-                    Nomor Rekening Pembayaran Klinik
+                    Pembayaran: Transfer & Unggah Bukti
                   </h2>
                 </div>
 
@@ -557,16 +557,11 @@ export const Checkout: React.FC = () => {
                 </div>
               </div>
 
-              {/* SECTION 3: KONFIRMASI & UPLOAD BUKTI PEMBAYARAN */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-[#3E2723] text-white flex items-center justify-center text-xs font-heading font-bold">
-                    3
-                  </span>
-                  <h2 className="font-heading font-extrabold text-lg text-[#3E2723]">
-                    Konfirmasi & Bukti Transfer *
-                  </h2>
-                </div>
+              {/* Konfirmasi: pilih rekening tujuan + unggah bukti (satu kartu alur) */}
+              <div className="bg-[#FFF9E6]/60 p-4 rounded-2xl border-2 border-dashed border-[#5D4037]/40 space-y-4">
+                <p className="font-doodle text-xs text-[#5D4037]">
+                  Sudah transfer? Pilih rekening tujuan, lalu unggah buktinya di bawah ini. 👇
+                </p>
 
                 {/* Pilih Bank Tujuan Transfer */}
                 <div>
