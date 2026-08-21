@@ -702,7 +702,7 @@ export const Checkout: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: MEDICINE POUCH / BASKET SUMMARY */}
-          <div className="lg:col-span-5 medicine-pouch p-6 rounded-3xl space-y-6">
+          <div className="lg:col-span-5 medicine-pouch p-6 rounded-3xl space-y-6 order-first lg:order-none">
             
             <div className="flex items-center justify-between border-b-2 border-dashed border-[#F6C358] pb-4">
               <div className="flex items-center gap-2">
