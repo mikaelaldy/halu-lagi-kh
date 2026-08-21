@@ -348,6 +348,47 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
             </div>
           </div>
 
+          {/* Mobile quick actions: qty + add right after variant/note choice */}
+          <div className="sm:hidden bg-[#FFFCF5] p-3 rounded-2xl border-2 border-[#3E2723] flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              {currentQty > 0 && (
+                <button
+                  type="button"
+                  onClick={handleDecrement}
+                  className="w-9 h-9 bg-white text-[#3E2723] hover:bg-red-50 hover:text-red-600 rounded-xl border border-[#3E2723] flex items-center justify-center font-black cursor-pointer"
+                >
+                  <Minus className="w-4 h-4" />
+                </button>
+              )}
+              <span className="font-heading font-black text-sm px-1 min-w-[4.5rem] text-center">
+                {selectedVariantSoldOut
+                  ? 'Stok Habis'
+                  : currentQty > 0
+                  ? `${currentQty} pcs`
+                  : 'Belum ada'}
+              </span>
+              {!selectedVariantSoldOut && currentQty < availableStock && (
+                <button
+                  type="button"
+                  onClick={handleAdd}
+                  className="w-9 h-9 bg-white text-[#3E2723] hover:bg-[#FFF4D0] rounded-xl border border-[#3E2723] flex items-center justify-center font-black cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+            {!selectedVariantSoldOut && (
+              <button
+                type="button"
+                onClick={handleAdd}
+                className="bg-[#3E2723] text-[#FFF9E6] font-heading font-black text-xs px-4 py-2.5 rounded-xl border-2 border-[#3E2723] shadow-[2px_2px_0px_#F6C358] flex items-center gap-1.5 active:translate-y-0.5 cursor-pointer transition-all"
+              >
+                <ShoppingBag className="w-3.5 h-3.5" />
+                Resepkan
+              </button>
+            )}
+          </div>
+
           {/* Description */}
           <div className="bg-white p-4 rounded-2xl border-2 border-[#3E2723] shadow-xs">
             <h4 className="font-heading font-extrabold text-xs sm:text-sm text-[#3E2723] mb-1 flex items-center gap-1.5">
