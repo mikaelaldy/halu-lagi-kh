@@ -5,7 +5,7 @@ import { ShelfDisplayRow } from '../components/ShelfDisplayRow';
 import { ProductDetailModal } from '../components/ProductDetailModal';
 import { useCart } from '../context/CartContext';
 import { useResponsiveShelfColumns } from '../hooks/useResponsiveShelfColumns';
-import { ShoppingBag, ArrowRight, Store, Search, Sparkles, Filter, X, ChevronDown } from 'lucide-react';
+import { ShoppingBag, ArrowRight, Store, Search, Sparkles, Filter, X, ChevronDown, Package } from 'lucide-react';
 
 export const Catalog: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -157,16 +157,16 @@ export const Catalog: React.FC = () => {
 
             {/* Sort Dropdown */}
             <div className="flex-1 md:flex-none flex items-center justify-center gap-1.5 bg-[#FFF9E6] border-2 border-[#3E2723] px-3 py-2 rounded-xl shadow-2xs">
-              <span className="text-xs font-heading font-bold text-[#5D4037] hidden sm:inline">Urutkan:</span>
+              <Package className="w-3.5 h-3.5 text-[#8D6E63] shrink-0" /><span className="text-xs font-heading font-bold text-[#5D4037] hidden sm:inline">Urutkan:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
                 aria-label="Urutkan Produk"
                 className="bg-transparent text-xs font-heading font-black text-[#3E2723] focus:outline-none cursor-pointer w-full md:w-auto"
               >
-                <option value="default">📦 Semua Resep</option>
-                <option value="clearance">🔥 Clearance</option>
-                <option value="name">🔤 Nama (A-Z)</option>
+                <option value="default">Semua Resep</option>
+                <option value="clearance">Clearance</option>
+                <option value="name">Nama (A-Z)</option>
               </select>
             </div>
           </div>
@@ -413,7 +413,7 @@ export const Catalog: React.FC = () => {
                   </p>
                   <button
                     onClick={resetAllFilters}
-                    className="mt-4 bg-[#F6C358] text-[#3E2723] hover:bg-[#FDD835] px-5 py-2 rounded-xl border-2 border-[#3E2723] font-heading font-extrabold text-xs shadow-[2px_2px_0px_#3E2723] cursor-pointer"
+                    className="mt-4 bg-white text-[#3E2723] hover:bg-[#FFF4D0] px-5 py-2 rounded-xl border-2 border-[#3E2723] font-heading font-extrabold text-xs shadow-[2px_2px_0px_#3E2723] cursor-pointer"
                   >
                     Lihat Semua Rak & Poli ({PRODUCTS.length} Produk)
                   </button>

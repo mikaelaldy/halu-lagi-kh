@@ -18,7 +18,8 @@ import {
   X, 
   CreditCard,
   Building2,
-  AlertCircle
+  AlertCircle,
+  ChevronDown
 } from 'lucide-react';
 import { compressImage, submitOrderToGoogleScript } from '../services/orderService';
 import { OptimizedImage } from '../components/OptimizedImage';
@@ -26,6 +27,15 @@ import { useStock } from '../context/StockContext';
 
 export const Checkout: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, updateNote, totalPrice, totalItems, customerInfo, setCustomerInfo, setLastOrder, clearCart } = useCart();
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const [pouchExpanded, setPouchExpanded] = useState(false);
+
+  // Sticky mobile total bar: show once user scrolls into the long form
+  useEffect(() => {
+    const onScroll = () => setShowStickyBar(window.scrollY > 420);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   const { getAvailableStock, isSoldOut, refreshStocks } = useStock();
   const navigate = useNavigate();
 
@@ -217,7 +227,7 @@ export const Checkout: React.FC = () => {
           </p>
           <Link
             to="/catalog"
-            className="inline-flex items-center gap-2 bg-[#F6C358] text-[#3E2723] px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-extrabold shadow-[3px_3px_0px_#3E2723] cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#3E2723] text-[#FFF9E6] px-6 py-3 rounded-2xl border-2 border-[#3E2723] font-heading font-extrabold shadow-[3px_3px_0px_#F6C358] cursor-pointer hover:bg-[#5D4037]"
           >
             Buka Katalog Merch
           </Link>
@@ -243,6 +253,21 @@ export const Checkout: React.FC = () => {
           
           {/* LEFT COLUMN: CUSTOMER & PAYMENT FORM */}
           <div className="lg:col-span-7 bg-[#FFFCF5] p-6 sm:p-8 rounded-3xl border-3 border-[#3E2723] shadow-[6px_6px_0px_#3E2723] space-y-6">
+            {/* Mobile compact cart strip: total always visible while filling the form */}
+            <button
+              type="button"
+              onClick={() => setPouchExpanded((v) => !v)}
+              className="lg:hidden w-full flex items-center justify-between bg-[#FFF9E6] border-2 border-[#3E2723] px-4 py-2.5 rounded-xl font-heading font-bold text-xs text-[#3E2723] cursor-pointer"
+            >
+              <span>
+                {totalItems} item di Kantung Obat
+                {pouchExpanded ? ' - tutup' : ''}
+              </span>
+              <span className="flex items-center gap-1.5">
+                {formatRupiah(totalPrice)}
+                <ChevronDown className={`w-4 h-4 transition-transform ${pouchExpanded ? 'rotate-180' : ''}`} />
+              </span>
+            </button>
             <div>
               <span className="bg-[#F6C358] text-[#3E2723] font-heading font-bold text-xs px-3 py-1 rounded-full border border-[#3E2723]">
                 LANGKAH CHECKOUT
@@ -432,13 +457,13 @@ export const Checkout: React.FC = () => {
               </div>
 
               {/* SECTION 2: INFORMASI REKENING PEMBAYARAN */}
-              <div className="space-y-4 pb-6 border-b-2 border-dashed border-[#5D4037]/30">
+              <div className="space-y-4 pb-6">
                 <div className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-[#3E2723] text-white flex items-center justify-center text-xs font-heading font-bold">
                     2
                   </span>
                   <h2 className="font-heading font-extrabold text-lg text-[#3E2723]">
-                    Nomor Rekening Pembayaran Klinik
+                    Pembayaran: Transfer & Unggah Bukti
                   </h2>
                 </div>
 
@@ -532,16 +557,11 @@ export const Checkout: React.FC = () => {
                 </div>
               </div>
 
-              {/* SECTION 3: KONFIRMASI & UPLOAD BUKTI PEMBAYARAN */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-[#3E2723] text-white flex items-center justify-center text-xs font-heading font-bold">
-                    3
-                  </span>
-                  <h2 className="font-heading font-extrabold text-lg text-[#3E2723]">
-                    Konfirmasi & Bukti Transfer *
-                  </h2>
-                </div>
+              {/* Konfirmasi: pilih rekening tujuan + unggah bukti (satu kartu alur) */}
+              <div className="bg-[#FFF9E6]/60 p-4 rounded-2xl border-2 border-dashed border-[#5D4037]/40 space-y-4">
+                <p className="font-doodle text-xs text-[#5D4037]">
+                  Sudah transfer? Pilih rekening tujuan, lalu unggah buktinya di bawah ini. 👇
+                </p>
 
                 {/* Pilih Bank Tujuan Transfer */}
                 <div>
@@ -682,6 +702,7 @@ export const Checkout: React.FC = () => {
 
               {/* Submit Button */}
               <button
+                id="checkout-submit"
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base flex items-center justify-center gap-3 shadow-[4px_4px_0px_#F6C358] transition-all active:translate-y-1 cursor-pointer disabled:opacity-75"
@@ -698,11 +719,31 @@ export const Checkout: React.FC = () => {
                   </>
                 )}
               </button>
+
+        {/* Sticky mobile total + submit bar */}
+        {showStickyBar && (
+          <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#FFFCF5]/95 backdrop-blur border-t-3 border-[#3E2723] px-4 py-3 flex items-center justify-between gap-3 shadow-[0_-4px_12px_rgba(62,39,35,0.15)]">
+            <div className="min-w-0">
+              <span className="block text-[10px] font-bold text-[#5D4037] uppercase leading-none">Total Bayar</span>
+              <span className="font-heading font-black text-base text-[#C62828]">{formatRupiah(totalPrice)}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('checkout-submit')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }}
+              className="bg-[#3E2723] text-[#FFF9E6] font-heading font-black text-xs px-5 py-2.5 rounded-xl border-2 border-[#3E2723] shadow-[2px_2px_0px_#F6C358] flex items-center gap-1.5 active:translate-y-0.5 cursor-pointer transition-all shrink-0"
+            >
+              <Send className="w-3.5 h-3.5 text-amber-400" />
+              Ke Form Submit
+            </button>
+          </div>
+        )}
             </form>
           </div>
 
           {/* RIGHT COLUMN: MEDICINE POUCH / BASKET SUMMARY */}
-          <div className="lg:col-span-5 medicine-pouch p-6 rounded-3xl space-y-6">
+          <div className="lg:col-span-5 medicine-pouch p-6 rounded-3xl space-y-6 order-first lg:order-none">
             
             <div className="flex items-center justify-between border-b-2 border-dashed border-[#F6C358] pb-4">
               <div className="flex items-center gap-2">
