@@ -404,7 +404,12 @@ export const Catalog: React.FC = () => {
                 ))
               ) : (
                 <div className="text-center py-14 bg-[#FFFDF7] rounded-3xl border-3 border-[#3E2723] shadow-[4px_4px_0px_#3E2723] my-4">
-                  <span className="text-5xl block mb-2.5">💊</span>
+                  <img
+                    src="/images/brand/mascot-3.webp"
+                    alt="Maskot bingung mencari obat"
+                    loading="lazy"
+                    className="w-24 h-24 sm:w-28 sm:h-28 object-contain mx-auto mb-2.5"
+                  />
                   <p className="font-heading font-black text-lg text-[#3E2723]">
                     Tidak ada produk yang cocok dengan filter atau pencarian.
                   </p>

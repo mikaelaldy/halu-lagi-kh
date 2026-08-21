@@ -66,13 +66,19 @@ export const ThankYou: React.FC = () => {
         <div className="bg-[#F6C358] p-8 sm:p-12 rounded-3xl border-4 border-[#3E2723] shadow-[8px_8px_0px_#3E2723] text-center space-y-6 relative overflow-hidden">
           
           {/* Mascot Ghosts Visual */}
-          <div className="flex justify-center items-center gap-6">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full border-3 border-[#3E2723] flex items-center justify-center text-4xl shadow-md animate-bounce">
-              👻🩺
-            </div>
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full border-3 border-[#3E2723] flex items-center justify-center text-4xl shadow-md">
-              👻💊
-            </div>
+          <div className="flex justify-center items-end gap-4 sm:gap-6">
+            <img
+              src="/images/brand/mascot-5.webp"
+              alt="Dokter melambai"
+              className="w-24 h-auto sm:w-32 drop-shadow-md -rotate-6"
+              loading="lazy"
+            />
+            <img
+              src="/images/brand/mascot-9.webp"
+              alt="Pasieng bahagia dapat merch"
+              className="w-28 h-auto sm:w-36 drop-shadow-md rotate-3"
+              loading="lazy"
+            />
           </div>
 
           <div className="space-y-2">
@@ -99,10 +105,18 @@ export const ThankYou: React.FC = () => {
             <p>
               "Semoga merchandise kami dapat mengobati kesedihan ningentachi akan dunia nyata! Semoga cepat sembuh ya!"
             </p>
-            <p className="font-heading font-black text-amber-900 pt-2 text-right">
-              Hormat kami,<br />
-              {CLINIC_INFO.doctors}
-            </p>
+            <div className="flex items-end justify-between pt-2">
+              <img
+                src="/images/brand/mascot-1.webp"
+                alt="Maskot kesal memburu stok"
+                className="w-14 h-auto opacity-90"
+                loading="lazy"
+              />
+              <p className="font-heading font-black text-amber-900 text-right">
+                Hormat kami,<br />
+                {CLINIC_INFO.doctors}
+              </p>
+            </div>
           </div>
 
           {/* Social & Support Links */}
