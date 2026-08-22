@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
-import { CLINIC_INFO } from '../data/products';
+import { CLINIC_INFO, PRODUCTS } from '../data/products';
 import { OptimizedImage } from '../components/OptimizedImage';
+import { LandingCarousel } from '../components/LandingCarousel';
 
 export const Home: React.FC = () => {
   return (
@@ -89,6 +90,29 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* PRODUCT CAROUSEL STRIP - "Rak Etalase" preview */}
+      <section className="pb-14 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-4">
+          <div className="flex items-end justify-between gap-3 px-1">
+            <div>
+              <h2 className="font-heading text-xl sm:text-2xl font-black text-[#3E2723]">
+                Resep Terbaru dari Rak 🧪
+              </h2>
+              <p className="font-doodle text-xs sm:text-sm text-[#5D4037] font-bold">
+                Intip dulu obat-obat halunya sebelum buka etalase lengkap.
+              </p>
+            </div>
+            <Link
+              to="/catalog"
+              className="hidden sm:inline-flex shrink-0 items-center gap-1.5 bg-white text-[#3E2723] hover:bg-[#FFF4D0] px-4 py-2 rounded-xl border-2 border-[#3E2723] font-heading font-bold text-xs shadow-[2px_2px_0px_#3E2723]"
+            >
+              Semua Resep <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <LandingCarousel products={PRODUCTS.slice(0, 12)} />
         </div>
       </section>
 
