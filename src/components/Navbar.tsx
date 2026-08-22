@@ -38,13 +38,18 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
             <div className="bg-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl border-2 border-[#3E2723] shadow-[2px_2px_0px_#3E2723] sm:shadow-[3px_3px_0px_#3E2723] group-hover:rotate-1 transition-transform">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-xl sm:text-2xl shrink-0">💊</span>
+                <img
+                  src="/images/brand/mascot-4.webp"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-7 h-7 sm:w-9 sm:h-9 object-contain shrink-0 group-hover:scale-110 transition-transform"
+                />
                 <div className="min-w-0">
                   <h1 className="font-heading text-sm sm:text-xl md:text-2xl font-extrabold text-[#3E2723] tracking-wide leading-tight truncate">
                     {CLINIC_INFO.name}
                   </h1>
                   <p className="font-doodle text-[10px] sm:text-xs text-[#5D4037] font-semibold hidden md:block">
-                    {CLINIC_INFO.tagline}
+                    Klinik Wibu Kepercayaan Ningentachi!
                   </p>
                 </div>
               </div>

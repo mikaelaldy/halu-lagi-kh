@@ -61,14 +61,12 @@ export const Home: React.FC = () => {
             <div className="relative w-full max-w-md bg-white p-5 rounded-3xl border-4 border-[#3E2723] shadow-[8px_8px_0px_#3E2723] text-center space-y-4">
               
               {/* Authentic PDF Cover Image Graphic */}
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#3E2723] bg-amber-50 shadow-inner group">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#3E2723] bg-[#FFF4D0] shadow-inner group flex items-center justify-center p-6">
                 <OptimizedImage
-                  src="/images/catalog/pages/page-1.webp"
-                  alt="Halu Lagi Kh Cover"
-                  priority={true}
-                  showPlaceholder={true}
-                  objectFit="cover"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  src="/images/brand/brand-bubble.webp"
+                  alt="Ilustrasi Halu Lagi Kh?"
+                  objectFit="contain"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                   containerClassName="w-full h-full"
                 />
                 <div className="absolute top-2 right-2 bg-[#F6C358] text-[#3E2723] text-[10px] font-heading font-black px-2.5 py-1 rounded-full border border-[#3E2723] shadow-xs z-10">

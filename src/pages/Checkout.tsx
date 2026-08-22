@@ -700,25 +700,33 @@ export const Checkout: React.FC = () => {
 
               </div>
 
-              {/* Submit Button */}
-              <button
-                id="checkout-submit"
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base flex items-center justify-center gap-3 shadow-[4px_4px_0px_#F6C358] transition-all active:translate-y-1 cursor-pointer disabled:opacity-75"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center gap-2">
-                    <span className="animate-spin text-lg">💊</span>
-                    {submittingStatus}
-                  </span>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 text-amber-400" />
-                    Kirim Pesanan & Terbitkan Resep Obat
-                  </>
-                )}
-              </button>
+              {/* Submit Button + mascot cheer */}
+              <div className="flex items-end gap-3">
+                <img
+                  src="/images/brand/mascot-6.webp"
+                  alt="Maskot menyemangati"
+                  loading="lazy"
+                  className="hidden sm:block w-20 h-auto object-contain shrink-0"
+                />
+                <button
+                  id="checkout-submit"
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037] py-4 rounded-2xl border-2 border-[#3E2723] font-heading font-black text-base flex items-center justify-center gap-3 shadow-[4px_4px_0px_#F6C358] transition-all active:translate-y-1 cursor-pointer disabled:opacity-75"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <span className="animate-spin text-lg">💊</span>
+                      {submittingStatus}
+                    </span>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 text-amber-400" />
+                      Kirim Pesanan & Terbitkan Resep Obat
+                    </>
+                  )}
+                </button>
+              </div>
 
         {/* Sticky mobile total + submit bar */}
         {showStickyBar && (
