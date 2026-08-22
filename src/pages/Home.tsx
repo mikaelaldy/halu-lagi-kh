@@ -27,7 +27,7 @@ export const Home: React.FC = () => {
             </h1>
 
             <p className="font-doodle text-lg sm:text-xl text-[#5D4037] leading-relaxed max-w-2xl">
-              Halu berkepanjangan? Husbu/waifu kurang nyata? Tenang, <strong>{CLINIC_INFO.doctors}</strong> siap meresepkan merchandise obat halu paling ampuh untuk kesembuhan ningentachi!
+              Mengatasi segala bentuk Halu berkepanjangan di dunia Nyata. Dengan Dr. lulu dan Haha, obat merchandise paling ampuh siap diracik khusus untuk ningentachi!
             </p>
 
             {/* Event Note Badge */}
@@ -58,10 +58,10 @@ export const Home: React.FC = () => {
 
           {/* Right Mascot Art Display from PDF Cover */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md bg-white p-5 rounded-3xl border-4 border-[#3E2723] shadow-[8px_8px_0px_#3E2723] text-center space-y-4">
+            <div className="relative w-full max-w-xs sm:max-w-sm bg-white p-4 rounded-3xl border-3 sm:border-4 border-[#3E2723] shadow-[6px_6px_0px_#3E2723] text-center space-y-3">
               
               {/* Authentic PDF Cover Image Graphic */}
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#3E2723] bg-[#FFF4D0] shadow-inner group flex items-center justify-center p-6">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border-2 border-[#3E2723] bg-[#FFF4D0] shadow-inner group flex items-center justify-center p-4">
                 <OptimizedImage
                   src="/images/brand/brand-bubble.webp"
                   alt="Ilustrasi Halu Lagi Kh?"
@@ -74,7 +74,7 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-[#FFF9E6] border-2 border-[#3E2723] p-3 rounded-xl font-doodle text-xs text-[#3E2723] font-bold shadow-xs">
+              <div className="bg-[#FFF9E6] border-2 border-[#3E2723] p-2.5 rounded-xl font-doodle text-xs text-[#3E2723] font-bold shadow-xs">
                 "Halu lagi kh? Jangan panik, periksa dulu resepnya di sini!"
               </div>
 

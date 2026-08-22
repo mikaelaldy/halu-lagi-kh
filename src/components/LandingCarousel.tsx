@@ -74,31 +74,16 @@ export const LandingCarousel: React.FC<LandingCarouselProps> = ({ products }) =>
           <Link
             key={p.id}
             to={`/catalog?poli=${p.poli}`}
-            className="group snap-start shrink-0 w-36 sm:w-44 bg-white rounded-2xl border-2 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] hover:-translate-y-1 hover:shadow-[5px_5px_0px_#3E2723] transition-all overflow-hidden"
+            className="group snap-start shrink-0 w-48 sm:w-64 md:w-72 bg-white rounded-3xl border-2 sm:border-3 border-[#3E2723] shadow-[4px_4px_0px_#3E2723] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#3E2723] transition-all overflow-hidden"
           >
-            <div className="aspect-square bg-[#FFF9E6] border-b-2 border-[#3E2723] overflow-hidden">
+            <div className="aspect-square bg-[#FFF9E6] overflow-hidden">
               <OptimizedImage
                 src={p.image}
                 alt={p.name}
                 objectFit="contain"
-                className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-contain p-3 sm:p-4 transition-transform duration-300 group-hover:scale-105"
                 containerClassName="w-full h-full"
               />
-            </div>
-            <div className="p-2.5 space-y-1">
-              <p className="font-heading font-bold text-[11px] text-[#3E2723] leading-tight line-clamp-2 min-h-[2rem]">
-                {p.name}
-              </p>
-              <div className="flex items-center gap-1.5 flex-wrap">
-                {p.originalPrice && (
-                  <span className="text-[9px] text-[#5D4037] line-through font-doodle">
-                    {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(p.originalPrice)}
-                  </span>
-                )}
-                <span className="text-xs font-black text-[#C62828] font-heading">
-                  {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(p.price)}
-                </span>
-              </div>
             </div>
           </Link>
         ))}
@@ -106,13 +91,13 @@ export const LandingCarousel: React.FC<LandingCarouselProps> = ({ products }) =>
         {/* End card: go to catalog */}
         <Link
           to="/catalog"
-          className="snap-start shrink-0 w-32 sm:w-40 rounded-2xl border-2 border-dashed border-[#3E2723] bg-[#FFF4D0]/60 hover:bg-[#FFF4D0] flex flex-col items-center justify-center gap-2 text-center p-4 transition-all group"
+          className="snap-start shrink-0 w-40 sm:w-56 md:w-60 aspect-square rounded-3xl border-2 sm:border-3 border-dashed border-[#3E2723] bg-[#FFF4D0]/60 hover:bg-[#FFF4D0] flex flex-col items-center justify-center gap-3 text-center p-5 transition-all group"
         >
-          <span className="font-heading font-black text-sm text-[#3E2723] leading-tight">
+          <span className="font-heading font-black text-sm sm:text-base text-[#3E2723] leading-tight">
             Lihat semua resep di etalase
           </span>
-          <span className="w-9 h-9 rounded-full bg-[#3E2723] text-[#FFF9E6] flex items-center justify-center group-hover:translate-x-1 transition-transform">
-            <ArrowRight className="w-4 h-4" />
+          <span className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#3E2723] text-[#FFF9E6] flex items-center justify-center group-hover:translate-x-1 transition-transform shadow-[2px_2px_0px_#F6C358]">
+            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </span>
         </Link>
       </div>
