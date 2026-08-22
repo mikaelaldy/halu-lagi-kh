@@ -15,25 +15,17 @@ export const Footer: React.FC = () => {
                 <Stethoscope className="w-5 h-5 text-[#F6C358]" />
                 Dokter Penanggung Jawab
               </h4>
-              <div className="flex items-end gap-3">
-                <div className="flex items-end -space-x-2 shrink-0">
-                  <img
-                    src="/images/brand/mascot-6.webp"
-                    alt="Maskot Haha"
-                    loading="lazy"
-                    className="w-14 h-14 object-contain drop-shadow-md relative z-10"
-                  />
-                  <img
-                    src="/images/brand/mascot-5.webp"
-                    alt="Maskot Dr. LULU"
-                    loading="lazy"
-                    className="w-14 h-14 object-contain drop-shadow-md"
-                  />
+              <div className="flex items-center gap-4">
+                <img
+                  src="/images/brand/mascot-duo.webp"
+                  alt="Maskot Dr. LULU & Haha"
+                  loading="lazy"
+                  className="w-24 h-24 sm:w-28 sm:h-28 object-contain shrink-0 drop-shadow-md"
+                />
+                <div className="flex-1 text-center font-doodle text-amber-100">
+                  <p className="text-sm sm:text-base font-semibold">Hormat kami,</p>
+                  <p className="text-xl sm:text-2xl font-bold text-amber-300 leading-tight mt-0.5">{CLINIC_INFO.doctors}</p>
                 </div>
-                <p className="font-doodle text-base text-amber-100 font-semibold">
-                  Hormat kami,<br />
-                  <span className="text-xl font-bold text-amber-300">{CLINIC_INFO.doctors}</span>
-                </p>
               </div>
             </div>
             <p className="text-xs text-amber-200/70 mt-3 pt-2 border-t border-[#6D4C41]">
