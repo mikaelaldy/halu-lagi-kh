@@ -48,6 +48,9 @@ export const Navbar: React.FC = () => {
                   <h1 className="font-heading text-sm sm:text-xl md:text-2xl font-extrabold text-[#3E2723] tracking-wide leading-tight truncate">
                     {CLINIC_INFO.name}
                   </h1>
+                  <p className="font-doodle text-[10px] sm:text-xs text-[#5D4037] font-semibold hidden md:block">
+                    Klinik Wibu Kepercayaan Ningentachi!
+                  </p>
                 </div>
               </div>
             </div>
