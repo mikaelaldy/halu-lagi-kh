@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
   }, [location.pathname, location.search]);
 
   return (
-    <header className={`sticky top-0 z-50 bg-[#FFF9E6]/95 backdrop-blur border-b-3 sm:border-b-4 border-[#3E2723] shadow-md transition-transform duration-300 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
+    <header className={`sticky top-0 z-50 bg-[#F6C358] border-b-3 sm:border-b-4 border-[#3E2723] shadow-md transition-transform duration-300 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-3">
           
@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
               className={`px-4 py-2.5 rounded-2xl font-heading font-bold text-sm transition-all flex items-center gap-1.5 border-2 border-[#3E2723] shadow-[3px_3px_0px_#FFF9E6] active:translate-y-0.5 ${
                 isActive('/catalog')
                   ? 'bg-[#2A1A17] text-[#F6C358]'
-                  : 'bg-white text-[#3E2723] hover:bg-[#FFF4D0]'
+                  : 'bg-[#3E2723] text-[#FFF9E6] hover:bg-[#5D4037]'
               }`}
             >
               <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400" />
@@ -107,14 +107,14 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
-        <nav className="md:hidden bg-[#FFF9E6] border-t-2 border-[#3E2723] shadow-md">
+        <nav className="md:hidden bg-[#F6C358] border-t-2 border-[#3E2723] shadow-md">
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
             <Link
               to="/catalog"
               className={`block px-4 py-3 rounded-2xl font-heading font-bold text-sm transition-all border-2 flex items-center gap-2 ${
                 isActive('/catalog')
                   ? 'bg-[#2A1A17] text-[#F6C358] border-[#3E2723]'
-                  : 'bg-white text-[#3E2723] border-[#3E2723] hover:bg-[#FFF4D0]'
+                  : 'bg-[#3E2723] text-[#FFF9E6] border-[#3E2723] hover:bg-[#5D4037]'
               }`}
             >
               <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400" />
