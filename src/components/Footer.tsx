@@ -16,12 +16,20 @@ export const Footer: React.FC = () => {
                 Dokter Penanggung Jawab
               </h4>
               <div className="flex items-end gap-3">
-                <img
-                  src="/images/brand/mascot-1.webp"
-                  alt="Maskot Dr. LULU dan Haha"
-                  loading="lazy"
-                  className="w-16 h-16 object-contain shrink-0 drop-shadow-md"
-                />
+                <div className="flex items-end -space-x-2 shrink-0">
+                  <img
+                    src="/images/brand/mascot-6.webp"
+                    alt="Maskot Haha"
+                    loading="lazy"
+                    className="w-14 h-14 object-contain drop-shadow-md relative z-10"
+                  />
+                  <img
+                    src="/images/brand/mascot-5.webp"
+                    alt="Maskot Dr. LULU"
+                    loading="lazy"
+                    className="w-14 h-14 object-contain drop-shadow-md"
+                  />
+                </div>
                 <p className="font-doodle text-base text-amber-100 font-semibold">
                   Hormat kami,<br />
                   <span className="text-xl font-bold text-amber-300">{CLINIC_INFO.doctors}</span>
