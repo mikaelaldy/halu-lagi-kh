@@ -703,7 +703,7 @@ export const Checkout: React.FC = () => {
               {/* Submit Button + mascot cheer */}
               <div className="flex items-end gap-3">
                 <img
-                  src="/images/brand/mascot-6.webp"
+                  src="/images/brand/mascot-10.webp"
                   alt="Maskot menyemangati"
                   loading="lazy"
                   className="hidden sm:block w-20 h-auto object-contain shrink-0"
