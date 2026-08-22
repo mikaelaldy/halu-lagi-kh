@@ -133,7 +133,7 @@ export const Catalog: React.FC = () => {
               Katalog Resep Merchandise
             </h1>
             <p className="font-doodle text-[11px] sm:text-sm text-[#5D4037] font-bold hidden sm:block">
-              Resep merchandise obat halu resmi Ningentachi untuk kesembuhan husbu & waifu.
+              Resep obat merchandise untuk kesembuhan ningentachi
             </p>
           </div>
 
