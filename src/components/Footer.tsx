@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 pt-0.5">
                   <span className="text-xs">🏷️</span>
-                  <span>Tag: <span className="bg-[#F6C358] text-[#3E2723] px-2 py-0.5 rounded-lg font-bold text-xs">{CLINIC_INFO.hashtag}</span></span>
+                  <span>Tag: <span className="bg-[#FFF4D0] text-[#3E2723] px-2 py-0.5 rounded border border-[#3E2723]/30-lg font-bold text-xs">{CLINIC_INFO.hashtag}</span></span>
                 </div>
               </div>
             </div>
