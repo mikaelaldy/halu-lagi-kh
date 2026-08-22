@@ -129,10 +129,6 @@ export const Catalog: React.FC = () => {
            ========================================================================= */}
         <div className="bg-[#FFFDF7] p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border-3 border-[#3E2723] shadow-[3px_3px_0px_#3E2723] sm:shadow-[4px_4px_0px_#3E2723] flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4">
           <div className="space-y-0.5 sm:space-y-1">
-            <div className="inline-flex items-center gap-1.5 bg-[#FFF9E6] border border-[#3E2723] px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-heading font-extrabold text-[#3E2723]">
-              <span>💊</span>
-              <span>Klinik Wibu Comifuro PO Official</span>
-            </div>
             <h1 className="font-heading text-lg sm:text-2xl md:text-3xl font-black text-[#3E2723] tracking-tight">
               Katalog Resep Merchandise
             </h1>
