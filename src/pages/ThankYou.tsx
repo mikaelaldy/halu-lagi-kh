@@ -105,18 +105,10 @@ export const ThankYou: React.FC = () => {
             <p>
               "Semoga merchandise kami dapat mengobati kesedihan ningentachi akan dunia nyata! Semoga cepat sembuh ya!"
             </p>
-            <div className="flex items-end justify-between pt-2">
-              <img
-                src="/images/brand/mascot-1.webp"
-                alt="Maskot kesal memburu stok"
-                className="w-14 h-auto opacity-90"
-                loading="lazy"
-              />
-              <p className="font-heading font-black text-amber-900 text-right">
-                Hormat kami,<br />
-                {CLINIC_INFO.doctors}
-              </p>
-            </div>
+            <p className="font-heading font-black text-amber-900 pt-2 text-right">
+              Hormat kami,<br />
+              {CLINIC_INFO.doctors}
+            </p>
           </div>
 
           {/* Social & Support Links */}
